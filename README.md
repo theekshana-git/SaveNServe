@@ -1,4 +1,4 @@
-# 🥫 SaveNServe – Smart Ingredient Management System
+# 🥫 SaveNServe – Smart Ingredient Substitution System
 
 **SaveNServe** is a desktop-based smart ingredient tracking and substitution system built using **Windows Forms (C#)** and **SQL Server (SSMS)**. It helps users manage stock levels of ingredients, provides manual substitution options, and suggests automatic alternatives based on nutritional value, texture, and compatibility.
 
