@@ -1,4 +1,6 @@
-﻿namespace SaveNServe_1_
+﻿using System;
+
+namespace SaveNServe_1_
 {
     partial class MainForm
     {
@@ -11,6 +13,7 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -30,10 +33,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.picIngredients = new System.Windows.Forms.PictureBox();
             this.btnIngredients = new System.Windows.Forms.Button();
@@ -53,6 +56,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panelMainContent = new System.Windows.Forms.Panel();
+            this.overlayPanel = new System.Windows.Forms.Panel();
             this.tableStats = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblTotalIngredients = new System.Windows.Forms.Label();
@@ -71,8 +75,8 @@
             this.lblUsers2 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picIngredients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -84,6 +88,7 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.panelMainContent.SuspendLayout();
             this.tableStats.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTotIngredients)).BeginInit();
@@ -107,6 +112,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1264, 80);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(1195, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Padding = new System.Windows.Forms.Padding(10);
+            this.pictureBox2.Size = new System.Drawing.Size(66, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
             // 
             // label2
             // 
@@ -143,18 +160,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1195, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Padding = new System.Windows.Forms.Padding(10);
-            this.pictureBox2.Size = new System.Drawing.Size(66, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
             // 
             // panel2
             // 
@@ -392,11 +397,26 @@
             // panelMainContent
             // 
             this.panelMainContent.BackColor = System.Drawing.Color.White;
+            this.panelMainContent.Controls.Add(this.overlayPanel);
             this.panelMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainContent.Location = new System.Drawing.Point(0, 0);
             this.panelMainContent.Name = "panelMainContent";
             this.panelMainContent.Size = new System.Drawing.Size(1020, 451);
             this.panelMainContent.TabIndex = 0;
+            this.panelMainContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMainContent_Paint);
+            // 
+            // overlayPanel
+            // 
+            this.overlayPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.overlayPanel.BackColor = System.Drawing.Color.Transparent;
+            this.overlayPanel.Location = new System.Drawing.Point(0, 0);
+            this.overlayPanel.Name = "overlayPanel";
+            this.overlayPanel.Size = new System.Drawing.Size(1020, 451);
+            this.overlayPanel.TabIndex = 0;
+            this.overlayPanel.Visible = false;
+            this.overlayPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.overlayPanel_Paint);
             // 
             // tableStats
             // 
@@ -612,8 +632,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picIngredients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -625,6 +645,7 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
+            this.panelMainContent.ResumeLayout(false);
             this.tableStats.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -686,5 +707,6 @@
         private System.Windows.Forms.PictureBox picChart;
         private System.Windows.Forms.PictureBox picTotIngredients;
         private System.Windows.Forms.Panel panelMainContent;
+        private System.Windows.Forms.Panel overlayPanel;
     }
 }

@@ -6,6 +6,8 @@ namespace SaveNServe_1_
 {
     public partial class MainForm : Form
     {
+        private Panel HistoryOverlayPanel;
+
         public MainForm()
         {
             InitializeComponent();
@@ -13,8 +15,12 @@ namespace SaveNServe_1_
             this.Size = new Size(1280, 720);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.Load += MainForm_Load;
 
             InitializeTopPanel();
+            InitializeHistoryOverlayPanel();
+
+
         }
 
         private void ResetButtonColors()
@@ -89,19 +95,58 @@ namespace SaveNServe_1_
 
         }
 
+        private void Dashboard_HistoryIconClicked(object sender, EventArgs e)
+        {
+            HistoryControl historyControl = new HistoryControl();
+            historyControl.Dock = DockStyle.Fill;
+
+            HistoryOverlayPanel.Controls.Clear();
+            HistoryOverlayPanel.Controls.Add(historyControl);
+            HistoryOverlayPanel.Visible = true;
+            HistoryOverlayPanel.BringToFront();
+
+            historyControl.CloseRequested += (s, args) =>
+            {
+                HistoryOverlayPanel.Controls.Clear();
+                HistoryOverlayPanel.Visible = false;
+            };
+        }
+
+        private void InitializeHistoryOverlayPanel()
+        {
+            HistoryOverlayPanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Visible = false,
+            };
+
+            this.Controls.Add(HistoryOverlayPanel);
+            HistoryOverlayPanel.BringToFront();
+        }
+
+        private void LoadDashBoard()
+        {
+            panelMainContent.Controls.Clear();
+            DashboardControl dashboard = new DashboardControl();
+            dashboard.Dock = DockStyle.Fill;
+            panelMainContent.Controls.Add(dashboard);
+
+            dashboard.HistoryIconClicked += Dashboard_HistoryIconClicked;
+
+          
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             HighlightButton(btnDashboard);
+            LoadDashBoard();
+           
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             HighlightButton(btnDashboard);
-
-            panelMainContent.Controls.Clear(); 
-            DashboardControl dashboard = new DashboardControl(); 
-            dashboard.Dock = DockStyle.Fill; 
-            panelMainContent.Controls.Add(dashboard); 
+            LoadDashBoard();
 
         }
 
@@ -165,6 +210,16 @@ namespace SaveNServe_1_
         }
 
         private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelMainContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void overlayPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

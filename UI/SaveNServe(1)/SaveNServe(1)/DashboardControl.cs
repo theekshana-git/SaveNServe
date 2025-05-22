@@ -10,13 +10,19 @@ using System.Windows.Forms;
 
 namespace SaveNServe_1_
 {
-    public partial class DashboardControl: UserControl
+    public partial class DashboardControl : UserControl
     {
+        public event EventHandler HistoryIconClicked;
         public DashboardControl()
         {
             InitializeComponent();
+            pictureBox1.Click += PictureBox1_Click;
         }
 
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            HistoryIconClicked?.Invoke(this, EventArgs.Empty);
+        }
         private void DashboardControl_Load(object sender, EventArgs e)
         {
 
@@ -26,5 +32,10 @@ namespace SaveNServe_1_
         {
 
         }
+
     }
 }
+
+
+
+
