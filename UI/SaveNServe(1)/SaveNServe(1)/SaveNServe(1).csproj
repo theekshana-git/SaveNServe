@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HelpAbout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HelpAbout.Designer.cs">
+      <DependentUpon>HelpAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="HistoryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManageUsers.Designer.cs">
+      <DependentUpon>ManageUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +102,9 @@
     <Compile Include="InventoryControl.Designer.cs">
       <DependentUpon>InventoryControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="HelpAbout.resx">
+      <DependentUpon>HelpAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HistoryControl.resx">
       <DependentUpon>HistoryControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageUsers.resx">
+      <DependentUpon>ManageUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -18,6 +18,14 @@ namespace SaveNServe_1_
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Load += MainForm_Load;
+            btnIngredients.Click += btnIngredients_Click;
+            btnSubs.Click += btnSubs_Click;
+            btnInven.Click += btnInven_Click;
+            btnManage.Click += btnManage_Click;
+            btnHelp.Click += btnHelp_Click;
+
+
+
             btnIngredients.MouseEnter += btnIngredients_MouseEnter;
             btnIngredients.MouseLeave += btnIngredients_MouseLeave;
 
@@ -210,11 +218,22 @@ namespace SaveNServe_1_
         {
             HighlightButton(btnManage);
 
+            panelMainContent.Controls.Clear();
+            ManageUsers users = new ManageUsers();
+            users.Dock = DockStyle.Fill;
+            panelMainContent.Controls.Add(users);
+
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
             HighlightButton(btnHelp);
+
+            panelMainContent.Controls.Clear();
+            HelpAbout Help = new HelpAbout();
+            Help.Dock = DockStyle.Fill;
+            panelMainContent.Controls.Add(Help);
+
         }
 
         private void label7_Click(object sender, EventArgs e)
