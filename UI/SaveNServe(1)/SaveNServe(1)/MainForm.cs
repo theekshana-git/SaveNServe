@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace SaveNServe_1_
@@ -7,6 +8,7 @@ namespace SaveNServe_1_
     public partial class MainForm : Form
     {
         private Panel HistoryOverlayPanel;
+        private bool isDashboardActive = false;
 
         public MainForm()
         {
@@ -16,6 +18,25 @@ namespace SaveNServe_1_
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Load += MainForm_Load;
+            btnIngredients.MouseEnter += btnIngredients_MouseEnter;
+            btnIngredients.MouseLeave += btnIngredients_MouseLeave;
+
+            btnSubs.MouseEnter += btnSubs_MouseEnter;
+            btnSubs.MouseLeave += btnSubs_MouseLeave;
+
+            btnInven.MouseEnter += btnInven_MouseEnter;
+            btnInven.MouseLeave += btnInven_MouseLeave;
+
+            btnManage.MouseEnter += btnManage_MouseEnter;
+            btnManage.MouseLeave += btnManage_MouseLeave;
+
+            btnHelp.MouseEnter += btnHelp_MouseEnter;
+            btnHelp.MouseLeave += btnHelp_MouseLeave;
+
+            btnLogout.MouseEnter += btnLogout_MouseEnter;
+            btnLogout.MouseLeave += btnLogout_MouseLeave;
+
+
 
             InitializeTopPanel();
             InitializeHistoryOverlayPanel();
@@ -75,7 +96,7 @@ namespace SaveNServe_1_
         {
         }
 
-        private void BtnLogout_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -130,6 +151,7 @@ namespace SaveNServe_1_
             DashboardControl dashboard = new DashboardControl();
             dashboard.Dock = DockStyle.Fill;
             panelMainContent.Controls.Add(dashboard);
+            isDashboardActive = true;
 
             dashboard.HistoryIconClicked += Dashboard_HistoryIconClicked;
 
@@ -145,6 +167,7 @@ namespace SaveNServe_1_
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+            isDashboardActive = true;
             HighlightButton(btnDashboard);
             LoadDashBoard();
 
@@ -220,6 +243,81 @@ namespace SaveNServe_1_
         }
 
         private void overlayPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnDashboard_MouseEnter(object sender, EventArgs e)
+        {
+            picDashboard.BackColor = (btnDashboard.BackColor == Color.Teal) ? Color.FromArgb(0, 153, 153) : Color.FromArgb(152, 152, 152);
+        }
+
+        private void btnDasboard_MouseLeave(object sender, EventArgs e)
+        {
+            picDashboard.BackColor = (btnDashboard.BackColor == Color.Teal) ? Color.Teal : Color.DarkGray;
+        }
+
+        private void btnIngredients_MouseEnter(object sender, EventArgs e)
+        {
+            picIngredients.BackColor = (btnIngredients.BackColor == Color.Teal) ? Color.FromArgb(0, 153, 153) : Color.FromArgb(152, 152, 152);
+        }
+
+        private void btnIngredients_MouseLeave(object sender, EventArgs e)
+        {
+            picIngredients.BackColor = (btnIngredients.BackColor == Color.Teal) ? Color.Teal : Color.DarkGray;
+        }
+
+        private void btnSubs_MouseEnter(object sender, EventArgs e)
+        {
+            picSubs.BackColor = (btnSubs.BackColor == Color.Teal) ? Color.FromArgb(0, 153, 153) : Color.FromArgb(152, 152, 152);
+        }
+
+        private void btnSubs_MouseLeave(object sender, EventArgs e)
+        {
+            picSubs.BackColor = (btnSubs.BackColor == Color.Teal) ? Color.Teal : Color.DarkGray;
+        }
+
+        private void btnInven_MouseEnter(object sender, EventArgs e)
+        {
+            picInven.BackColor = (btnInven.BackColor == Color.Teal) ? Color.FromArgb(0, 153, 153) : Color.FromArgb(152, 152, 152);
+        }
+
+        private void btnInven_MouseLeave(object sender, EventArgs e)
+        {
+            picInven.BackColor = (btnInven.BackColor == Color.Teal) ? Color.Teal : Color.DarkGray;
+        }
+
+        private void btnManage_MouseEnter(object sender, EventArgs e)
+        {
+            picManage.BackColor = (btnManage.BackColor == Color.Teal) ? Color.FromArgb(0, 153, 153) : Color.FromArgb(152, 152, 152);
+        }
+
+        private void btnManage_MouseLeave(object sender, EventArgs e)
+        {
+            picManage.BackColor = (btnManage.BackColor == Color.Teal) ? Color.Teal : Color.DarkGray;
+        }
+
+        private void btnHelp_MouseEnter(object sender, EventArgs e)
+        {
+            picHelp.BackColor = (btnHelp.BackColor == Color.Teal) ? Color.FromArgb(0, 153, 153) : Color.FromArgb(152, 152, 152);
+        }
+
+        private void btnHelp_MouseLeave(object sender, EventArgs e)
+        {
+            picHelp.BackColor = (btnHelp.BackColor == Color.Teal) ? Color.Teal : Color.DarkGray;
+        }
+
+        private void btnLogout_MouseEnter(object sender, EventArgs e)
+        {
+            picLogout.BackColor = Color.FromArgb(229, 68, 53);
+        }
+
+        private void btnLogout_MouseLeave(object sender, EventArgs e)
+        {
+            picLogout.BackColor = Color.FromArgb(255, 76, 60);
+        }
+
+        private void picLogout_Click(object sender, EventArgs e)
         {
 
         }
