@@ -18,6 +18,8 @@ namespace SaveNServe_1_
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Load += MainForm_Load;
+
+            btnDashboard.Click += btnDashboard_Click;
             btnIngredients.Click += btnIngredients_Click;
             btnSubs.Click += btnSubs_Click;
             btnInven.Click += btnInven_Click;
@@ -25,24 +27,8 @@ namespace SaveNServe_1_
             btnHelp.Click += btnHelp_Click;
 
 
+            
 
-            btnIngredients.MouseEnter += btnIngredients_MouseEnter;
-            btnIngredients.MouseLeave += btnIngredients_MouseLeave;
-
-            btnSubs.MouseEnter += btnSubs_MouseEnter;
-            btnSubs.MouseLeave += btnSubs_MouseLeave;
-
-            btnInven.MouseEnter += btnInven_MouseEnter;
-            btnInven.MouseLeave += btnInven_MouseLeave;
-
-            btnManage.MouseEnter += btnManage_MouseEnter;
-            btnManage.MouseLeave += btnManage_MouseLeave;
-
-            btnHelp.MouseEnter += btnHelp_MouseEnter;
-            btnHelp.MouseLeave += btnHelp_MouseLeave;
-
-            btnLogout.MouseEnter += btnLogout_MouseEnter;
-            btnLogout.MouseLeave += btnLogout_MouseLeave;
 
 
 
@@ -52,31 +38,32 @@ namespace SaveNServe_1_
 
         }
 
+        
+
         private void ResetButtonColors()
         {
             btnDashboard.BackColor = Color.DarkGray;
             btnDashboard.ForeColor = Color.White;
-            picDashboard.BackColor = Color.DarkGray;
+            
 
             btnIngredients.BackColor = Color.DarkGray;
             btnIngredients.ForeColor = Color.White;
-            picIngredients.BackColor = Color.DarkGray;
+            
 
             btnSubs.BackColor = Color.DarkGray;
             btnSubs.ForeColor = Color.White;
-            picSubs.BackColor = Color.DarkGray;
+            
 
             btnInven.BackColor = Color.DarkGray;
             btnInven.ForeColor = Color.White;
-            picInven.BackColor = Color.DarkGray;
+            
 
             btnManage.BackColor = Color.DarkGray;
             btnManage.ForeColor = Color.White;
-            picManage.BackColor = Color.DarkGray;
-
+            
             btnHelp.BackColor = Color.DarkGray;
             btnHelp.ForeColor = Color.White;
-            picHelp.BackColor = Color.DarkGray;
+           
         }
 
         private void HighlightButton(Button activeButton)
@@ -86,18 +73,6 @@ namespace SaveNServe_1_
             activeButton.BackColor = Color.Teal;
             activeButton.ForeColor = Color.White;
 
-            if (activeButton == btnDashboard)
-                picDashboard.BackColor = Color.Teal;
-            else if (activeButton == btnIngredients)
-                picIngredients.BackColor = Color.Teal;
-            else if (activeButton == btnSubs)
-                picSubs.BackColor = Color.Teal;
-            else if (activeButton == btnInven)
-                picInven.BackColor = Color.Teal;
-            else if (activeButton == btnManage)
-                picManage.BackColor = Color.Teal;
-            else if (activeButton == btnHelp)
-                picHelp.BackColor = Color.Teal;
         }
 
         private void InitializeTopPanel()
@@ -159,11 +134,11 @@ namespace SaveNServe_1_
             DashboardControl dashboard = new DashboardControl();
             dashboard.Dock = DockStyle.Fill;
             panelMainContent.Controls.Add(dashboard);
-            isDashboardActive = true;
+
 
             dashboard.HistoryIconClicked += Dashboard_HistoryIconClicked;
 
-          
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -174,10 +149,16 @@ namespace SaveNServe_1_
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            isDashboardActive = true;
+        { 
             HighlightButton(btnDashboard);
-            LoadDashBoard();
+
+            panelMainContent.Controls.Clear();
+            DashboardControl dashboard = new DashboardControl();
+            dashboard.Dock = DockStyle.Fill;
+            panelMainContent.Controls.Add(dashboard);
+
+
+            dashboard.HistoryIconClicked += Dashboard_HistoryIconClicked;
 
         }
 
@@ -266,79 +247,6 @@ namespace SaveNServe_1_
 
         }
 
-        private void btnDashboard_MouseEnter(object sender, EventArgs e)
-        {
-            picDashboard.BackColor = (btnDashboard.BackColor == Color.Teal) ? Color.FromArgb(0, 153, 153) : Color.FromArgb(152, 152, 152);
-        }
-
-        private void btnDasboard_MouseLeave(object sender, EventArgs e)
-        {
-            picDashboard.BackColor = (btnDashboard.BackColor == Color.Teal) ? Color.Teal : Color.DarkGray;
-        }
-
-        private void btnIngredients_MouseEnter(object sender, EventArgs e)
-        {
-            picIngredients.BackColor = (btnIngredients.BackColor == Color.Teal) ? Color.FromArgb(0, 153, 153) : Color.FromArgb(152, 152, 152);
-        }
-
-        private void btnIngredients_MouseLeave(object sender, EventArgs e)
-        {
-            picIngredients.BackColor = (btnIngredients.BackColor == Color.Teal) ? Color.Teal : Color.DarkGray;
-        }
-
-        private void btnSubs_MouseEnter(object sender, EventArgs e)
-        {
-            picSubs.BackColor = (btnSubs.BackColor == Color.Teal) ? Color.FromArgb(0, 153, 153) : Color.FromArgb(152, 152, 152);
-        }
-
-        private void btnSubs_MouseLeave(object sender, EventArgs e)
-        {
-            picSubs.BackColor = (btnSubs.BackColor == Color.Teal) ? Color.Teal : Color.DarkGray;
-        }
-
-        private void btnInven_MouseEnter(object sender, EventArgs e)
-        {
-            picInven.BackColor = (btnInven.BackColor == Color.Teal) ? Color.FromArgb(0, 153, 153) : Color.FromArgb(152, 152, 152);
-        }
-
-        private void btnInven_MouseLeave(object sender, EventArgs e)
-        {
-            picInven.BackColor = (btnInven.BackColor == Color.Teal) ? Color.Teal : Color.DarkGray;
-        }
-
-        private void btnManage_MouseEnter(object sender, EventArgs e)
-        {
-            picManage.BackColor = (btnManage.BackColor == Color.Teal) ? Color.FromArgb(0, 153, 153) : Color.FromArgb(152, 152, 152);
-        }
-
-        private void btnManage_MouseLeave(object sender, EventArgs e)
-        {
-            picManage.BackColor = (btnManage.BackColor == Color.Teal) ? Color.Teal : Color.DarkGray;
-        }
-
-        private void btnHelp_MouseEnter(object sender, EventArgs e)
-        {
-            picHelp.BackColor = (btnHelp.BackColor == Color.Teal) ? Color.FromArgb(0, 153, 153) : Color.FromArgb(152, 152, 152);
-        }
-
-        private void btnHelp_MouseLeave(object sender, EventArgs e)
-        {
-            picHelp.BackColor = (btnHelp.BackColor == Color.Teal) ? Color.Teal : Color.DarkGray;
-        }
-
-        private void btnLogout_MouseEnter(object sender, EventArgs e)
-        {
-            picLogout.BackColor = Color.FromArgb(229, 68, 53);
-        }
-
-        private void btnLogout_MouseLeave(object sender, EventArgs e)
-        {
-            picLogout.BackColor = Color.FromArgb(255, 76, 60);
-        }
-
-        private void picLogout_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

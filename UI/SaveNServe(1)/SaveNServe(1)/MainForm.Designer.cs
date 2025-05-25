@@ -38,14 +38,7 @@ namespace SaveNServe_1_
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.picIngredients = new System.Windows.Forms.PictureBox();
             this.btnIngredients = new System.Windows.Forms.Button();
-            this.picLogout = new System.Windows.Forms.PictureBox();
-            this.picDashboard = new System.Windows.Forms.PictureBox();
-            this.picInven = new System.Windows.Forms.PictureBox();
-            this.picManage = new System.Windows.Forms.PictureBox();
-            this.picSubs = new System.Windows.Forms.PictureBox();
-            this.picHelp = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnManage = new System.Windows.Forms.Button();
@@ -61,13 +54,6 @@ namespace SaveNServe_1_
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIngredients)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDashboard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picInven)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picManage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSubs)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelp)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -138,14 +124,7 @@ namespace SaveNServe_1_
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.panel2.Controls.Add(this.picIngredients);
             this.panel2.Controls.Add(this.btnIngredients);
-            this.panel2.Controls.Add(this.picLogout);
-            this.panel2.Controls.Add(this.picDashboard);
-            this.panel2.Controls.Add(this.picInven);
-            this.panel2.Controls.Add(this.picManage);
-            this.panel2.Controls.Add(this.picSubs);
-            this.panel2.Controls.Add(this.picHelp);
             this.panel2.Controls.Add(this.btnLogout);
             this.panel2.Controls.Add(this.btnHelp);
             this.panel2.Controls.Add(this.btnManage);
@@ -159,17 +138,6 @@ namespace SaveNServe_1_
             this.panel2.Size = new System.Drawing.Size(244, 601);
             this.panel2.TabIndex = 1;
             // 
-            // picIngredients
-            // 
-            this.picIngredients.BackColor = System.Drawing.Color.DarkGray;
-            this.picIngredients.Image = ((System.Drawing.Image)(resources.GetObject("picIngredients.Image")));
-            this.picIngredients.Location = new System.Drawing.Point(12, 56);
-            this.picIngredients.Name = "picIngredients";
-            this.picIngredients.Size = new System.Drawing.Size(22, 38);
-            this.picIngredients.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIngredients.TabIndex = 15;
-            this.picIngredients.TabStop = false;
-            // 
             // btnIngredients
             // 
             this.btnIngredients.BackColor = System.Drawing.Color.DarkGray;
@@ -180,77 +148,9 @@ namespace SaveNServe_1_
             this.btnIngredients.Name = "btnIngredients";
             this.btnIngredients.Size = new System.Drawing.Size(244, 50);
             this.btnIngredients.TabIndex = 2;
-            this.btnIngredients.Text = "        Add Ingredients";
+            this.btnIngredients.Text = "  Add Ingredients";
             this.btnIngredients.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIngredients.UseVisualStyleBackColor = false;
-            this.btnIngredients.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // picLogout
-            // 
-            this.picLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.picLogout.Image = ((System.Drawing.Image)(resources.GetObject("picLogout.Image")));
-            this.picLogout.Location = new System.Drawing.Point(12, 560);
-            this.picLogout.Name = "picLogout";
-            this.picLogout.Size = new System.Drawing.Size(22, 38);
-            this.picLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogout.TabIndex = 14;
-            this.picLogout.TabStop = false;
-            this.picLogout.Click += new System.EventHandler(this.picLogout_Click);
-            // 
-            // picDashboard
-            // 
-            this.picDashboard.BackColor = System.Drawing.Color.DarkGray;
-            this.picDashboard.Image = ((System.Drawing.Image)(resources.GetObject("picDashboard.Image")));
-            this.picDashboard.Location = new System.Drawing.Point(12, 6);
-            this.picDashboard.Name = "picDashboard";
-            this.picDashboard.Size = new System.Drawing.Size(22, 38);
-            this.picDashboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picDashboard.TabIndex = 13;
-            this.picDashboard.TabStop = false;
-            // 
-            // picInven
-            // 
-            this.picInven.BackColor = System.Drawing.Color.DarkGray;
-            this.picInven.Image = ((System.Drawing.Image)(resources.GetObject("picInven.Image")));
-            this.picInven.Location = new System.Drawing.Point(12, 156);
-            this.picInven.Name = "picInven";
-            this.picInven.Size = new System.Drawing.Size(22, 38);
-            this.picInven.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picInven.TabIndex = 12;
-            this.picInven.TabStop = false;
-            // 
-            // picManage
-            // 
-            this.picManage.BackColor = System.Drawing.Color.DarkGray;
-            this.picManage.Image = ((System.Drawing.Image)(resources.GetObject("picManage.Image")));
-            this.picManage.Location = new System.Drawing.Point(12, 206);
-            this.picManage.Name = "picManage";
-            this.picManage.Size = new System.Drawing.Size(22, 38);
-            this.picManage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picManage.TabIndex = 10;
-            this.picManage.TabStop = false;
-            // 
-            // picSubs
-            // 
-            this.picSubs.BackColor = System.Drawing.Color.DarkGray;
-            this.picSubs.Image = ((System.Drawing.Image)(resources.GetObject("picSubs.Image")));
-            this.picSubs.Location = new System.Drawing.Point(12, 106);
-            this.picSubs.Name = "picSubs";
-            this.picSubs.Size = new System.Drawing.Size(22, 38);
-            this.picSubs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picSubs.TabIndex = 9;
-            this.picSubs.TabStop = false;
-            // 
-            // picHelp
-            // 
-            this.picHelp.BackColor = System.Drawing.Color.DarkGray;
-            this.picHelp.Image = ((System.Drawing.Image)(resources.GetObject("picHelp.Image")));
-            this.picHelp.Location = new System.Drawing.Point(12, 256);
-            this.picHelp.Name = "picHelp";
-            this.picHelp.Size = new System.Drawing.Size(22, 38);
-            this.picHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHelp.TabIndex = 7;
-            this.picHelp.TabStop = false;
             // 
             // btnLogout
             // 
@@ -262,7 +162,7 @@ namespace SaveNServe_1_
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(244, 50);
             this.btnLogout.TabIndex = 6;
-            this.btnLogout.Text = "        Logout";
+            this.btnLogout.Text = "  Logout";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -277,7 +177,7 @@ namespace SaveNServe_1_
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(244, 50);
             this.btnHelp.TabIndex = 5;
-            this.btnHelp.Text = "        Help / About";
+            this.btnHelp.Text = "  Help / About";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHelp.UseVisualStyleBackColor = false;
             // 
@@ -291,7 +191,7 @@ namespace SaveNServe_1_
             this.btnManage.Name = "btnManage";
             this.btnManage.Size = new System.Drawing.Size(244, 50);
             this.btnManage.TabIndex = 4;
-            this.btnManage.Text = "        Manage Users";
+            this.btnManage.Text = "  Manage Users";
             this.btnManage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManage.UseVisualStyleBackColor = false;
             // 
@@ -305,7 +205,7 @@ namespace SaveNServe_1_
             this.btnInven.Name = "btnInven";
             this.btnInven.Size = new System.Drawing.Size(244, 50);
             this.btnInven.TabIndex = 3;
-            this.btnInven.Text = "        Inventory";
+            this.btnInven.Text = "  Inventory";
             this.btnInven.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInven.UseVisualStyleBackColor = false;
             // 
@@ -319,7 +219,7 @@ namespace SaveNServe_1_
             this.btnSubs.Name = "btnSubs";
             this.btnSubs.Size = new System.Drawing.Size(244, 50);
             this.btnSubs.TabIndex = 1;
-            this.btnSubs.Text = "        Find Substitutions";
+            this.btnSubs.Text = "  Find Substitutions";
             this.btnSubs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubs.UseVisualStyleBackColor = false;
             // 
@@ -328,17 +228,15 @@ namespace SaveNServe_1_
             this.btnDashboard.BackColor = System.Drawing.Color.DarkGray;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.Color.White;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.Location = new System.Drawing.Point(0, 0);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(244, 50);
             this.btnDashboard.TabIndex = 0;
-            this.btnDashboard.Text = "        Dashboard (Home)";
+            this.btnDashboard.Text = "  Dashboard (Home)";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-            this.btnDashboard.MouseEnter += new System.EventHandler(this.btnDashboard_MouseEnter);
-            this.btnDashboard.MouseLeave += new System.EventHandler(this.btnDasboard_MouseLeave);
             // 
             // panel3
             // 
@@ -413,13 +311,6 @@ namespace SaveNServe_1_
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picIngredients)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDashboard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picInven)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picManage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSubs)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelp)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
@@ -445,13 +336,6 @@ namespace SaveNServe_1_
         private System.Windows.Forms.Button btnIngredients;
         private System.Windows.Forms.Button btnSubs;
         private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.PictureBox picHelp;
-        private System.Windows.Forms.PictureBox picLogout;
-        private System.Windows.Forms.PictureBox picDashboard;
-        private System.Windows.Forms.PictureBox picInven;
-        private System.Windows.Forms.PictureBox picManage;
-        private System.Windows.Forms.PictureBox picSubs;
-        private System.Windows.Forms.PictureBox picIngredients;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.PictureBox picChart;
         private System.Windows.Forms.Panel panelMainContent;
