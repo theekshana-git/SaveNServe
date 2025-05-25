@@ -50,6 +50,7 @@ namespace SaveNServe_1_
             this.panel9 = new System.Windows.Forms.Panel();
             this.panelMainContent = new System.Windows.Forms.Panel();
             this.overlayPanel = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -58,13 +59,13 @@ namespace SaveNServe_1_
             this.panel4.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panelMainContent.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(245)))), ((int)(((byte)(243)))));
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -77,7 +78,7 @@ namespace SaveNServe_1_
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1195, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(10, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Padding = new System.Windows.Forms.Padding(10);
             this.pictureBox2.Size = new System.Drawing.Size(66, 50);
@@ -90,7 +91,7 @@ namespace SaveNServe_1_
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.label2.Location = new System.Drawing.Point(1198, 58);
+            this.label2.Location = new System.Drawing.Point(14, 47);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 10, 10);
             this.label2.Size = new System.Drawing.Size(63, 30);
@@ -140,6 +141,8 @@ namespace SaveNServe_1_
             // 
             // btnIngredients
             // 
+            this.btnIngredients.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnIngredients.BackColor = System.Drawing.Color.DarkGray;
             this.btnIngredients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngredients.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -154,6 +157,7 @@ namespace SaveNServe_1_
             // 
             // btnLogout
             // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -169,6 +173,8 @@ namespace SaveNServe_1_
             // 
             // btnHelp
             // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnHelp.BackColor = System.Drawing.Color.DarkGray;
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -183,6 +189,8 @@ namespace SaveNServe_1_
             // 
             // btnManage
             // 
+            this.btnManage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnManage.BackColor = System.Drawing.Color.DarkGray;
             this.btnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -194,9 +202,12 @@ namespace SaveNServe_1_
             this.btnManage.Text = "  Manage Users";
             this.btnManage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManage.UseVisualStyleBackColor = false;
+            this.btnManage.Click += new System.EventHandler(this.btnManage_Click_1);
             // 
             // btnInven
             // 
+            this.btnInven.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnInven.BackColor = System.Drawing.Color.DarkGray;
             this.btnInven.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInven.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -211,6 +222,8 @@ namespace SaveNServe_1_
             // 
             // btnSubs
             // 
+            this.btnSubs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSubs.BackColor = System.Drawing.Color.DarkGray;
             this.btnSubs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubs.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,6 +238,8 @@ namespace SaveNServe_1_
             // 
             // btnDashboard
             // 
+            this.btnDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDashboard.BackColor = System.Drawing.Color.DarkGray;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -282,16 +297,24 @@ namespace SaveNServe_1_
             // 
             // overlayPanel
             // 
-            this.overlayPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.overlayPanel.BackColor = System.Drawing.Color.Transparent;
+            this.overlayPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.overlayPanel.Location = new System.Drawing.Point(0, 0);
             this.overlayPanel.Name = "overlayPanel";
             this.overlayPanel.Size = new System.Drawing.Size(1020, 601);
             this.overlayPanel.TabIndex = 0;
             this.overlayPanel.Visible = false;
             this.overlayPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.overlayPanel_Paint);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.pictureBox2);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel5.Location = new System.Drawing.Point(1175, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(89, 80);
+            this.panel5.TabIndex = 7;
             // 
             // MainForm
             // 
@@ -315,6 +338,8 @@ namespace SaveNServe_1_
             this.panel4.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panelMainContent.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -340,5 +365,6 @@ namespace SaveNServe_1_
         private System.Windows.Forms.PictureBox picChart;
         private System.Windows.Forms.Panel panelMainContent;
         private System.Windows.Forms.Panel overlayPanel;
+        private System.Windows.Forms.Panel panel5;
     }
 }

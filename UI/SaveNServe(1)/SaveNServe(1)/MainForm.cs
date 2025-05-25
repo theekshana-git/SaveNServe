@@ -18,6 +18,8 @@ namespace SaveNServe_1_
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Load += MainForm_Load;
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             btnDashboard.Click += btnDashboard_Click;
             btnIngredients.Click += btnIngredients_Click;
@@ -247,6 +249,9 @@ namespace SaveNServe_1_
 
         }
 
-        
+        private void btnManage_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

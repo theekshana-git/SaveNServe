@@ -83,6 +83,9 @@
             // 
             // panelRecentActivity
             // 
+            this.panelRecentActivity.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelRecentActivity.AutoScroll = true;
             this.panelRecentActivity.BackColor = System.Drawing.Color.White;
             this.panelRecentActivity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -100,7 +103,7 @@
             this.panelRecentActivity.Location = new System.Drawing.Point(18, 162);
             this.panelRecentActivity.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.panelRecentActivity.Name = "panelRecentActivity";
-            this.panelRecentActivity.Size = new System.Drawing.Size(980, 406);
+            this.panelRecentActivity.Size = new System.Drawing.Size(980, 424);
             this.panelRecentActivity.TabIndex = 1;
             this.panelRecentActivity.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRecentActivity_Paint);
             // 
@@ -238,10 +241,11 @@
             this.panel5.Controls.Add(this.lblTotalIngredients);
             this.panel5.Controls.Add(this.lblTotalIngredientsCount);
             this.panel5.Controls.Add(this.picTotIngredients);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(18, 18);
             this.panel5.Margin = new System.Windows.Forms.Padding(10);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(230, 114);
+            this.panel5.Size = new System.Drawing.Size(232, 114);
             this.panel5.TabIndex = 0;
             // 
             // lblTotalIngredients
@@ -282,10 +286,11 @@
             this.panel6.Controls.Add(this.lblPendingSubs);
             this.panel6.Controls.Add(this.lblSubs2);
             this.panel6.Controls.Add(this.pictureBox3);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(270, 18);
             this.panel6.Margin = new System.Windows.Forms.Padding(10);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(230, 114);
+            this.panel6.Size = new System.Drawing.Size(232, 114);
             this.panel6.TabIndex = 1;
             // 
             // lblPendingSubs
@@ -326,10 +331,11 @@
             this.panel7.Controls.Add(this.lblLowStock);
             this.panel7.Controls.Add(this.lblLowStock2);
             this.panel7.Controls.Add(this.pictureBox4);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(522, 18);
             this.panel7.Margin = new System.Windows.Forms.Padding(10);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(230, 114);
+            this.panel7.Size = new System.Drawing.Size(232, 114);
             this.panel7.TabIndex = 2;
             // 
             // lblLowStock
@@ -370,10 +376,11 @@
             this.panel8.Controls.Add(this.lblTotalUsers);
             this.panel8.Controls.Add(this.lblUsers2);
             this.panel8.Controls.Add(this.pictureBox5);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(774, 18);
             this.panel8.Margin = new System.Windows.Forms.Padding(10);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(224, 114);
+            this.panel8.Size = new System.Drawing.Size(234, 114);
             this.panel8.TabIndex = 3;
             // 
             // lblTotalUsers
