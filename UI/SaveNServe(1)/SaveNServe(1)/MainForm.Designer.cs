@@ -77,7 +77,7 @@ namespace SaveNServe_1_
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1195, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(1193, 8);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Padding = new System.Windows.Forms.Padding(10);
             this.pictureBox2.Size = new System.Drawing.Size(66, 50);
@@ -90,7 +90,7 @@ namespace SaveNServe_1_
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.label2.Location = new System.Drawing.Point(1198, 58);
+            this.label2.Location = new System.Drawing.Point(1199, 54);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 10, 10);
             this.label2.Size = new System.Drawing.Size(63, 30);
