@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddIngredientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddIngredientControl.Designer.cs">
+      <DependentUpon>AddIngredientControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditIngredientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditIngredientForm.Designer.cs">
+      <DependentUpon>EditIngredientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HelpAbout.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -84,12 +96,6 @@
     <Compile Include="DashboardControl.Designer.cs">
       <DependentUpon>DashboardControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="IngredientsControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="IngredientsControl.Designer.cs">
-      <DependentUpon>IngredientsControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="SubstitutionsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -102,6 +108,12 @@
     <Compile Include="InventoryControl.Designer.cs">
       <DependentUpon>InventoryControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddIngredientControl.resx">
+      <DependentUpon>AddIngredientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditIngredientForm.resx">
+      <DependentUpon>EditIngredientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HelpAbout.resx">
       <DependentUpon>HelpAbout.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,9 +141,6 @@
     </Compile>
     <EmbeddedResource Include="DashboardControl.resx">
       <DependentUpon>DashboardControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IngredientsControl.resx">
-      <DependentUpon>IngredientsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubstitutionsControl.resx">
       <DependentUpon>SubstitutionsControl.cs</DependentUpon>

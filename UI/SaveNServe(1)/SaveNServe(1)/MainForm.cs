@@ -169,7 +169,7 @@ namespace SaveNServe_1_
             HighlightButton(btnIngredients);
 
             panelMainContent.Controls.Clear();
-            IngredientsControl ingredients = new IngredientsControl();
+            AddIngredientControl ingredients = new AddIngredientControl();
             ingredients.Dock = DockStyle.Fill;
             panelMainContent.Controls.Add(ingredients);
 
