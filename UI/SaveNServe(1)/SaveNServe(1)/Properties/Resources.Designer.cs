@@ -69,5 +69,56 @@ namespace SaveNServe_1_.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifying_glass_icon_3d_design_for_application_and_website_presentation_png_Photoroom {
+            get {
+                object obj = ResourceManager.GetObject("magnifying-glass-icon-3d-design-for-application-and-website-presentation-png-Phot" +
+                        "oroom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pi7_search_icon_2_614x460 {
+            get {
+                object obj = ResourceManager.GetObject("Pi7_search-icon-2-614x460", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_vector_find_icon_png_image_854997_Photoroom {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-vector-find-icon-png-image_854997-Photoroom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_icon_2_614x460 {
+            get {
+                object obj = ResourceManager.GetObject("search-icon-2-614x460", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_search_icon_transparent_background_1 {
+            get {
+                object obj = ResourceManager.GetObject("white-search-icon-transparent-background-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
