@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddIngredientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddIngredientControl.Designer.cs">
+      <DependentUpon>AddIngredientControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="DashboardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -53,6 +59,12 @@
       <DependentUpon>DashboardControl.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="EditIngredientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditIngredientForm.Designer.cs">
+      <DependentUpon>EditIngredientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,12 +82,6 @@
     </Compile>
     <Compile Include="HistoryControl.Designer.cs">
       <DependentUpon>HistoryControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IngredientsControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="IngredientsControl.Designer.cs">
-      <DependentUpon>IngredientsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="InventoryControl.cs">
       <SubType>UserControl</SubType>
@@ -109,8 +115,14 @@
     <Compile Include="SubstitutionsControl.Designer.cs">
       <DependentUpon>SubstitutionsControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddIngredientControl.resx">
+      <DependentUpon>AddIngredientControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DashboardControl.resx">
       <DependentUpon>DashboardControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditIngredientForm.resx">
+      <DependentUpon>EditIngredientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditUserForm.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>
@@ -120,9 +132,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HistoryControl.resx">
       <DependentUpon>HistoryControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IngredientsControl.resx">
-      <DependentUpon>IngredientsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryControl.resx">
       <DependentUpon>InventoryControl.cs</DependentUpon>
@@ -178,6 +187,7 @@
     <Content Include="Resources\search icon.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Untitled design1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

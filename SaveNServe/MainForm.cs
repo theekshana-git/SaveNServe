@@ -85,19 +85,11 @@ namespace SaveNServe
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e) { }
-        private void button2_Click(object sender, EventArgs e) { }
-        private void panel5_Paint(object sender, PaintEventArgs e) { }
+       
+        
         private void panel4_Paint(object sender, PaintEventArgs e) { }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Dashboard_HistoryIconClicked(object sender, EventArgs e)
         {
@@ -167,7 +159,7 @@ namespace SaveNServe
             HighlightButton(btnIngredients);
 
             panelMainContent.Controls.Clear();
-            IngredientsControl ingredients = new IngredientsControl();
+            AddIngredientControl ingredients = new AddIngredientControl();
             ingredients.Dock = DockStyle.Fill;
             panelMainContent.Controls.Add(ingredients);
 
@@ -217,25 +209,12 @@ namespace SaveNServe
 
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
+    
+        
 
-        }
+        
 
-        private void lblPendingSubs_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainerbottom_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void panelMainContent_Paint(object sender, PaintEventArgs e)
         {
@@ -252,10 +231,7 @@ namespace SaveNServe
 
         }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         private void pictureBoxUserIcon_Click(object sender, EventArgs e)
         {
