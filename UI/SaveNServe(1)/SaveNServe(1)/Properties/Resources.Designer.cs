@@ -61,21 +61,31 @@ namespace SaveNServe_1_.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] Expand_Arrow {
+        internal static System.Drawing.Bitmap history_icon {
             get {
-                object obj = ResourceManager.GetObject("Expand-Arrow", resourceCulture);
-                return ((byte[])(obj));
+                object obj = ResourceManager.GetObject("history-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap history_icon {
+        internal static System.Drawing.Bitmap search {
             get {
-                object obj = ResourceManager.GetObject("history-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_icon {
+            get {
+                object obj = ResourceManager.GetObject("search-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

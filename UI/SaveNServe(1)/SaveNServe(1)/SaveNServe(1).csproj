@@ -58,6 +58,10 @@
     <Compile Include="EditIngredientForm.Designer.cs">
       <DependentUpon>EditIngredientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUserForm.Designer.cs" />
     <Compile Include="HelpAbout.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -69,6 +73,12 @@
     </Compile>
     <Compile Include="HistoryControl.Designer.cs">
       <DependentUpon>HistoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InventoryControl.Designer.cs">
+      <DependentUpon>InventoryControl.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -102,23 +112,21 @@
     <Compile Include="SubstitutionsControl.Designer.cs">
       <DependentUpon>SubstitutionsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="InventoryControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="InventoryControl.Designer.cs">
-      <DependentUpon>InventoryControl.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AddIngredientControl.resx">
       <DependentUpon>AddIngredientControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditIngredientForm.resx">
       <DependentUpon>EditIngredientForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditUserForm.resx" />
     <EmbeddedResource Include="HelpAbout.resx">
       <DependentUpon>HelpAbout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HistoryControl.resx">
       <DependentUpon>HistoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryControl.resx">
+      <DependentUpon>InventoryControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -145,9 +153,6 @@
     <EmbeddedResource Include="SubstitutionsControl.resx">
       <DependentUpon>SubstitutionsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InventoryControl.resx">
-      <DependentUpon>InventoryControl.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,9 +168,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\history-icon.png" />
+    <Content Include="Resources\icons8-search-20.png" />
+    <Content Include="Resources\icons8-search-30.png" />
     <Content Include="Resources\logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\search icon.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
