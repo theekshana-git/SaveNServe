@@ -22,23 +22,20 @@ namespace SaveNServe
             btnAddUser.Click += btnAddUser_Click;
             dgvUsers.CellPainting += dgvUsers_CellPainting;
             dgvUsers.CellFormatting += dgvUsers_CellFormatting;
-            dgvUsers.Columns["colEdit"].Width = 50;
-            dgvUsers.Columns["colActions"].Width = 50;
+            
             dgvUsers.CellContentClick += dgvUsers_CellContentClick;
 
+            
+            dgvUsers.Columns["colEdit"].Width = 60;
+            dgvUsers.Columns["colActions"].Width = 60;
+
+
         }
+
+
 
         
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void SearchBox_Enter(object sender, EventArgs e)
         {
@@ -176,10 +173,7 @@ namespace SaveNServe
         }
 
 
-        private void btnAddUser_Click_1(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -227,6 +221,14 @@ namespace SaveNServe
                     // Optional: change cell colors based on status again
                 }
             }
+        }
+
+        private void Clearbtn_Click(object sender, EventArgs e)
+        {
+            txtUsername.Clear();
+            txtEmail.Clear();
+            cmbRole.SelectedIndex = -1;
+            cmbStatus.SelectedIndex = -1;
         }
     }
 }

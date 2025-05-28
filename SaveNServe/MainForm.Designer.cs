@@ -33,6 +33,7 @@ namespace SaveNServe
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelUserMenu = new System.Windows.Forms.Panel();
             this.pictureBoxUserIcon = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@ namespace SaveNServe
             this.panel9 = new System.Windows.Forms.Panel();
             this.panelMainContent = new System.Windows.Forms.Panel();
             this.overlayPanel = new System.Windows.Forms.Panel();
-            this.panelUserMenu = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,6 +75,16 @@ namespace SaveNServe
             this.panel1.Size = new System.Drawing.Size(1264, 80);
             this.panel1.TabIndex = 0;
             // 
+            // panelUserMenu
+            // 
+            this.panelUserMenu.BackColor = System.Drawing.Color.LightGray;
+            this.panelUserMenu.Location = new System.Drawing.Point(1114, 81);
+            this.panelUserMenu.Name = "panelUserMenu";
+            this.panelUserMenu.Size = new System.Drawing.Size(150, 71);
+            this.panelUserMenu.TabIndex = 0;
+            this.panelUserMenu.Visible = false;
+            
+            // 
             // pictureBoxUserIcon
             // 
             this.pictureBoxUserIcon.BackColor = System.Drawing.Color.Transparent;
@@ -87,7 +97,6 @@ namespace SaveNServe
             this.pictureBoxUserIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxUserIcon.TabIndex = 5;
             this.pictureBoxUserIcon.TabStop = false;
-            this.pictureBoxUserIcon.Click += new System.EventHandler(this.pictureBoxUserIcon_Click);
             // 
             // label2
             // 
@@ -251,7 +260,7 @@ namespace SaveNServe
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1020, 601);
             this.panel3.TabIndex = 2;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            
             // 
             // panel4
             // 
@@ -262,7 +271,7 @@ namespace SaveNServe
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1020, 601);
             this.panel4.TabIndex = 3;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            
             // 
             // panel9
             // 
@@ -282,7 +291,6 @@ namespace SaveNServe
             this.panelMainContent.Name = "panelMainContent";
             this.panelMainContent.Size = new System.Drawing.Size(1020, 601);
             this.panelMainContent.TabIndex = 0;
-            this.panelMainContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMainContent_Paint);
             // 
             // overlayPanel
             // 
@@ -295,17 +303,6 @@ namespace SaveNServe
             this.overlayPanel.Size = new System.Drawing.Size(1020, 601);
             this.overlayPanel.TabIndex = 0;
             this.overlayPanel.Visible = false;
-            this.overlayPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.overlayPanel_Paint);
-            // 
-            // panelUserMenu
-            // 
-            this.panelUserMenu.BackColor = System.Drawing.Color.LightGray;
-            this.panelUserMenu.Location = new System.Drawing.Point(1114, 81);
-            this.panelUserMenu.Name = "panelUserMenu";
-            this.panelUserMenu.Size = new System.Drawing.Size(150, 71);
-            this.panelUserMenu.TabIndex = 0;
-            this.panelUserMenu.Visible = false;
-            this.panelUserMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUserMenu_Paint);
             // 
             // MainForm
             // 

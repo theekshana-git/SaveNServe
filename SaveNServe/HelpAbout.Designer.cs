@@ -30,6 +30,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HelpAbout));
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.lblContactLink = new System.Windows.Forms.LinkLabel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblLicenseContent = new System.Windows.Forms.Label();
+            this.lblLicense = new System.Windows.Forms.Label();
+            this.lblTechContent = new System.Windows.Forms.Label();
+            this.lblTech = new System.Windows.Forms.Label();
+            this.lblContact = new System.Windows.Forms.Label();
+            this.lblKeyFeat5 = new System.Windows.Forms.Label();
+            this.lblKeyFeat4 = new System.Windows.Forms.Label();
+            this.lblKeyFeat3 = new System.Windows.Forms.Label();
+            this.lblKeyFeat2 = new System.Windows.Forms.Label();
+            this.lblKeyFeat1 = new System.Windows.Forms.Label();
+            this.lblKeyFeat = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblDevContent = new System.Windows.Forms.Label();
@@ -39,26 +59,6 @@
             this.lblAppContent = new System.Windows.Forms.Label();
             this.lblAppName = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblKeyFeat = new System.Windows.Forms.Label();
-            this.lblKeyFeat1 = new System.Windows.Forms.Label();
-            this.lblKeyFeat2 = new System.Windows.Forms.Label();
-            this.lblKeyFeat3 = new System.Windows.Forms.Label();
-            this.lblKeyFeat4 = new System.Windows.Forms.Label();
-            this.lblKeyFeat5 = new System.Windows.Forms.Label();
-            this.lblContact = new System.Windows.Forms.Label();
-            this.lblTech = new System.Windows.Forms.Label();
-            this.lblTechContent = new System.Windows.Forms.Label();
-            this.lblLicense = new System.Windows.Forms.Label();
-            this.lblLicenseContent = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.lblContactLink = new System.Windows.Forms.LinkLabel();
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -100,7 +100,199 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(1024, 601);
             this.MainPanel.TabIndex = 0;
-            this.MainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPanel_Paint);
+            // 
+            // lblContactLink
+            // 
+            this.lblContactLink.AutoSize = true;
+            this.lblContactLink.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContactLink.Location = new System.Drawing.Point(141, 400);
+            this.lblContactLink.Name = "lblContactLink";
+            this.lblContactLink.Size = new System.Drawing.Size(202, 21);
+            this.lblContactLink.TabIndex = 29;
+            this.lblContactLink.TabStop = true;
+            this.lblContactLink.Text = "support@savenserve.app";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.panel7.Location = new System.Drawing.Point(20, 480);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(10);
+            this.panel7.Size = new System.Drawing.Size(940, 1);
+            this.panel7.TabIndex = 28;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.panel6.Location = new System.Drawing.Point(20, 427);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(10);
+            this.panel6.Size = new System.Drawing.Size(940, 1);
+            this.panel6.TabIndex = 27;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.panel5.Location = new System.Drawing.Point(20, 382);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(10);
+            this.panel5.Size = new System.Drawing.Size(940, 1);
+            this.panel5.TabIndex = 26;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.panel4.Location = new System.Drawing.Point(23, 232);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(10);
+            this.panel4.Size = new System.Drawing.Size(940, 1);
+            this.panel4.TabIndex = 25;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.panel3.Location = new System.Drawing.Point(20, 148);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(10);
+            this.panel3.Size = new System.Drawing.Size(940, 1);
+            this.panel3.TabIndex = 26;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.panel2.Location = new System.Drawing.Point(20, 112);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(10);
+            this.panel2.Size = new System.Drawing.Size(940, 1);
+            this.panel2.TabIndex = 25;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.panel1.Location = new System.Drawing.Point(20, 188);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
+            this.panel1.Size = new System.Drawing.Size(940, 1);
+            this.panel1.TabIndex = 24;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(108, 398);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblLicenseContent
+            // 
+            this.lblLicenseContent.AutoSize = true;
+            this.lblLicenseContent.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLicenseContent.Location = new System.Drawing.Point(105, 490);
+            this.lblLicenseContent.Name = "lblLicenseContent";
+            this.lblLicenseContent.Size = new System.Drawing.Size(179, 21);
+            this.lblLicenseContent.TabIndex = 22;
+            this.lblLicenseContent.Text = "For educational use only";
+            // 
+            // lblLicense
+            // 
+            this.lblLicense.AutoSize = true;
+            this.lblLicense.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLicense.Location = new System.Drawing.Point(29, 490);
+            this.lblLicense.Name = "lblLicense";
+            this.lblLicense.Size = new System.Drawing.Size(70, 21);
+            this.lblLicense.TabIndex = 21;
+            this.lblLicense.Text = "License:";
+            // 
+            // lblTechContent
+            // 
+            this.lblTechContent.AutoSize = true;
+            this.lblTechContent.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTechContent.Location = new System.Drawing.Point(202, 448);
+            this.lblTechContent.Name = "lblTechContent";
+            this.lblTechContent.Size = new System.Drawing.Size(264, 21);
+            this.lblTechContent.TabIndex = 20;
+            this.lblTechContent.Text = "C#, WinForms, ADO.NET, SQL Server";
+            // 
+            // lblTech
+            // 
+            this.lblTech.AutoSize = true;
+            this.lblTech.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTech.Location = new System.Drawing.Point(29, 446);
+            this.lblTech.Name = "lblTech";
+            this.lblTech.Size = new System.Drawing.Size(157, 21);
+            this.lblTech.TabIndex = 19;
+            this.lblTech.Text = "Technologies Used:";
+            // 
+            // lblContact
+            // 
+            this.lblContact.AutoSize = true;
+            this.lblContact.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContact.Location = new System.Drawing.Point(29, 400);
+            this.lblContact.Name = "lblContact";
+            this.lblContact.Size = new System.Drawing.Size(73, 21);
+            this.lblContact.TabIndex = 17;
+            this.lblContact.Text = "Contact:";
+            // 
+            // lblKeyFeat5
+            // 
+            this.lblKeyFeat5.AutoSize = true;
+            this.lblKeyFeat5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKeyFeat5.Location = new System.Drawing.Point(155, 356);
+            this.lblKeyFeat5.Name = "lblKeyFeat5";
+            this.lblKeyFeat5.Size = new System.Drawing.Size(182, 21);
+            this.lblKeyFeat5.TabIndex = 16;
+            this.lblKeyFeat5.Text = "• Easy-to-use Dashboard";
+            // 
+            // lblKeyFeat4
+            // 
+            this.lblKeyFeat4.AutoSize = true;
+            this.lblKeyFeat4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKeyFeat4.Location = new System.Drawing.Point(155, 329);
+            this.lblKeyFeat4.Name = "lblKeyFeat4";
+            this.lblKeyFeat4.Size = new System.Drawing.Size(138, 21);
+            this.lblKeyFeat4.TabIndex = 15;
+            this.lblKeyFeat4.Text = "• History and Logs";
+            // 
+            // lblKeyFeat3
+            // 
+            this.lblKeyFeat3.AutoSize = true;
+            this.lblKeyFeat3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKeyFeat3.Location = new System.Drawing.Point(155, 302);
+            this.lblKeyFeat3.Name = "lblKeyFeat3";
+            this.lblKeyFeat3.Size = new System.Drawing.Size(149, 21);
+            this.lblKeyFeat3.TabIndex = 14;
+            this.lblKeyFeat3.Text = "• Inventory Tracking";
+            // 
+            // lblKeyFeat2
+            // 
+            this.lblKeyFeat2.AutoSize = true;
+            this.lblKeyFeat2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKeyFeat2.Location = new System.Drawing.Point(155, 275);
+            this.lblKeyFeat2.Name = "lblKeyFeat2";
+            this.lblKeyFeat2.Size = new System.Drawing.Size(188, 21);
+            this.lblKeyFeat2.TabIndex = 13;
+            this.lblKeyFeat2.Text = "• Ingredient Management";
+            // 
+            // lblKeyFeat1
+            // 
+            this.lblKeyFeat1.AutoSize = true;
+            this.lblKeyFeat1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKeyFeat1.Location = new System.Drawing.Point(155, 248);
+            this.lblKeyFeat1.Name = "lblKeyFeat1";
+            this.lblKeyFeat1.Size = new System.Drawing.Size(233, 21);
+            this.lblKeyFeat1.TabIndex = 12;
+            this.lblKeyFeat1.Text = "• Smart Ingredient Substitutions";
+            // 
+            // lblKeyFeat
+            // 
+            this.lblKeyFeat.AutoSize = true;
+            this.lblKeyFeat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKeyFeat.Location = new System.Drawing.Point(29, 244);
+            this.lblKeyFeat.Name = "lblKeyFeat";
+            this.lblKeyFeat.Size = new System.Drawing.Size(110, 21);
+            this.lblKeyFeat.TabIndex = 11;
+            this.lblKeyFeat.Text = "Key Features:";
             // 
             // label2
             // 
@@ -112,7 +304,6 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "This app helps users find smart replacements for kitchen ingredients, track inven" +
     "tory, and improve kitchen efficiency.";
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // lblDescription
             // 
@@ -133,7 +324,6 @@
             this.lblDevContent.Size = new System.Drawing.Size(66, 21);
             this.lblDevContent.TabIndex = 8;
             this.lblDevContent.Text = "Group L";
-            this.lblDevContent.Click += new System.EventHandler(this.lblDevContent_Click);
             // 
             // lblDev
             // 
@@ -154,7 +344,6 @@
             this.lblVersionContent.Size = new System.Drawing.Size(37, 17);
             this.lblVersionContent.TabIndex = 6;
             this.lblVersionContent.Text = "1.0.0";
-            this.lblVersionContent.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblVersion
             // 
@@ -195,201 +384,6 @@
             this.lblTitle.Size = new System.Drawing.Size(149, 32);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Help/About";
-            // 
-            // lblKeyFeat
-            // 
-            this.lblKeyFeat.AutoSize = true;
-            this.lblKeyFeat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKeyFeat.Location = new System.Drawing.Point(29, 244);
-            this.lblKeyFeat.Name = "lblKeyFeat";
-            this.lblKeyFeat.Size = new System.Drawing.Size(110, 21);
-            this.lblKeyFeat.TabIndex = 11;
-            this.lblKeyFeat.Text = "Key Features:";
-            // 
-            // lblKeyFeat1
-            // 
-            this.lblKeyFeat1.AutoSize = true;
-            this.lblKeyFeat1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKeyFeat1.Location = new System.Drawing.Point(155, 248);
-            this.lblKeyFeat1.Name = "lblKeyFeat1";
-            this.lblKeyFeat1.Size = new System.Drawing.Size(233, 21);
-            this.lblKeyFeat1.TabIndex = 12;
-            this.lblKeyFeat1.Text = "• Smart Ingredient Substitutions";
-            this.lblKeyFeat1.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // lblKeyFeat2
-            // 
-            this.lblKeyFeat2.AutoSize = true;
-            this.lblKeyFeat2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKeyFeat2.Location = new System.Drawing.Point(155, 275);
-            this.lblKeyFeat2.Name = "lblKeyFeat2";
-            this.lblKeyFeat2.Size = new System.Drawing.Size(188, 21);
-            this.lblKeyFeat2.TabIndex = 13;
-            this.lblKeyFeat2.Text = "• Ingredient Management";
-            // 
-            // lblKeyFeat3
-            // 
-            this.lblKeyFeat3.AutoSize = true;
-            this.lblKeyFeat3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKeyFeat3.Location = new System.Drawing.Point(155, 302);
-            this.lblKeyFeat3.Name = "lblKeyFeat3";
-            this.lblKeyFeat3.Size = new System.Drawing.Size(149, 21);
-            this.lblKeyFeat3.TabIndex = 14;
-            this.lblKeyFeat3.Text = "• Inventory Tracking";
-            // 
-            // lblKeyFeat4
-            // 
-            this.lblKeyFeat4.AutoSize = true;
-            this.lblKeyFeat4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKeyFeat4.Location = new System.Drawing.Point(155, 329);
-            this.lblKeyFeat4.Name = "lblKeyFeat4";
-            this.lblKeyFeat4.Size = new System.Drawing.Size(138, 21);
-            this.lblKeyFeat4.TabIndex = 15;
-            this.lblKeyFeat4.Text = "• History and Logs";
-            // 
-            // lblKeyFeat5
-            // 
-            this.lblKeyFeat5.AutoSize = true;
-            this.lblKeyFeat5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKeyFeat5.Location = new System.Drawing.Point(155, 356);
-            this.lblKeyFeat5.Name = "lblKeyFeat5";
-            this.lblKeyFeat5.Size = new System.Drawing.Size(182, 21);
-            this.lblKeyFeat5.TabIndex = 16;
-            this.lblKeyFeat5.Text = "• Easy-to-use Dashboard";
-            // 
-            // lblContact
-            // 
-            this.lblContact.AutoSize = true;
-            this.lblContact.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContact.Location = new System.Drawing.Point(29, 400);
-            this.lblContact.Name = "lblContact";
-            this.lblContact.Size = new System.Drawing.Size(73, 21);
-            this.lblContact.TabIndex = 17;
-            this.lblContact.Text = "Contact:";
-            // 
-            // lblTech
-            // 
-            this.lblTech.AutoSize = true;
-            this.lblTech.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTech.Location = new System.Drawing.Point(29, 446);
-            this.lblTech.Name = "lblTech";
-            this.lblTech.Size = new System.Drawing.Size(157, 21);
-            this.lblTech.TabIndex = 19;
-            this.lblTech.Text = "Technologies Used:";
-            // 
-            // lblTechContent
-            // 
-            this.lblTechContent.AutoSize = true;
-            this.lblTechContent.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTechContent.Location = new System.Drawing.Point(202, 448);
-            this.lblTechContent.Name = "lblTechContent";
-            this.lblTechContent.Size = new System.Drawing.Size(264, 21);
-            this.lblTechContent.TabIndex = 20;
-            this.lblTechContent.Text = "C#, WinForms, ADO.NET, SQL Server";
-            // 
-            // lblLicense
-            // 
-            this.lblLicense.AutoSize = true;
-            this.lblLicense.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLicense.Location = new System.Drawing.Point(29, 490);
-            this.lblLicense.Name = "lblLicense";
-            this.lblLicense.Size = new System.Drawing.Size(70, 21);
-            this.lblLicense.TabIndex = 21;
-            this.lblLicense.Text = "License:";
-            // 
-            // lblLicenseContent
-            // 
-            this.lblLicenseContent.AutoSize = true;
-            this.lblLicenseContent.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLicenseContent.Location = new System.Drawing.Point(105, 490);
-            this.lblLicenseContent.Name = "lblLicenseContent";
-            this.lblLicenseContent.Size = new System.Drawing.Size(179, 21);
-            this.lblLicenseContent.TabIndex = 22;
-            this.lblLicenseContent.Text = "For educational use only";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(108, 398);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.panel1.Location = new System.Drawing.Point(20, 188);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(940, 1);
-            this.panel1.TabIndex = 24;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.panel2.Location = new System.Drawing.Point(20, 112);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.panel2.Size = new System.Drawing.Size(940, 1);
-            this.panel2.TabIndex = 25;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.panel3.Location = new System.Drawing.Point(20, 148);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(10);
-            this.panel3.Size = new System.Drawing.Size(940, 1);
-            this.panel3.TabIndex = 26;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.panel4.Location = new System.Drawing.Point(23, 232);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(10);
-            this.panel4.Size = new System.Drawing.Size(940, 1);
-            this.panel4.TabIndex = 25;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.panel5.Location = new System.Drawing.Point(20, 382);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(10);
-            this.panel5.Size = new System.Drawing.Size(940, 1);
-            this.panel5.TabIndex = 26;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.panel6.Location = new System.Drawing.Point(20, 427);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(10);
-            this.panel6.Size = new System.Drawing.Size(940, 1);
-            this.panel6.TabIndex = 27;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.panel7.Location = new System.Drawing.Point(20, 480);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(10);
-            this.panel7.Size = new System.Drawing.Size(940, 1);
-            this.panel7.TabIndex = 28;
-            // 
-            // lblContactLink
-            // 
-            this.lblContactLink.AutoSize = true;
-            this.lblContactLink.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContactLink.Location = new System.Drawing.Point(141, 400);
-            this.lblContactLink.Name = "lblContactLink";
-            this.lblContactLink.Size = new System.Drawing.Size(202, 21);
-            this.lblContactLink.TabIndex = 29;
-            this.lblContactLink.TabStop = true;
-            this.lblContactLink.Text = "support@savenserve.app";
             // 
             // HelpAbout
             // 

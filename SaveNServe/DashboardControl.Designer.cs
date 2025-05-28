@@ -102,7 +102,6 @@
             this.panelRecentActivity.Name = "panelRecentActivity";
             this.panelRecentActivity.Size = new System.Drawing.Size(980, 406);
             this.panelRecentActivity.TabIndex = 1;
-            this.panelRecentActivity.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRecentActivity_Paint);
             // 
             // pictureBox1
             // 
@@ -418,7 +417,6 @@
             this.Name = "DashboardControl";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.Size = new System.Drawing.Size(1020, 601);
-            this.Load += new System.EventHandler(this.DashboardControl_Load);
             this.panelRecentActivity.ResumeLayout(false);
             this.panelRecentActivity.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -65,6 +65,18 @@
     <Compile Include="EditIngredientForm.Designer.cs">
       <DependentUpon>EditIngredientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditInventoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditInventoryForm.Designer.cs">
+      <DependentUpon>EditInventoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditSubstitutionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSubstitutionForm.Designer.cs">
+      <DependentUpon>EditSubstitutionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +135,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditIngredientForm.resx">
       <DependentUpon>EditIngredientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditInventoryForm.resx">
+      <DependentUpon>EditInventoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditSubstitutionForm.resx">
+      <DependentUpon>EditSubstitutionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditUserForm.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>

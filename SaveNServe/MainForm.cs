@@ -17,6 +17,7 @@ namespace SaveNServe
             this.Size = new Size(1280, 720);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Load += MainForm_Load;
 
             btnDashboard.Click += btnDashboard_Click;
@@ -32,7 +33,7 @@ namespace SaveNServe
 
 
 
-            InitializeTopPanel();
+            
             InitializeHistoryOverlayPanel();
 
 
@@ -75,19 +76,17 @@ namespace SaveNServe
 
         }
 
-        private void InitializeTopPanel()
-        {
-        }
+        
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e) { }
+    
        
         
-        private void panel4_Paint(object sender, PaintEventArgs e) { }
+        
 
         
 
@@ -216,26 +215,12 @@ namespace SaveNServe
 
         
 
-        private void panelMainContent_Paint(object sender, PaintEventArgs e)
-        {
+       
 
-        }
-
-        private void overlayPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelUserMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
        
 
-        private void pictureBoxUserIcon_Click(object sender, EventArgs e)
-        {
-            
-        }
+       
     }
 }

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Security.Permissions;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Drawing.Text;
 
 namespace SaveNServe
 {
@@ -18,6 +20,107 @@ namespace SaveNServe
         public InventoryControl()
         {
             InitializeComponent();
+            Clearbtn.Click += Clearbtn_Click;
+            dgvInventory.CellFormatting += dgvInventory_CellFormatting;
+
+
+
+        }
+
+        private void btnAddInventory_Click(object sender, EventArgs e)
+        {
+            foreach (var lbl in new[] { lblNameError , lblQuantityError , lblUnitError , lblDateError , lblStatusError })
+            {
+                lbl.Visible = false;
+            }
+
+            // Get user inputs
+            string name = Name_txtbox.Text.Trim();
+            string quantity = Quantity_txtbox.Text.Trim();
+            string unit = cmbUnit.SelectedItem?.ToString();
+            DateTime expirydate = ExpiryDatePicker.Value;
+            string status = cmbStatus.SelectedItem?.ToString();
+
+            bool ErrorCheck = false;
+
+            //Validation Checks
+            if (string.IsNullOrEmpty(name))
+            {
+                lblNameError.Text = "Name is required";
+                lblNameError.Visible = true;
+                Name_txtbox.Focus();
+                ErrorCheck = true;
+            }
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(name, @"^[a-zA-Z]+$"))
+            {
+                lblNameError.Text = "Please enter letters only (a-z , A-Z)";
+                lblNameError.Visible = true;
+                Name_txtbox.Focus();
+                ErrorCheck = true;
+            }
+
+
+            if ((string.IsNullOrEmpty(quantity) || !decimal.TryParse(quantity, out decimal costInput) || costInput < 0))
+            {
+                lblQuantityError.Text = "Enter a Valid Number";
+                lblQuantityError.Visible = true;
+                Quantity_txtbox.Focus();
+                ErrorCheck = true;
+            }
+
+            if (string.IsNullOrEmpty(unit))
+            {
+                lblUnitError.Text = "Please select a unit";
+                lblUnitError.Visible = true;
+                cmbUnit.Focus();
+                ErrorCheck = true;
+            }
+
+           //Date time validation
+            if(ExpiryDatePicker.Value.Date == DateTime.Today)
+            {
+                lblDateError.Text = "Please select a date before continuing";
+                lblDateError.Visible = true;
+                ExpiryDatePicker.Focus();
+                ErrorCheck = true;
+            }
+
+
+            if (string.IsNullOrEmpty(status))
+            {
+                lblStatusError.Text = "Please select a status";
+                lblStatusError.Visible = true;
+                cmbStatus.Focus();
+                ErrorCheck = true;
+            }
+
+            if (ErrorCheck)
+            {
+                return;
+            }
+
+
+            dgvInventory.Rows.Add(name, quantity, unit, expirydate.ToShortDateString(), status);
+
+            // If passed
+            MessageBox.Show("Inventory added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Clears the Form
+            Clearbtn_Click(sender, e);
+        }
+        private void Clearbtn_Click(object sender, EventArgs e)
+        {
+            Name_txtbox.Clear();
+            Quantity_txtbox.Clear();
+
+            // Revert time to today
+            ExpiryDatePicker.Value = DateTime.Today;
+
+            cmbUnit.SelectedIndex = -1;
+            cmbStatus.SelectedIndex = -1;
+
+           
         }
         private void RemovePlaceholder(object sender, EventArgs e)
         {
@@ -33,81 +136,21 @@ namespace SaveNServe
             if (string.IsNullOrWhiteSpace(searchBox.Text))
             {
                 searchBox.Text = "Search ingredients...";
-                searchBox.ForeColor = Color.White;
+                searchBox.ForeColor = Color.Black;
             }
         }
         private void InventoryControl_Load(object sender, EventArgs e)
         {
             searchBox.Text = "Search ingredients...";
-            searchBox.ForeColor = Color.White;
+            searchBox.ForeColor = Color.Black;
 
             searchBox.GotFocus += RemovePlaceholder;
             searchBox.LostFocus += SetPlaceholder;
 
             searchBox.TextChanged += searchbox_TextChanged;
 
-            dataGridView1.Columns.Clear();
-
-            dataGridView1.Columns.Add("IngredientName", "Ingredient Name");
-            dataGridView1.Columns.Add("Quantity", "Quantity");
-            dataGridView1.Columns.Add("Unit", "Unit");
-            dataGridView1.Columns.Add("ExpirationDate", "Expiration Date");
-            dataGridView1.Columns.Add("Status", "Status");
-
-            DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
-            editButton.Name = "Edit";
-            editButton.HeaderText = "Actions";
-            editButton.Text = "Edit";
-            editButton.UseColumnTextForButtonValue = true;
-
-            dataGridView1.Columns.Add(editButton);
-
-            dataGridView1.ReadOnly = false;
-            dataGridView1.AllowUserToAddRows = false;
-
-            dataGridView1.Rows.Add("Milk", "2", "L", "2025-06-15", "OK");
-            dataGridView1.Rows.Add("Eggs", "12", "pcs", "2025-06-01", "Expired");
-            dataGridView1.Rows.Add("Sugar", "10", "Kg", "2026-01-01", "Low");
-
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                string status = dataGridView1.Rows[i].Cells[4].Value?.ToString();
-
-                switch (status)
-                {
-                    case "OK":
-                        dataGridView1.Rows[i].Cells[4].Style.BackColor = Color.MediumSeaGreen;
-                        break;
-                    case "Expired":
-                        dataGridView1.Rows[i].Cells[4].Style.BackColor = Color.FromArgb(217, 83, 79);
-                        break;
-                    case "Low":
-                        dataGridView1.Rows[i].Cells[4].Style.BackColor = Color.FromArgb(244, 185, 66);
-                        break;
-                }
-            }
-
-
-        }
-
-        private void Titele_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            //To set date as today 
+            ExpiryDatePicker.Value = DateTime.Today;
         }
 
         private void butinfo_Click(object sender, EventArgs e)
@@ -117,102 +160,148 @@ namespace SaveNServe
             info.Text = infor;
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        
         private void searchbox_TextChanged(object sender, EventArgs e)
         {
             string filterText = searchBox.Text.ToLower();
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in dgvInventory.Rows)
             {
                 if (row.IsNewRow) continue;
 
-                string ingredient = row.Cells["IngredientName"].Value?.ToString().ToLower() ?? "";
+                string ingredient = row.Cells["ColName"].Value?.ToString().ToLower() ?? "";
 
                 row.Visible = ingredient.Contains(filterText);
             }
         }
 
-
-
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "Edit")
-            //{
-            //    DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-
-            //    string currentQuantity = row.Cells["Quantity"].Value?.ToString() ?? "";
-            //    string currentDate = row.Cells["ExpirationDate"].Value?.ToString() ?? "";
-
-            //    //string inputQuantity = Microsoft.VisualBasic.Interaction.InputBox(
-            //    //    "Enter new quantity:", "Edit Quantity", currentQuantity);
-
-            //    DateTimePicker datePicker = new DateTimePicker();
-            //    if (DateTime.TryParse(currentDate, out DateTime dt)) datePicker.Value = dt;
-
-            //    Form prompt = new Form();
-            //    Button ok = new Button() { Text = "OK", DialogResult = DialogResult.OK, Dock = DockStyle.Bottom };
-            //    datePicker.Dock = DockStyle.Fill;
-            //    prompt.Controls.Add(datePicker);
-            //    prompt.Controls.Add(ok);
-            //    prompt.AcceptButton = ok;
-            //    prompt.StartPosition = FormStartPosition.CenterScreen;
-
-            //    string inputDate = "";
-            //    if (prompt.ShowDialog() == DialogResult.OK)
-            //        inputDate = datePicker.Value.ToString("yyyy-MM-dd");
-
-            //    if (!string.IsNullOrWhiteSpace(inputQuantity) && !string.IsNullOrWhiteSpace(inputDate))
-            //    {
-            //        if (DateTime.TryParse(inputDate, out DateTime parsedDate))
-            //        {
-            //            row.Cells["Quantity"].Value = inputQuantity;
-            //            row.Cells["ExpirationDate"].Value = parsedDate.ToShortDateString();
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Invalid date.", "Error");
-            //        }
-            //    }
-            //}
-        }
-
         bool exapned = false;
-        private void timer2_Tick(object sender, EventArgs e)
+       
+        
+       
+
+        private void dgvInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (exapned == false)
+            // Skip header row clicks or out of range rows
+            if (e.RowIndex < 0 || e.RowIndex >= dgvInventory.Rows.Count)
+                return;
+
+            // Check if it's the "Delete" column
+            if (dgvInventory.Columns[e.ColumnIndex].Name == "ColActions") // use your actual column name
             {
+                // Show confirmation dialog
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to delete this user?",
+                    "Confirm Deletion",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
 
-                dropdown.Height += 15;
-                if (dropdown.Height >= dropdown.MaximumSize.Height)
+                if (result == DialogResult.Yes)
                 {
-                    timer2.Stop();
-                    exapned = true;
-
+                    dgvInventory.Rows.RemoveAt(e.RowIndex); // Delete the row
                 }
             }
-            else
-            {
 
-                dropdown.Height -= 15;
-                if (dropdown.Height <= dropdown.MinimumSize.Height)
+            if (dgvInventory.Columns[e.ColumnIndex].Name == "ColEdit")
+            {
+                DataGridViewRow row = dgvInventory.Rows[e.RowIndex];
+
+                EditInventoryForm editForm = new EditInventoryForm
                 {
-                    timer2.Stop();
-                    exapned = false;
+                    Name = row.Cells["ColName"].Value.ToString(),
+                    Quantity = row.Cells["ColQuantity"].Value.ToString(),
+                    Unit = row.Cells["ColUnit"].Value.ToString(),
+                    ExpiryDate = DateTime.TryParse(row.Cells["colExpireDate"].Value?.ToString(), out DateTime parsedDate)
+                     ? parsedDate
+                     : DateTime.Today,
+                    Status = row.Cells["colStatus"].Value.ToString()
+                };
+
+                if (editForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Update the DataGridView with new values
+                    row.Cells["ColName"].Value = editForm.Name;
+                    row.Cells["ColQuantity"].Value = editForm.Quantity;
+                    row.Cells["ColUnit"].Value = editForm.Unit;
+                    row.Cells["colExpireDate"].Value = editForm.ExpiryDate.ToShortDateString();
+                    row.Cells["colStatus"].Value = editForm.Status;
+
+                    // Optional: change cell colors based on status again
                 }
             }
-            
-
         }
-        private void button1_Click(object sender, EventArgs e)
+
+          private void dgvInventory_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            timer2.Start();
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                using (Pen pen = new Pen(Color.LightGray, 1))
+                {
+                    int y = e.CellBounds.Bottom - 1;
+                    e.Graphics.DrawLine(pen, e.CellBounds.Left, y, e.CellBounds.Right, y);
+                }
+
+                e.Handled = true;
+            }
         }
 
+        private void dgvInventory_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Status color formatting
+            if (dgvInventory.Columns[e.ColumnIndex].Name == "colStatus")
+            {
+                string status = e.Value?.ToString();
+                if (status == "Ok")
+                {
+                    e.CellStyle.ForeColor = Color.Green;
+                    //e.CellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+                }
+                else if (status == "Low")
+                {
+                    e.CellStyle.ForeColor = Color.Gold;
+                    //e.CellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = Color.Red;
+                }
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rightPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+
+        private void lbl_ActionClick_Click(object sender, EventArgs e)
+        {
+
+        }
 
     }
 

@@ -23,15 +23,6 @@ namespace SaveNServe
         {
             HistoryIconClicked?.Invoke(this, EventArgs.Empty);
         }
-        private void DashboardControl_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelRecentActivity_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
     }
 }

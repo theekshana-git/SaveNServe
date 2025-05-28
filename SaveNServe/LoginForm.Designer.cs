@@ -50,7 +50,6 @@
             this.panelLogin.Size = new System.Drawing.Size(391, 473);
             this.panelLogin.TabIndex = 2;
             this.panelLogin.TabStop = false;
-            this.panelLogin.Enter += new System.EventHandler(this.panelLogin_Enter);
             // 
             // pictureBox2
             // 
@@ -101,7 +100,6 @@
             this.lblError.TabIndex = 5;
             this.lblError.Text = "Invalid username or password";
             this.lblError.Visible = false;
-            this.lblError.Click += new System.EventHandler(this.lblError_Click);
             // 
             // chkShowPassword
             // 
@@ -134,7 +132,6 @@
             this.label4.Size = new System.Drawing.Size(57, 15);
             this.label4.TabIndex = 2;
             this.label4.Text = "Password";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtUsername
             // 
@@ -155,7 +152,6 @@
             this.label3.Size = new System.Drawing.Size(60, 15);
             this.label3.TabIndex = 0;
             this.label3.Text = "Username";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // pictureBox1
             // 
@@ -178,7 +174,6 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.LoginForm_Load_1);
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

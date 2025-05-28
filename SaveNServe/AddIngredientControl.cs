@@ -1,21 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Xml.Linq;
 
 
 namespace SaveNServe
 {
-    public partial class AddIngredientControl: UserControl
+    public partial class AddIngredientControl : UserControl
     {
-       
+
         public AddIngredientControl()
         {
             InitializeComponent();
@@ -23,7 +15,15 @@ namespace SaveNServe
             Clearbtn.Click += Clearbtn_Click;
             dgvIngredients.CellPainting += dgvIngredients_CellPainting;
             dgvIngredients.CellContentClick += dgvIngredients_CellContentClick;
+            dgvIngredients.CellFormatting += dgvIngredients_CellFormatting;
+            dgvIngredients.Columns["ColName"].Width = 200;        // Roomy for ingredient names
+            dgvIngredients.Columns["ColCost"].Width = 100;        // Enough for prices
+            dgvIngredients.Columns["ColAvailable"].Width = 120;   // To fit "Available"/"Out of Stock"
+            dgvIngredients.Columns["ColEdit"].Width = 60;         // Compact for Edit link
+            dgvIngredients.Columns["ColActions"].Width = 70;      // Compact for Delete link
 
+            searchBox.Enter += SearchBox_Enter;
+            searchBox.Leave += SearchBox_Leave;
         }
 
         private void btnAddIngredient_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace SaveNServe
             {
                 lbl.Visible = false;
             }
-              
+
             //Get user inputs
             string name = Name_Textbox.Text.Trim();
             string cost = Cost_Textbox.Text.Trim();
@@ -43,7 +43,7 @@ namespace SaveNServe
 
             if (Available_chk.Checked)
             {
-                Available = "Avaliable";
+                Available = "Available";
             }
             else if (OutOfStock_chk.Checked)
             {
@@ -70,7 +70,7 @@ namespace SaveNServe
                 ErrorCheck = true;
             }
 
-            if(!System.Text.RegularExpressions.Regex.IsMatch(name, @"^[a-zA-Z]+$"))
+            if (!System.Text.RegularExpressions.Regex.IsMatch(name, @"^[a-zA-Z]+$"))
             {
                 lblNameError.Text = "Please enter letters only (a-z , A-Z)";
                 lblNameError.Visible = true;
@@ -78,7 +78,7 @@ namespace SaveNServe
                 ErrorCheck = true;
             }
 
-            if((string.IsNullOrEmpty(cost) || !decimal.TryParse(cost, out decimal costInput) || costInput < 0))
+            if ((string.IsNullOrEmpty(cost) || !decimal.TryParse(cost, out decimal costInput) || costInput < 0))
             {
                 lblCostError.Text = "Enter a Valid Number";
                 lblCostError.Visible = true;
@@ -86,7 +86,7 @@ namespace SaveNServe
                 ErrorCheck = true;
             }
 
-            if(!Available_chk.Checked && !OutOfStock_chk.Checked)
+            if (!Available_chk.Checked && !OutOfStock_chk.Checked)
             {
                 lblAvailbilityError.Text = "Please select the availability status";
                 lblAvailbilityError.Visible = true;
@@ -133,7 +133,7 @@ namespace SaveNServe
             // Add to data grid view table
             dgvIngredients.Rows.Add(name, cost, Available);
 
-            MessageBox.Show("Ingredient added successfully!", "Sucess" , MessageBoxButtons.OK , MessageBoxIcon.Information);
+            MessageBox.Show("Ingredient added successfully!", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Clears the form
             Clearbtn_Click(sender, e);
@@ -150,7 +150,7 @@ namespace SaveNServe
         {
             if (OutOfStock_chk.Checked)
             {
-                Available_chk.Checked = false; 
+                Available_chk.Checked = false;
             }
 
         }
@@ -171,50 +171,99 @@ namespace SaveNServe
             }
         }
 
+        private void dgvIngredients_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // 1) Make sure we’re on the correct column
+            if (dgvIngredients.Columns[e.ColumnIndex].Name != "ColAvailable") return;
+
+            // 2) Protect against null values
+            var text = e.Value?.ToString().Trim();
+            if (string.IsNullOrEmpty(text)) return;
+
+            // 3) Decide the colour
+            if (text.Equals("Available", StringComparison.OrdinalIgnoreCase))
+            {
+                e.CellStyle.ForeColor = Color.Green;
+
+            }
+            else if (text.Equals("Out of Stock", StringComparison.OrdinalIgnoreCase))
+            {
+                e.CellStyle.ForeColor = Color.Red;
+
+            }
+
+            // 4) Tell the grid we handled it
+            e.FormattingApplied = true;
+            Console.WriteLine($"Formatting row {e.RowIndex} col {e.ColumnIndex}: {e.Value}");
+
+        }
+
+
+        private void SearchBox_Enter(object sender, EventArgs e)
+        {
+            if (searchBox.Text == "Search Ingredient")
+            {
+                searchBox.Text = "";
+                searchBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void SearchBox_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(searchBox.Text))
+            {
+                searchBox.Text = "Search Ingredient";
+                searchBox.ForeColor = Color.DimGray;
+            }
+        }
+
+
+
+
         private void dgvIngredients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-                   //skip header row
-                   if (e.RowIndex < 0) 
-                {
-                    return;
-                }
 
-                if (dgvIngredients.Columns[e.ColumnIndex].Name == "ColActions")
-                {
-                    DialogResult result = MessageBox.Show(
-                       "Are you sure you want to delete this ingredient?",
-                       "Confirm Deletion",
-                       MessageBoxButtons.YesNo,
-                       MessageBoxIcon.Warning
-                    );
+            //skip header row
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
 
-                    if (result == DialogResult.Yes)
-                    {
-                        dgvIngredients.Rows.RemoveAt(e.RowIndex);
-                    }
-                }
+            if (dgvIngredients.Columns[e.ColumnIndex].Name == "ColActions")
+            {
+                DialogResult result = MessageBox.Show(
+                   "Are you sure you want to delete this ingredient?",
+                   "Confirm Deletion",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Warning
+                );
 
-                if (dgvIngredients.Columns[e.ColumnIndex].Name == "ColEdit")
+                if (result == DialogResult.Yes)
                 {
-                    DataGridViewRow row = dgvIngredients.Rows[e.RowIndex];
-                    
-                    EditIngredientForm editIngForm = new EditIngredientForm
-                    {
-                        Name = row.Cells["ColName"].Value.ToString(),
-                        Cost = row.Cells["ColCost"].Value.ToString(),
-                        Available = row.Cells["ColAvailable"].Value.ToString()
-                    };
-                    
-                    if(editIngForm.ShowDialog() == DialogResult.OK)
-                    {
-                        row.Cells["ColName"].Value = editIngForm.Name;
-                        row.Cells["ColCost"].Value = editIngForm.Cost;
-                        row.Cells["ColAvailable"].Value = editIngForm.Available;
-                    }
+                    dgvIngredients.Rows.RemoveAt(e.RowIndex);
                 }
             }
-        
+
+            if (dgvIngredients.Columns[e.ColumnIndex].Name == "ColEdit")
+            {
+                DataGridViewRow row = dgvIngredients.Rows[e.RowIndex];
+
+                EditIngredientForm editIngForm = new EditIngredientForm
+                {
+                    Name = row.Cells["ColName"].Value.ToString(),
+                    Cost = row.Cells["ColCost"].Value.ToString(),
+                    Available = row.Cells["ColAvailable"].Value.ToString()
+                };
+
+                if (editIngForm.ShowDialog() == DialogResult.OK)
+                {
+                    row.Cells["ColName"].Value = editIngForm.Name;
+                    row.Cells["ColCost"].Value = editIngForm.Cost;
+                    row.Cells["ColAvailable"].Value = editIngForm.Available;
+                }
+            }
+        }
+
 
         private void Clearbtn_Click(object sender, EventArgs e)
         {
@@ -228,32 +277,12 @@ namespace SaveNServe
             cmbTaste.SelectedIndex = -1;
             cmbTexture.SelectedIndex = -1;
         }
-        private void Right_panel_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
+        
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
 
-        }
-        private void Main_panel_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
-       
 
-       
-
-        private void cmbTaste_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvIngredients_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

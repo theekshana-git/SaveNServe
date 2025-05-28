@@ -31,385 +31,586 @@ namespace SaveNServe
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryControl));
-            this.Titele = new System.Windows.Forms.Label();
-            this.butinfo = new System.Windows.Forms.Button();
-            this.info = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.header = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Expiration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.leftPanel = new System.Windows.Forms.Panel();
+            this.panelSearchBox = new System.Windows.Forms.Panel();
             this.searchBox = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dropdown = new System.Windows.Forms.FlowLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.lbl_ActionClick = new System.Windows.Forms.Label();
+            this.dgvInventory = new System.Windows.Forms.DataGridView();
+            this.info = new System.Windows.Forms.Label();
+            this.Titele = new System.Windows.Forms.Label();
+            this.rightPanel = new System.Windows.Forms.Panel();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.cmbUnit = new System.Windows.Forms.ComboBox();
+            this.ExpiryDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.Clearbtn = new System.Windows.Forms.Button();
+            this.btnAddInventory = new System.Windows.Forms.Button();
+            this.lblStatusError = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblDateError = new System.Windows.Forms.Label();
+            this.lblExpireDate = new System.Windows.Forms.Label();
+            this.lblUnitError = new System.Windows.Forms.Label();
+            this.lblUnit = new System.Windows.Forms.Label();
+            this.lblQuantityError = new System.Windows.Forms.Label();
+            this.Quantity_txtbox = new System.Windows.Forms.TextBox();
+            this.lblQuantity = new System.Windows.Forms.Label();
+            this.lblNameError = new System.Windows.Forms.Label();
+            this.Name_txtbox = new System.Windows.Forms.TextBox();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblManage = new System.Windows.Forms.Label();
+            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colExpireDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColActions = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.ColEdit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.leftPanel.SuspendLayout();
+            this.panelSearchBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.dropdown.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
+            this.rightPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Titele
+            // leftPanel
             // 
-            this.Titele.AutoSize = true;
-            this.Titele.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titele.Location = new System.Drawing.Point(19, 25);
-            this.Titele.Name = "Titele";
-            this.Titele.Size = new System.Drawing.Size(380, 38);
-            this.Titele.TabIndex = 0;
-            this.Titele.Text = "Inventory Management";
-            this.Titele.Click += new System.EventHandler(this.Titele_Click);
+            this.leftPanel.BackColor = System.Drawing.Color.White;
+            this.leftPanel.Controls.Add(this.panelSearchBox);
+            this.leftPanel.Controls.Add(this.lbl_ActionClick);
+            this.leftPanel.Controls.Add(this.dgvInventory);
+            this.leftPanel.Controls.Add(this.info);
+            this.leftPanel.Controls.Add(this.Titele);
+            this.leftPanel.Location = new System.Drawing.Point(0, 0);
+            this.leftPanel.Name = "leftPanel";
+            this.leftPanel.Size = new System.Drawing.Size(674, 601);
+            this.leftPanel.TabIndex = 9;
             // 
-            // butinfo
+            // panelSearchBox
             // 
-            this.butinfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butinfo.Location = new System.Drawing.Point(404, 35);
-            this.butinfo.Name = "butinfo";
-            this.butinfo.Size = new System.Drawing.Size(33, 26);
-            this.butinfo.TabIndex = 1;
-            this.butinfo.Text = "❓";
-            this.butinfo.UseVisualStyleBackColor = true;
-            this.butinfo.Click += new System.EventHandler(this.butinfo_Click);
+            this.panelSearchBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelSearchBox.Controls.Add(this.searchBox);
+            this.panelSearchBox.Controls.Add(this.pictureBox1);
+            this.panelSearchBox.Location = new System.Drawing.Point(23, 73);
+            this.panelSearchBox.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.panelSearchBox.Name = "panelSearchBox";
+            this.panelSearchBox.Padding = new System.Windows.Forms.Padding(5);
+            this.panelSearchBox.Size = new System.Drawing.Size(628, 35);
+            this.panelSearchBox.TabIndex = 18;
+            // 
+            // searchBox
+            // 
+            this.searchBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.searchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchBox.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBox.ForeColor = System.Drawing.Color.DimGray;
+            this.searchBox.Location = new System.Drawing.Point(36, 7);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(584, 20);
+            this.searchBox.TabIndex = 2;
+            this.searchBox.Text = "Search Users";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::SaveNServe.Properties.Resources.icons8_search_30;
+            this.pictureBox1.InitialImage = global::SaveNServe.Properties.Resources.icons8_search_30;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 8);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 3, 5, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lbl_ActionClick
+            // 
+            this.lbl_ActionClick.AutoSize = true;
+            this.lbl_ActionClick.BackColor = System.Drawing.Color.Gainsboro;
+            this.lbl_ActionClick.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ActionClick.Location = new System.Drawing.Point(546, 147);
+            this.lbl_ActionClick.Name = "lbl_ActionClick";
+            this.lbl_ActionClick.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.lbl_ActionClick.Size = new System.Drawing.Size(67, 26);
+            this.lbl_ActionClick.TabIndex = 17;
+            this.lbl_ActionClick.Text = "Actions";
+            this.lbl_ActionClick.Click += new System.EventHandler(this.lbl_ActionClick_Click);
+            // 
+            // dgvInventory
+            // 
+            this.dgvInventory.AllowUserToAddRows = false;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvInventory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvInventory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvInventory.BackgroundColor = System.Drawing.Color.White;
+            this.dgvInventory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvInventory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvInventory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(6);
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColName,
+            this.ColQuantity,
+            this.ColUnit,
+            this.colExpireDate,
+            this.colStatus,
+            this.ColActions,
+            this.ColEdit});
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInventory.DefaultCellStyle = dataGridViewCellStyle22;
+            this.dgvInventory.EnableHeadersVisualStyles = false;
+            this.dgvInventory.GridColor = System.Drawing.SystemColors.Window;
+            this.dgvInventory.Location = new System.Drawing.Point(23, 131);
+            this.dgvInventory.Name = "dgvInventory";
+            this.dgvInventory.ReadOnly = true;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInventory.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            this.dgvInventory.RowHeadersVisible = false;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            this.dgvInventory.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            this.dgvInventory.RowTemplate.Height = 40;
+            this.dgvInventory.Size = new System.Drawing.Size(628, 420);
+            this.dgvInventory.TabIndex = 16;
+            this.dgvInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventory_CellContentClick);
             // 
             // info
             // 
             this.info.AutoSize = true;
             this.info.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.info.Location = new System.Drawing.Point(22, 64);
+            this.info.Location = new System.Drawing.Point(13, 54);
             this.info.Name = "info";
             this.info.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.info.Size = new System.Drawing.Size(0, 20);
-            this.info.TabIndex = 2;
+            this.info.TabIndex = 10;
             this.info.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.info.Click += new System.EventHandler(this.label1_Click);
             // 
-            // dataGridView1
+            // Titele
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(181)))), ((int)(((byte)(172)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeight = 50;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.header,
-            this.Quantity,
-            this.Unit,
-            this.Expiration,
-            this.Status,
-            this.Edit});
-            this.dataGridView1.Location = new System.Drawing.Point(26, 142);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(181)))), ((int)(((byte)(172)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.RowHeadersWidth = 10;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Size = new System.Drawing.Size(958, 452);
-            this.dataGridView1.TabIndex = 3;
+            this.Titele.AutoSize = true;
+            this.Titele.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titele.Location = new System.Drawing.Point(23, 20);
+            this.Titele.Name = "Titele";
+            this.Titele.Size = new System.Drawing.Size(109, 30);
+            this.Titele.TabIndex = 8;
+            this.Titele.Text = "Inventory";
             // 
-            // header
+            // rightPanel
             // 
-            this.header.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.header.FillWeight = 120F;
-            this.header.HeaderText = "Ingredient Name";
-            this.header.Name = "header";
-            this.header.ReadOnly = true;
-            this.header.Width = 165;
+            this.rightPanel.BackColor = System.Drawing.Color.White;
+            this.rightPanel.Controls.Add(this.cmbStatus);
+            this.rightPanel.Controls.Add(this.cmbUnit);
+            this.rightPanel.Controls.Add(this.ExpiryDatePicker);
+            this.rightPanel.Controls.Add(this.Clearbtn);
+            this.rightPanel.Controls.Add(this.btnAddInventory);
+            this.rightPanel.Controls.Add(this.lblStatusError);
+            this.rightPanel.Controls.Add(this.lblStatus);
+            this.rightPanel.Controls.Add(this.lblDateError);
+            this.rightPanel.Controls.Add(this.lblExpireDate);
+            this.rightPanel.Controls.Add(this.lblUnitError);
+            this.rightPanel.Controls.Add(this.lblUnit);
+            this.rightPanel.Controls.Add(this.lblQuantityError);
+            this.rightPanel.Controls.Add(this.Quantity_txtbox);
+            this.rightPanel.Controls.Add(this.lblQuantity);
+            this.rightPanel.Controls.Add(this.lblNameError);
+            this.rightPanel.Controls.Add(this.Name_txtbox);
+            this.rightPanel.Controls.Add(this.lblName);
+            this.rightPanel.Controls.Add(this.lblManage);
+            this.rightPanel.Location = new System.Drawing.Point(685, 0);
+            this.rightPanel.Name = "rightPanel";
+            this.rightPanel.Size = new System.Drawing.Size(335, 601);
+            this.rightPanel.TabIndex = 10;
+            this.rightPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.rightPanel_Paint);
             // 
-            // Quantity
+            // cmbStatus
             // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
+            this.cmbStatus.BackColor = System.Drawing.Color.White;
+            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStatus.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "Ok",
+            "Low",
+            "Expired"});
+            this.cmbStatus.Location = new System.Drawing.Point(42, 469);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(243, 28);
+            this.cmbStatus.TabIndex = 53;
             // 
-            // Unit
+            // cmbUnit
             // 
-            this.Unit.HeaderText = "Unit";
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
+            this.cmbUnit.BackColor = System.Drawing.Color.White;
+            this.cmbUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUnit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUnit.FormattingEnabled = true;
+            this.cmbUnit.Items.AddRange(new object[] {
+            "L",
+            "Kg",
+            "Pcs"});
+            this.cmbUnit.Location = new System.Drawing.Point(42, 289);
+            this.cmbUnit.Name = "cmbUnit";
+            this.cmbUnit.Size = new System.Drawing.Size(243, 28);
+            this.cmbUnit.TabIndex = 52;
             // 
-            // Expiration
+            // ExpiryDatePicker
             // 
-            this.Expiration.HeaderText = "Expiration Date";
-            this.Expiration.Name = "Expiration";
-            this.Expiration.ReadOnly = true;
+            this.ExpiryDatePicker.CalendarFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExpiryDatePicker.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExpiryDatePicker.Location = new System.Drawing.Point(42, 387);
+            this.ExpiryDatePicker.Name = "ExpiryDatePicker";
+            this.ExpiryDatePicker.Size = new System.Drawing.Size(243, 27);
+            this.ExpiryDatePicker.TabIndex = 51;
             // 
-            // Status
+            // Clearbtn
             // 
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Clearbtn.BackColor = System.Drawing.Color.White;
+            this.Clearbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clearbtn.ForeColor = System.Drawing.Color.Black;
+            this.Clearbtn.Image = ((System.Drawing.Image)(resources.GetObject("Clearbtn.Image")));
+            this.Clearbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Clearbtn.Location = new System.Drawing.Point(223, 75);
+            this.Clearbtn.Name = "Clearbtn";
+            this.Clearbtn.Size = new System.Drawing.Size(62, 26);
+            this.Clearbtn.TabIndex = 50;
+            this.Clearbtn.Text = "Clear";
+            this.Clearbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Clearbtn.UseVisualStyleBackColor = false;
+            this.Clearbtn.Click += new System.EventHandler(this.Clearbtn_Click);
             // 
-            // Edit
+            // btnAddInventory
             // 
-            this.Edit.HeaderText = "Actions";
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
+            this.btnAddInventory.BackColor = System.Drawing.Color.Teal;
+            this.btnAddInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddInventory.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddInventory.ForeColor = System.Drawing.Color.White;
+            this.btnAddInventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddInventory.Location = new System.Drawing.Point(44, 540);
+            this.btnAddInventory.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
+            this.btnAddInventory.Name = "btnAddInventory";
+            this.btnAddInventory.Size = new System.Drawing.Size(241, 35);
+            this.btnAddInventory.TabIndex = 49;
+            this.btnAddInventory.Text = "SAVE";
+            this.btnAddInventory.UseVisualStyleBackColor = false;
+            this.btnAddInventory.Click += new System.EventHandler(this.btnAddInventory_Click);
             // 
-            // searchBox
+            // lblStatusError
             // 
-            this.searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(181)))), ((int)(((byte)(172)))));
-            this.searchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchBox.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBox.ForeColor = System.Drawing.Color.White;
-            this.searchBox.Location = new System.Drawing.Point(3, 8);
-            this.searchBox.Multiline = true;
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(327, 30);
-            this.searchBox.TabIndex = 4;
-            this.searchBox.Tag = "Search by Ingredient..";
-            this.searchBox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
+            this.lblStatusError.AutoSize = true;
+            this.lblStatusError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblStatusError.ForeColor = System.Drawing.Color.Red;
+            this.lblStatusError.Location = new System.Drawing.Point(44, 500);
+            this.lblStatusError.Name = "lblStatusError";
+            this.lblStatusError.Size = new System.Drawing.Size(164, 15);
+            this.lblStatusError.TabIndex = 48;
+            this.lblStatusError.Text = "Invalid username or password";
+            this.lblStatusError.Visible = false;
             // 
-            // panel1
+            // lblStatus
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(181)))), ((int)(((byte)(172)))));
-            this.panel1.Controls.Add(this.searchBox);
-            this.panel1.Location = new System.Drawing.Point(26, 91);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(330, 41);
-            this.panel1.TabIndex = 6;
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(42, 440);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(53, 20);
+            this.lblStatus.TabIndex = 46;
+            this.lblStatus.Text = "Status";
             // 
-            // pictureBox1
+            // lblDateError
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(181)))), ((int)(((byte)(172)))));
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::SaveNServe.Properties.Resources.search_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(357, 91);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 41);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.lblDateError.AutoSize = true;
+            this.lblDateError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblDateError.ForeColor = System.Drawing.Color.Red;
+            this.lblDateError.Location = new System.Drawing.Point(44, 415);
+            this.lblDateError.Name = "lblDateError";
+            this.lblDateError.Size = new System.Drawing.Size(164, 15);
+            this.lblDateError.TabIndex = 45;
+            this.lblDateError.Text = "Invalid username or password";
+            this.lblDateError.Visible = false;
             // 
-            // timer2
+            // lblExpireDate
             // 
-            this.timer2.Interval = 1;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            this.lblExpireDate.AutoSize = true;
+            this.lblExpireDate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpireDate.Location = new System.Drawing.Point(41, 355);
+            this.lblExpireDate.Name = "lblExpireDate";
+            this.lblExpireDate.Size = new System.Drawing.Size(89, 20);
+            this.lblExpireDate.TabIndex = 44;
+            this.lblExpireDate.Text = "Expire Date";
             // 
-            // panel5
+            // lblUnitError
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(181)))), ((int)(((byte)(172)))));
-            this.panel5.Controls.Add(this.button4);
-            this.panel5.Location = new System.Drawing.Point(0, 123);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(146, 41);
-            this.panel5.TabIndex = 11;
+            this.lblUnitError.AutoSize = true;
+            this.lblUnitError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblUnitError.ForeColor = System.Drawing.Color.Red;
+            this.lblUnitError.Location = new System.Drawing.Point(44, 320);
+            this.lblUnitError.Name = "lblUnitError";
+            this.lblUnitError.Size = new System.Drawing.Size(164, 15);
+            this.lblUnitError.TabIndex = 41;
+            this.lblUnitError.Text = "Invalid username or password";
+            this.lblUnitError.Visible = false;
             // 
-            // button4
+            // lblUnit
             // 
-            this.button4.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.Location = new System.Drawing.Point(-6, -5);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(10, 0, 15, 0);
-            this.button4.Size = new System.Drawing.Size(159, 50);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Expired";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = false;
+            this.lblUnit.AutoSize = true;
+            this.lblUnit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnit.Location = new System.Drawing.Point(42, 260);
+            this.lblUnit.Name = "lblUnit";
+            this.lblUnit.Size = new System.Drawing.Size(39, 20);
+            this.lblUnit.TabIndex = 39;
+            this.lblUnit.Text = "Unit";
+            this.lblUnit.Click += new System.EventHandler(this.label4_Click);
             // 
-            // panel4
+            // lblQuantityError
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(181)))), ((int)(((byte)(172)))));
-            this.panel4.Controls.Add(this.button3);
-            this.panel4.Location = new System.Drawing.Point(0, 82);
-            this.panel4.Margin = new System.Windows.Forms.Padding(0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(146, 41);
-            this.panel4.TabIndex = 10;
+            this.lblQuantityError.AutoSize = true;
+            this.lblQuantityError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblQuantityError.ForeColor = System.Drawing.Color.Red;
+            this.lblQuantityError.Location = new System.Drawing.Point(42, 230);
+            this.lblQuantityError.Name = "lblQuantityError";
+            this.lblQuantityError.Size = new System.Drawing.Size(164, 15);
+            this.lblQuantityError.TabIndex = 38;
+            this.lblQuantityError.Text = "Invalid username or password";
+            this.lblQuantityError.Visible = false;
+            this.lblQuantityError.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // button3
+            // Quantity_txtbox
             // 
-            this.button3.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(-6, -5);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 15, 0);
-            this.button3.Size = new System.Drawing.Size(159, 50);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Low Stock ";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = false;
+            this.Quantity_txtbox.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Quantity_txtbox.Location = new System.Drawing.Point(42, 200);
+            this.Quantity_txtbox.Name = "Quantity_txtbox";
+            this.Quantity_txtbox.Size = new System.Drawing.Size(243, 27);
+            this.Quantity_txtbox.TabIndex = 37;
+            this.Quantity_txtbox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // panel3
+            // lblQuantity
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(181)))), ((int)(((byte)(172)))));
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Location = new System.Drawing.Point(0, 41);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(146, 41);
-            this.panel3.TabIndex = 9;
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantity.Location = new System.Drawing.Point(42, 170);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(70, 20);
+            this.lblQuantity.TabIndex = 36;
+            this.lblQuantity.Text = "Quantity";
+            this.lblQuantity.Click += new System.EventHandler(this.label2_Click);
             // 
-            // button2
+            // lblNameError
             // 
-            this.button2.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(-6, -5);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 15, 0);
-            this.button2.Size = new System.Drawing.Size(159, 50);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "All";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
+            this.lblNameError.AutoSize = true;
+            this.lblNameError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblNameError.ForeColor = System.Drawing.Color.Red;
+            this.lblNameError.Location = new System.Drawing.Point(44, 140);
+            this.lblNameError.Name = "lblNameError";
+            this.lblNameError.Size = new System.Drawing.Size(164, 15);
+            this.lblNameError.TabIndex = 35;
+            this.lblNameError.Text = "Invalid username or password";
+            this.lblNameError.Visible = false;
             // 
-            // panel2
+            // Name_txtbox
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(181)))), ((int)(((byte)(172)))));
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(146, 41);
-            this.panel2.TabIndex = 8;
+            this.Name_txtbox.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name_txtbox.Location = new System.Drawing.Point(42, 110);
+            this.Name_txtbox.Name = "Name_txtbox";
+            this.Name_txtbox.Size = new System.Drawing.Size(243, 27);
+            this.Name_txtbox.TabIndex = 19;
             // 
-            // button1
+            // lblName
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(-6, -5);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 15, 0);
-            this.button1.Size = new System.Drawing.Size(159, 50);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Select";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(42, 80);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(51, 20);
+            this.lblName.TabIndex = 18;
+            this.lblName.Text = "Name";
             // 
-            // dropdown
+            // lblManage
             // 
-            this.dropdown.BackColor = System.Drawing.Color.White;
-            this.dropdown.Controls.Add(this.panel2);
-            this.dropdown.Controls.Add(this.panel3);
-            this.dropdown.Controls.Add(this.panel4);
-            this.dropdown.Controls.Add(this.panel5);
-            this.dropdown.Location = new System.Drawing.Point(429, 91);
-            this.dropdown.MaximumSize = new System.Drawing.Size(145, 165);
-            this.dropdown.MinimumSize = new System.Drawing.Size(145, 41);
-            this.dropdown.Name = "dropdown";
-            this.dropdown.Size = new System.Drawing.Size(145, 41);
-            this.dropdown.TabIndex = 7;
-            this.dropdown.Click += new System.EventHandler(this.button1_Click);
+            this.lblManage.AutoSize = true;
+            this.lblManage.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManage.ForeColor = System.Drawing.Color.Black;
+            this.lblManage.Location = new System.Drawing.Point(30, 20);
+            this.lblManage.Name = "lblManage";
+            this.lblManage.Size = new System.Drawing.Size(194, 30);
+            this.lblManage.TabIndex = 17;
+            this.lblManage.Text = "Manage Inventory";
+            // 
+            // ColName
+            // 
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColName.DefaultCellStyle = dataGridViewCellStyle15;
+            this.ColName.FillWeight = 197.3093F;
+            this.ColName.HeaderText = "Name";
+            this.ColName.Name = "ColName";
+            this.ColName.ReadOnly = true;
+            // 
+            // ColQuantity
+            // 
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColQuantity.DefaultCellStyle = dataGridViewCellStyle16;
+            this.ColQuantity.FillWeight = 80.67416F;
+            this.ColQuantity.HeaderText = "Qty";
+            this.ColQuantity.Name = "ColQuantity";
+            this.ColQuantity.ReadOnly = true;
+            // 
+            // ColUnit
+            // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColUnit.DefaultCellStyle = dataGridViewCellStyle17;
+            this.ColUnit.FillWeight = 80.67416F;
+            this.ColUnit.HeaderText = "Unit";
+            this.ColUnit.Name = "ColUnit";
+            this.ColUnit.ReadOnly = true;
+            this.ColUnit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColUnit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colExpireDate
+            // 
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colExpireDate.DefaultCellStyle = dataGridViewCellStyle18;
+            this.colExpireDate.FillWeight = 107.932F;
+            this.colExpireDate.HeaderText = "Expiry Date";
+            this.colExpireDate.Name = "colExpireDate";
+            this.colExpireDate.ReadOnly = true;
+            // 
+            // colStatus
+            // 
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colStatus.DefaultCellStyle = dataGridViewCellStyle19;
+            this.colStatus.FillWeight = 87.61211F;
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
+            // 
+            // ColActions
+            // 
+            this.ColActions.ActiveLinkColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColActions.DefaultCellStyle = dataGridViewCellStyle20;
+            this.ColActions.FillWeight = 77.25938F;
+            this.ColActions.HeaderText = "";
+            this.ColActions.LinkColor = System.Drawing.Color.Red;
+            this.ColActions.Name = "ColActions";
+            this.ColActions.ReadOnly = true;
+            this.ColActions.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColActions.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColActions.Text = "Delete";
+            this.ColActions.UseColumnTextForLinkValue = true;
+            this.ColActions.VisitedLinkColor = System.Drawing.Color.Red;
+            // 
+            // ColEdit
+            // 
+            this.ColEdit.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.ColEdit.DefaultCellStyle = dataGridViewCellStyle21;
+            this.ColEdit.FillWeight = 75.26481F;
+            this.ColEdit.HeaderText = "";
+            this.ColEdit.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.ColEdit.Name = "ColEdit";
+            this.ColEdit.ReadOnly = true;
+            this.ColEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColEdit.Text = "Edit";
+            this.ColEdit.UseColumnTextForLinkValue = true;
+            this.ColEdit.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
             // 
             // InventoryControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dropdown);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.info);
-            this.Controls.Add(this.butinfo);
-            this.Controls.Add(this.Titele);
+            this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Controls.Add(this.rightPanel);
+            this.Controls.Add(this.leftPanel);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Name = "InventoryControl";
-            this.Size = new System.Drawing.Size(1326, 726);
+            this.Size = new System.Drawing.Size(1020, 601);
             this.Load += new System.EventHandler(this.InventoryControl_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.leftPanel.ResumeLayout(false);
+            this.leftPanel.PerformLayout();
+            this.panelSearchBox.ResumeLayout(false);
+            this.panelSearchBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.dropdown.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
+            this.rightPanel.ResumeLayout(false);
+            this.rightPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            dataGridView1_CellClick(sender, e);
-        }
-
-        #endregion
-
-        private System.Windows.Forms.Label Titele;
-        private System.Windows.Forms.Button butinfo;
-        private System.Windows.Forms.Label info;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox searchBox;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.FlowLayoutPanel dropdown;
         
-        private System.Windows.Forms.DataGridViewTextBoxColumn header;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Expiration;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewButtonColumn Edit;
+        #endregion
+        private Panel leftPanel;
+        private Label info;
+        private Label Titele;
+        private Panel rightPanel;
+        private Label lblManage;
+        private Label lblName;
+        private TextBox Name_txtbox;
+        private Label lblQuantityError;
+        private TextBox Quantity_txtbox;
+        private Label lblQuantity;
+        private Label lblNameError;
+        private Label lblUnitError;
+        private Label lblUnit;
+        private Label lblExpireDate;
+        private Label lblDateError;
+        private Label lblStatus;
+        private Label lblStatusError;
+        private Button btnAddInventory;
+        private Button Clearbtn;
+        private DateTimePicker ExpiryDatePicker;
+        private DataGridView dgvInventory;
+        private Label lbl_ActionClick;
+        private Panel panelSearchBox;
+        private TextBox searchBox;
+        private PictureBox pictureBox1;
+        private ComboBox cmbUnit;
+        private ComboBox cmbStatus;
+        private DataGridViewTextBoxColumn ColName;
+        private DataGridViewTextBoxColumn ColQuantity;
+        private DataGridViewTextBoxColumn ColUnit;
+        private DataGridViewTextBoxColumn colExpireDate;
+        private DataGridViewTextBoxColumn colStatus;
+        private DataGridViewLinkColumn ColActions;
+        private DataGridViewLinkColumn ColEdit;
     }
 }

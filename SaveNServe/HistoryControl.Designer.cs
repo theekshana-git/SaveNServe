@@ -58,8 +58,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +73,6 @@
             this.label1.Size = new System.Drawing.Size(98, 32);
             this.label1.TabIndex = 37;
             this.label1.Text = "History";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnClose
             // 
@@ -98,7 +97,6 @@
             this.label2.Size = new System.Drawing.Size(107, 30);
             this.label2.TabIndex = 38;
             this.label2.Text = "Added \'Salt\' ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -112,7 +110,6 @@
             this.label3.Size = new System.Drawing.Size(107, 30);
             this.label3.TabIndex = 39;
             this.label3.Text = "Added \'Salt\' ";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -384,7 +381,7 @@
             this.label14.Size = new System.Drawing.Size(118, 30);
             this.label14.TabIndex = 61;
             this.label14.Text = "Today, 3:42 PM";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
+            
             // 
             // label13
             // 
@@ -450,16 +447,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1020, 451);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.panel6.Location = new System.Drawing.Point(31, 243);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(10);
-            this.panel6.Size = new System.Drawing.Size(860, 1);
-            this.panel6.TabIndex = 59;
             // 
             // panel10
             // 
@@ -470,6 +457,15 @@
             this.panel10.Size = new System.Drawing.Size(860, 1);
             this.panel10.TabIndex = 59;
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.panel6.Location = new System.Drawing.Point(31, 243);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(10);
+            this.panel6.Size = new System.Drawing.Size(860, 1);
+            this.panel6.TabIndex = 59;
+            // 
             // HistoryControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -477,7 +473,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "HistoryControl";
             this.Size = new System.Drawing.Size(1020, 451);
-            this.Load += new System.EventHandler(this.HistoryControl_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
