@@ -28,22 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddIngredientControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Main_panel = new System.Windows.Forms.Panel();
             this.Left_panel = new System.Windows.Forms.Panel();
+            this.lbl_ActionClick = new System.Windows.Forms.Label();
             this.dgvIngredients = new System.Windows.Forms.DataGridView();
+            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColAvailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColActions = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.ColEdit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.lblTitle = new System.Windows.Forms.Label();
             this.Right_panel = new System.Windows.Forms.Panel();
+            this.lblTextureError = new System.Windows.Forms.Label();
+            this.lblTasteError = new System.Windows.Forms.Label();
+            this.lblNinfoError = new System.Windows.Forms.Label();
+            this.lblAvailbilityError = new System.Windows.Forms.Label();
+            this.lblCostError = new System.Windows.Forms.Label();
+            this.lblNameError = new System.Windows.Forms.Label();
             this.Clearbtn = new System.Windows.Forms.Button();
             this.btnAddIngredient = new System.Windows.Forms.Button();
             this.cmbTexture = new System.Windows.Forms.ComboBox();
@@ -60,18 +72,6 @@
             this.Availbility_lbl = new System.Windows.Forms.Label();
             this.OutOfStock_chk = new System.Windows.Forms.CheckBox();
             this.Available_chk = new System.Windows.Forms.CheckBox();
-            this.lbl_ActionClick = new System.Windows.Forms.Label();
-            this.lblNameError = new System.Windows.Forms.Label();
-            this.lblCostError = new System.Windows.Forms.Label();
-            this.lblAvailbilityError = new System.Windows.Forms.Label();
-            this.lblNinfoError = new System.Windows.Forms.Label();
-            this.lblTasteError = new System.Windows.Forms.Label();
-            this.lblTextureError = new System.Windows.Forms.Label();
-            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColAvailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColActions = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.ColEdit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Main_panel.SuspendLayout();
             this.Left_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngredients)).BeginInit();
@@ -80,6 +80,7 @@
             // 
             // Main_panel
             // 
+            this.Main_panel.BackColor = System.Drawing.Color.Gainsboro;
             this.Main_panel.Controls.Add(this.Left_panel);
             this.Main_panel.Controls.Add(this.Right_panel);
             this.Main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -97,28 +98,40 @@
             this.Left_panel.Controls.Add(this.lblTitle);
             this.Left_panel.Location = new System.Drawing.Point(3, 0);
             this.Left_panel.Name = "Left_panel";
-            this.Left_panel.Size = new System.Drawing.Size(656, 601);
+            this.Left_panel.Size = new System.Drawing.Size(663, 601);
             this.Left_panel.TabIndex = 30;
+            // 
+            // lbl_ActionClick
+            // 
+            this.lbl_ActionClick.AutoSize = true;
+            this.lbl_ActionClick.BackColor = System.Drawing.Color.Gainsboro;
+            this.lbl_ActionClick.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ActionClick.Location = new System.Drawing.Point(495, 70);
+            this.lbl_ActionClick.Name = "lbl_ActionClick";
+            this.lbl_ActionClick.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.lbl_ActionClick.Size = new System.Drawing.Size(67, 26);
+            this.lbl_ActionClick.TabIndex = 3;
+            this.lbl_ActionClick.Text = "Actions";
             // 
             // dgvIngredients
             // 
             this.dgvIngredients.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvIngredients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvIngredients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle51;
             this.dgvIngredients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvIngredients.BackgroundColor = System.Drawing.Color.White;
             this.dgvIngredients.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvIngredients.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvIngredients.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(6);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIngredients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle52.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle52.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle52.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle52.Padding = new System.Windows.Forms.Padding(6);
+            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIngredients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle52;
             this.dgvIngredients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvIngredients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColName,
@@ -126,37 +139,100 @@
             this.ColAvailable,
             this.ColActions,
             this.ColEdit});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvIngredients.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle58.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle58.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle58.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvIngredients.DefaultCellStyle = dataGridViewCellStyle58;
             this.dgvIngredients.EnableHeadersVisualStyles = false;
             this.dgvIngredients.GridColor = System.Drawing.SystemColors.Window;
             this.dgvIngredients.Location = new System.Drawing.Point(14, 65);
             this.dgvIngredients.Name = "dgvIngredients";
             this.dgvIngredients.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIngredients.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle59.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle59.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle59.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIngredients.RowHeadersDefaultCellStyle = dataGridViewCellStyle59;
             this.dgvIngredients.RowHeadersVisible = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            this.dgvIngredients.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle60.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle60.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle60.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle60.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle60.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            this.dgvIngredients.RowsDefaultCellStyle = dataGridViewCellStyle60;
             this.dgvIngredients.Size = new System.Drawing.Size(628, 420);
             this.dgvIngredients.TabIndex = 2;
             this.dgvIngredients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIngredients_CellContentClick_1);
+            // 
+            // ColName
+            // 
+            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle53.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColName.DefaultCellStyle = dataGridViewCellStyle53;
+            this.ColName.FillWeight = 131.2896F;
+            this.ColName.HeaderText = "Name";
+            this.ColName.Name = "ColName";
+            this.ColName.ReadOnly = true;
+            // 
+            // ColCost
+            // 
+            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle54.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColCost.DefaultCellStyle = dataGridViewCellStyle54;
+            this.ColCost.FillWeight = 96.49781F;
+            this.ColCost.HeaderText = "Cost";
+            this.ColCost.Name = "ColCost";
+            this.ColCost.ReadOnly = true;
+            // 
+            // ColAvailable
+            // 
+            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle55.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColAvailable.DefaultCellStyle = dataGridViewCellStyle55;
+            this.ColAvailable.FillWeight = 96.49781F;
+            this.ColAvailable.HeaderText = "Availability";
+            this.ColAvailable.Name = "ColAvailable";
+            this.ColAvailable.ReadOnly = true;
+            this.ColAvailable.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColAvailable.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColActions
+            // 
+            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle56.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColActions.DefaultCellStyle = dataGridViewCellStyle56;
+            this.ColActions.FillWeight = 92.41326F;
+            this.ColActions.HeaderText = "";
+            this.ColActions.LinkColor = System.Drawing.Color.Red;
+            this.ColActions.Name = "ColActions";
+            this.ColActions.ReadOnly = true;
+            this.ColActions.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColActions.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColActions.Text = "Delete";
+            this.ColActions.UseColumnTextForLinkValue = true;
+            this.ColActions.VisitedLinkColor = System.Drawing.Color.Red;
+            // 
+            // ColEdit
+            // 
+            this.ColEdit.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle57.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle57.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.ColEdit.DefaultCellStyle = dataGridViewCellStyle57;
+            this.ColEdit.FillWeight = 90.02745F;
+            this.ColEdit.HeaderText = "";
+            this.ColEdit.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.ColEdit.Name = "ColEdit";
+            this.ColEdit.ReadOnly = true;
+            this.ColEdit.Text = "Edit";
+            this.ColEdit.UseColumnTextForLinkValue = true;
+            this.ColEdit.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
             // 
             // lblTitle
             // 
@@ -195,12 +271,84 @@
             this.Right_panel.Controls.Add(this.OutOfStock_chk);
             this.Right_panel.Controls.Add(this.Available_chk);
             this.Right_panel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Right_panel.Location = new System.Drawing.Point(658, 0);
+            this.Right_panel.Location = new System.Drawing.Point(672, 0);
             this.Right_panel.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.Right_panel.Name = "Right_panel";
-            this.Right_panel.Size = new System.Drawing.Size(362, 601);
+            this.Right_panel.Size = new System.Drawing.Size(348, 601);
             this.Right_panel.TabIndex = 29;
             this.Right_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Main_panel_Paint);
+            // 
+            // lblTextureError
+            // 
+            this.lblTextureError.AutoSize = true;
+            this.lblTextureError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblTextureError.ForeColor = System.Drawing.Color.Red;
+            this.lblTextureError.Location = new System.Drawing.Point(31, 510);
+            this.lblTextureError.Name = "lblTextureError";
+            this.lblTextureError.Size = new System.Drawing.Size(164, 15);
+            this.lblTextureError.TabIndex = 39;
+            this.lblTextureError.Text = "Invalid username or password";
+            this.lblTextureError.Visible = false;
+            // 
+            // lblTasteError
+            // 
+            this.lblTasteError.AutoSize = true;
+            this.lblTasteError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblTasteError.ForeColor = System.Drawing.Color.Red;
+            this.lblTasteError.Location = new System.Drawing.Point(31, 429);
+            this.lblTasteError.Name = "lblTasteError";
+            this.lblTasteError.Size = new System.Drawing.Size(164, 15);
+            this.lblTasteError.TabIndex = 38;
+            this.lblTasteError.Text = "Invalid username or password";
+            this.lblTasteError.Visible = false;
+            // 
+            // lblNinfoError
+            // 
+            this.lblNinfoError.AutoSize = true;
+            this.lblNinfoError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblNinfoError.ForeColor = System.Drawing.Color.Red;
+            this.lblNinfoError.Location = new System.Drawing.Point(31, 353);
+            this.lblNinfoError.Name = "lblNinfoError";
+            this.lblNinfoError.Size = new System.Drawing.Size(164, 15);
+            this.lblNinfoError.TabIndex = 37;
+            this.lblNinfoError.Text = "Invalid username or password";
+            this.lblNinfoError.Visible = false;
+            // 
+            // lblAvailbilityError
+            // 
+            this.lblAvailbilityError.AutoSize = true;
+            this.lblAvailbilityError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblAvailbilityError.ForeColor = System.Drawing.Color.Red;
+            this.lblAvailbilityError.Location = new System.Drawing.Point(27, 272);
+            this.lblAvailbilityError.Name = "lblAvailbilityError";
+            this.lblAvailbilityError.Size = new System.Drawing.Size(164, 15);
+            this.lblAvailbilityError.TabIndex = 36;
+            this.lblAvailbilityError.Text = "Invalid username or password";
+            this.lblAvailbilityError.Visible = false;
+            // 
+            // lblCostError
+            // 
+            this.lblCostError.AutoSize = true;
+            this.lblCostError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblCostError.ForeColor = System.Drawing.Color.Red;
+            this.lblCostError.Location = new System.Drawing.Point(27, 191);
+            this.lblCostError.Name = "lblCostError";
+            this.lblCostError.Size = new System.Drawing.Size(164, 15);
+            this.lblCostError.TabIndex = 35;
+            this.lblCostError.Text = "Invalid username or password";
+            this.lblCostError.Visible = false;
+            // 
+            // lblNameError
+            // 
+            this.lblNameError.AutoSize = true;
+            this.lblNameError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblNameError.ForeColor = System.Drawing.Color.Red;
+            this.lblNameError.Location = new System.Drawing.Point(31, 121);
+            this.lblNameError.Name = "lblNameError";
+            this.lblNameError.Size = new System.Drawing.Size(164, 15);
+            this.lblNameError.TabIndex = 34;
+            this.lblNameError.Text = "Invalid username or password";
+            this.lblNameError.Visible = false;
             // 
             // Clearbtn
             // 
@@ -394,153 +542,6 @@
             this.Available_chk.Text = "Available";
             this.Available_chk.UseVisualStyleBackColor = true;
             this.Available_chk.CheckedChanged += new System.EventHandler(this.Available_CheckedChanged);
-            // 
-            // lbl_ActionClick
-            // 
-            this.lbl_ActionClick.AutoSize = true;
-            this.lbl_ActionClick.BackColor = System.Drawing.Color.Gainsboro;
-            this.lbl_ActionClick.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ActionClick.Location = new System.Drawing.Point(495, 70);
-            this.lbl_ActionClick.Name = "lbl_ActionClick";
-            this.lbl_ActionClick.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lbl_ActionClick.Size = new System.Drawing.Size(67, 26);
-            this.lbl_ActionClick.TabIndex = 3;
-            this.lbl_ActionClick.Text = "Actions";
-            // 
-            // lblNameError
-            // 
-            this.lblNameError.AutoSize = true;
-            this.lblNameError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
-            this.lblNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblNameError.Location = new System.Drawing.Point(31, 121);
-            this.lblNameError.Name = "lblNameError";
-            this.lblNameError.Size = new System.Drawing.Size(164, 15);
-            this.lblNameError.TabIndex = 34;
-            this.lblNameError.Text = "Invalid username or password";
-            this.lblNameError.Visible = false;
-            // 
-            // lblCostError
-            // 
-            this.lblCostError.AutoSize = true;
-            this.lblCostError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
-            this.lblCostError.ForeColor = System.Drawing.Color.Red;
-            this.lblCostError.Location = new System.Drawing.Point(27, 191);
-            this.lblCostError.Name = "lblCostError";
-            this.lblCostError.Size = new System.Drawing.Size(164, 15);
-            this.lblCostError.TabIndex = 35;
-            this.lblCostError.Text = "Invalid username or password";
-            this.lblCostError.Visible = false;
-            // 
-            // lblAvailbilityError
-            // 
-            this.lblAvailbilityError.AutoSize = true;
-            this.lblAvailbilityError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
-            this.lblAvailbilityError.ForeColor = System.Drawing.Color.Red;
-            this.lblAvailbilityError.Location = new System.Drawing.Point(27, 272);
-            this.lblAvailbilityError.Name = "lblAvailbilityError";
-            this.lblAvailbilityError.Size = new System.Drawing.Size(164, 15);
-            this.lblAvailbilityError.TabIndex = 36;
-            this.lblAvailbilityError.Text = "Invalid username or password";
-            this.lblAvailbilityError.Visible = false;
-            // 
-            // lblNinfoError
-            // 
-            this.lblNinfoError.AutoSize = true;
-            this.lblNinfoError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
-            this.lblNinfoError.ForeColor = System.Drawing.Color.Red;
-            this.lblNinfoError.Location = new System.Drawing.Point(31, 353);
-            this.lblNinfoError.Name = "lblNinfoError";
-            this.lblNinfoError.Size = new System.Drawing.Size(164, 15);
-            this.lblNinfoError.TabIndex = 37;
-            this.lblNinfoError.Text = "Invalid username or password";
-            this.lblNinfoError.Visible = false;
-            // 
-            // lblTasteError
-            // 
-            this.lblTasteError.AutoSize = true;
-            this.lblTasteError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
-            this.lblTasteError.ForeColor = System.Drawing.Color.Red;
-            this.lblTasteError.Location = new System.Drawing.Point(31, 429);
-            this.lblTasteError.Name = "lblTasteError";
-            this.lblTasteError.Size = new System.Drawing.Size(164, 15);
-            this.lblTasteError.TabIndex = 38;
-            this.lblTasteError.Text = "Invalid username or password";
-            this.lblTasteError.Visible = false;
-            // 
-            // lblTextureError
-            // 
-            this.lblTextureError.AutoSize = true;
-            this.lblTextureError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
-            this.lblTextureError.ForeColor = System.Drawing.Color.Red;
-            this.lblTextureError.Location = new System.Drawing.Point(31, 510);
-            this.lblTextureError.Name = "lblTextureError";
-            this.lblTextureError.Size = new System.Drawing.Size(164, 15);
-            this.lblTextureError.TabIndex = 39;
-            this.lblTextureError.Text = "Invalid username or password";
-            this.lblTextureError.Visible = false;
-            // 
-            // ColName
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColName.FillWeight = 131.2896F;
-            this.ColName.HeaderText = "Name";
-            this.ColName.Name = "ColName";
-            this.ColName.ReadOnly = true;
-            // 
-            // ColCost
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColCost.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColCost.FillWeight = 96.49781F;
-            this.ColCost.HeaderText = "Cost";
-            this.ColCost.Name = "ColCost";
-            this.ColCost.ReadOnly = true;
-            // 
-            // ColAvailable
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColAvailable.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColAvailable.FillWeight = 96.49781F;
-            this.ColAvailable.HeaderText = "Availability";
-            this.ColAvailable.Name = "ColAvailable";
-            this.ColAvailable.ReadOnly = true;
-            this.ColAvailable.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColAvailable.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColActions
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColActions.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ColActions.FillWeight = 92.41326F;
-            this.ColActions.HeaderText = "";
-            this.ColActions.LinkColor = System.Drawing.Color.Red;
-            this.ColActions.Name = "ColActions";
-            this.ColActions.ReadOnly = true;
-            this.ColActions.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColActions.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColActions.Text = "Delete";
-            this.ColActions.UseColumnTextForLinkValue = true;
-            this.ColActions.VisitedLinkColor = System.Drawing.Color.Red;
-            // 
-            // ColEdit
-            // 
-            this.ColEdit.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.ColEdit.DefaultCellStyle = dataGridViewCellStyle7;
-            this.ColEdit.FillWeight = 90.02745F;
-            this.ColEdit.HeaderText = "";
-            this.ColEdit.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.ColEdit.Name = "ColEdit";
-            this.ColEdit.ReadOnly = true;
-            this.ColEdit.Text = "Edit";
-            this.ColEdit.UseColumnTextForLinkValue = true;
-            this.ColEdit.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
             // 
             // AddIngredientControl
             // 
