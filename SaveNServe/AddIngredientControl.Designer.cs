@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddIngredientControl));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Main_panel = new System.Windows.Forms.Panel();
             this.Left_panel = new System.Windows.Forms.Panel();
             this.panelSearchBox = new System.Windows.Forms.Panel();
             this.searchBox = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_ActionClick = new System.Windows.Forms.Label();
             this.dgvIngredients = new System.Windows.Forms.DataGridView();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -51,8 +51,8 @@
             this.lblTasteError = new System.Windows.Forms.Label();
             this.lblNinfoError = new System.Windows.Forms.Label();
             this.lblAvailbilityError = new System.Windows.Forms.Label();
-            this.lblCostError = new System.Windows.Forms.Label();
             this.lblNameError = new System.Windows.Forms.Label();
+            this.Clearbtn = new System.Windows.Forms.Button();
             this.btnAddIngredient = new System.Windows.Forms.Button();
             this.cmbTexture = new System.Windows.Forms.ComboBox();
             this.cmbTaste = new System.Windows.Forms.ComboBox();
@@ -62,25 +62,20 @@
             this.AddIngredients_lbl = new System.Windows.Forms.Label();
             this.Name_Textbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Cost_lbl = new System.Windows.Forms.Label();
-            this.Cost_Textbox = new System.Windows.Forms.TextBox();
             this.NuInfo_lbl = new System.Windows.Forms.Label();
             this.Availbility_lbl = new System.Windows.Forms.Label();
             this.OutOfStock_chk = new System.Windows.Forms.CheckBox();
             this.Available_chk = new System.Windows.Forms.CheckBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Clearbtn = new System.Windows.Forms.Button();
             this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColAvailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColActions = new System.Windows.Forms.DataGridViewLinkColumn();
             this.ColEdit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Main_panel.SuspendLayout();
             this.Left_panel.SuspendLayout();
             this.panelSearchBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngredients)).BeginInit();
             this.Right_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Main_panel
@@ -130,6 +125,19 @@
             this.searchBox.TabIndex = 2;
             this.searchBox.Text = "Search Ingredient";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::SaveNServe.Properties.Resources.icons8_search_30;
+            this.pictureBox1.InitialImage = global::SaveNServe.Properties.Resources.icons8_search_30;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 8);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 3, 5, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // lbl_ActionClick
             // 
             this.lbl_ActionClick.AutoSize = true;
@@ -145,61 +153,60 @@
             // dgvIngredients
             // 
             this.dgvIngredients.AllowUserToAddRows = false;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvIngredients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvIngredients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvIngredients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvIngredients.BackgroundColor = System.Drawing.Color.White;
             this.dgvIngredients.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvIngredients.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvIngredients.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(6);
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIngredients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(6);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIngredients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvIngredients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvIngredients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColName,
-            this.ColCost,
             this.ColAvailable,
             this.ColActions,
             this.ColEdit});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIngredients.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIngredients.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgvIngredients.EnableHeadersVisualStyles = false;
             this.dgvIngredients.GridColor = System.Drawing.SystemColors.Window;
             this.dgvIngredients.Location = new System.Drawing.Point(23, 131);
             this.dgvIngredients.Name = "dgvIngredients";
             this.dgvIngredients.ReadOnly = true;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIngredients.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIngredients.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvIngredients.RowHeadersVisible = false;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIngredients.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIngredients.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvIngredients.RowTemplate.Height = 40;
             this.dgvIngredients.Size = new System.Drawing.Size(628, 420);
             this.dgvIngredients.TabIndex = 2;
@@ -222,7 +229,6 @@
             this.Right_panel.Controls.Add(this.lblTasteError);
             this.Right_panel.Controls.Add(this.lblNinfoError);
             this.Right_panel.Controls.Add(this.lblAvailbilityError);
-            this.Right_panel.Controls.Add(this.lblCostError);
             this.Right_panel.Controls.Add(this.lblNameError);
             this.Right_panel.Controls.Add(this.Clearbtn);
             this.Right_panel.Controls.Add(this.btnAddIngredient);
@@ -234,8 +240,6 @@
             this.Right_panel.Controls.Add(this.AddIngredients_lbl);
             this.Right_panel.Controls.Add(this.Name_Textbox);
             this.Right_panel.Controls.Add(this.label1);
-            this.Right_panel.Controls.Add(this.Cost_lbl);
-            this.Right_panel.Controls.Add(this.Cost_Textbox);
             this.Right_panel.Controls.Add(this.NuInfo_lbl);
             this.Right_panel.Controls.Add(this.Availbility_lbl);
             this.Right_panel.Controls.Add(this.OutOfStock_chk);
@@ -263,7 +267,7 @@
             this.lblTasteError.AutoSize = true;
             this.lblTasteError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.lblTasteError.ForeColor = System.Drawing.Color.Red;
-            this.lblTasteError.Location = new System.Drawing.Point(31, 429);
+            this.lblTasteError.Location = new System.Drawing.Point(31, 418);
             this.lblTasteError.Name = "lblTasteError";
             this.lblTasteError.Size = new System.Drawing.Size(164, 15);
             this.lblTasteError.TabIndex = 38;
@@ -275,7 +279,7 @@
             this.lblNinfoError.AutoSize = true;
             this.lblNinfoError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.lblNinfoError.ForeColor = System.Drawing.Color.Red;
-            this.lblNinfoError.Location = new System.Drawing.Point(31, 353);
+            this.lblNinfoError.Location = new System.Drawing.Point(31, 318);
             this.lblNinfoError.Name = "lblNinfoError";
             this.lblNinfoError.Size = new System.Drawing.Size(164, 15);
             this.lblNinfoError.TabIndex = 37;
@@ -287,36 +291,40 @@
             this.lblAvailbilityError.AutoSize = true;
             this.lblAvailbilityError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.lblAvailbilityError.ForeColor = System.Drawing.Color.Red;
-            this.lblAvailbilityError.Location = new System.Drawing.Point(27, 275);
+            this.lblAvailbilityError.Location = new System.Drawing.Point(27, 223);
             this.lblAvailbilityError.Name = "lblAvailbilityError";
             this.lblAvailbilityError.Size = new System.Drawing.Size(164, 15);
             this.lblAvailbilityError.TabIndex = 36;
             this.lblAvailbilityError.Text = "Invalid username or password";
             this.lblAvailbilityError.Visible = false;
             // 
-            // lblCostError
-            // 
-            this.lblCostError.AutoSize = true;
-            this.lblCostError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
-            this.lblCostError.ForeColor = System.Drawing.Color.Red;
-            this.lblCostError.Location = new System.Drawing.Point(27, 201);
-            this.lblCostError.Name = "lblCostError";
-            this.lblCostError.Size = new System.Drawing.Size(164, 15);
-            this.lblCostError.TabIndex = 35;
-            this.lblCostError.Text = "Invalid username or password";
-            this.lblCostError.Visible = false;
-            // 
             // lblNameError
             // 
             this.lblNameError.AutoSize = true;
             this.lblNameError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.lblNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblNameError.Location = new System.Drawing.Point(30, 127);
+            this.lblNameError.Location = new System.Drawing.Point(27, 131);
             this.lblNameError.Name = "lblNameError";
             this.lblNameError.Size = new System.Drawing.Size(164, 15);
             this.lblNameError.TabIndex = 34;
             this.lblNameError.Text = "Invalid username or password";
             this.lblNameError.Visible = false;
+            // 
+            // Clearbtn
+            // 
+            this.Clearbtn.BackColor = System.Drawing.Color.White;
+            this.Clearbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clearbtn.ForeColor = System.Drawing.Color.Black;
+            this.Clearbtn.Image = ((System.Drawing.Image)(resources.GetObject("Clearbtn.Image")));
+            this.Clearbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Clearbtn.Location = new System.Drawing.Point(249, 65);
+            this.Clearbtn.Name = "Clearbtn";
+            this.Clearbtn.Size = new System.Drawing.Size(61, 26);
+            this.Clearbtn.TabIndex = 33;
+            this.Clearbtn.Text = "Clear";
+            this.Clearbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Clearbtn.UseVisualStyleBackColor = false;
+            this.Clearbtn.Click += new System.EventHandler(this.Clearbtn_Click);
             // 
             // btnAddIngredient
             // 
@@ -345,7 +353,8 @@
             "Creamy",
             "Chewy",
             "Soft",
-            "Grainy"});
+            "Grainy",
+            "Other"});
             this.cmbTexture.Location = new System.Drawing.Point(30, 479);
             this.cmbTexture.Name = "cmbTexture";
             this.cmbTexture.Size = new System.Drawing.Size(280, 28);
@@ -363,7 +372,7 @@
             "Salty",
             "Bitter",
             "Savory"});
-            this.cmbTaste.Location = new System.Drawing.Point(30, 398);
+            this.cmbTaste.Location = new System.Drawing.Point(30, 387);
             this.cmbTaste.Name = "cmbTaste";
             this.cmbTaste.Size = new System.Drawing.Size(280, 28);
             this.cmbTaste.TabIndex = 30;
@@ -379,8 +388,12 @@
             "Low Fat",
             "Rich in Fiber",
             "Low Carb",
-            "Low Calorie"});
-            this.cmbNutInfo.Location = new System.Drawing.Point(30, 322);
+            "Low Calorie",
+            "High Calorie",
+            "High Carb",
+            "High Fat",
+            "Other"});
+            this.cmbNutInfo.Location = new System.Drawing.Point(30, 287);
             this.cmbNutInfo.Name = "cmbNutInfo";
             this.cmbNutInfo.Size = new System.Drawing.Size(280, 28);
             this.cmbNutInfo.TabIndex = 29;
@@ -419,7 +432,7 @@
             // Name_Textbox
             // 
             this.Name_Textbox.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name_Textbox.Location = new System.Drawing.Point(30, 98);
+            this.Name_Textbox.Location = new System.Drawing.Point(30, 97);
             this.Name_Textbox.Name = "Name_Textbox";
             this.Name_Textbox.Size = new System.Drawing.Size(280, 27);
             this.Name_Textbox.TabIndex = 18;
@@ -428,35 +441,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 374);
+            this.label1.Location = new System.Drawing.Point(30, 363);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 21);
             this.label1.TabIndex = 26;
             this.label1.Text = "Taste";
             // 
-            // Cost_lbl
-            // 
-            this.Cost_lbl.AutoSize = true;
-            this.Cost_lbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cost_lbl.Location = new System.Drawing.Point(26, 146);
-            this.Cost_lbl.Name = "Cost_lbl";
-            this.Cost_lbl.Size = new System.Drawing.Size(43, 21);
-            this.Cost_lbl.TabIndex = 19;
-            this.Cost_lbl.Text = "Cost";
-            // 
-            // Cost_Textbox
-            // 
-            this.Cost_Textbox.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cost_Textbox.Location = new System.Drawing.Point(30, 171);
-            this.Cost_Textbox.Name = "Cost_Textbox";
-            this.Cost_Textbox.Size = new System.Drawing.Size(280, 27);
-            this.Cost_Textbox.TabIndex = 20;
-            // 
             // NuInfo_lbl
             // 
             this.NuInfo_lbl.AutoSize = true;
             this.NuInfo_lbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NuInfo_lbl.Location = new System.Drawing.Point(26, 298);
+            this.NuInfo_lbl.Location = new System.Drawing.Point(26, 263);
             this.NuInfo_lbl.Name = "NuInfo_lbl";
             this.NuInfo_lbl.Size = new System.Drawing.Size(130, 21);
             this.NuInfo_lbl.TabIndex = 24;
@@ -466,7 +461,7 @@
             // 
             this.Availbility_lbl.AutoSize = true;
             this.Availbility_lbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Availbility_lbl.Location = new System.Drawing.Point(26, 223);
+            this.Availbility_lbl.Location = new System.Drawing.Point(26, 171);
             this.Availbility_lbl.Name = "Availbility_lbl";
             this.Availbility_lbl.Size = new System.Drawing.Size(89, 21);
             this.Availbility_lbl.TabIndex = 23;
@@ -476,7 +471,7 @@
             // 
             this.OutOfStock_chk.AutoSize = true;
             this.OutOfStock_chk.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OutOfStock_chk.Location = new System.Drawing.Point(144, 248);
+            this.OutOfStock_chk.Location = new System.Drawing.Point(141, 195);
             this.OutOfStock_chk.Name = "OutOfStock_chk";
             this.OutOfStock_chk.Size = new System.Drawing.Size(117, 25);
             this.OutOfStock_chk.TabIndex = 22;
@@ -488,7 +483,7 @@
             // 
             this.Available_chk.AutoSize = true;
             this.Available_chk.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Available_chk.Location = new System.Drawing.Point(30, 247);
+            this.Available_chk.Location = new System.Drawing.Point(30, 195);
             this.Available_chk.Name = "Available_chk";
             this.Available_chk.Size = new System.Drawing.Size(92, 25);
             this.Available_chk.TabIndex = 21;
@@ -496,61 +491,22 @@
             this.Available_chk.UseVisualStyleBackColor = true;
             this.Available_chk.CheckedChanged += new System.EventHandler(this.Available_CheckedChanged);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::SaveNServe.Properties.Resources.icons8_search_30;
-            this.pictureBox1.InitialImage = global::SaveNServe.Properties.Resources.icons8_search_30;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 8);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 3, 5, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Clearbtn
-            // 
-            this.Clearbtn.BackColor = System.Drawing.Color.White;
-            this.Clearbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clearbtn.ForeColor = System.Drawing.Color.Black;
-            this.Clearbtn.Image = ((System.Drawing.Image)(resources.GetObject("Clearbtn.Image")));
-            this.Clearbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Clearbtn.Location = new System.Drawing.Point(249, 65);
-            this.Clearbtn.Name = "Clearbtn";
-            this.Clearbtn.Size = new System.Drawing.Size(61, 26);
-            this.Clearbtn.TabIndex = 33;
-            this.Clearbtn.Text = "Clear";
-            this.Clearbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Clearbtn.UseVisualStyleBackColor = false;
-            this.Clearbtn.Click += new System.EventHandler(this.Clearbtn_Click);
-            // 
             // ColName
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColName.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColName.DefaultCellStyle = dataGridViewCellStyle12;
             this.ColName.FillWeight = 39.50299F;
             this.ColName.HeaderText = "Name";
             this.ColName.Name = "ColName";
             this.ColName.ReadOnly = true;
             this.ColName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // ColCost
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColCost.DefaultCellStyle = dataGridViewCellStyle14;
-            this.ColCost.FillWeight = 29.03469F;
-            this.ColCost.HeaderText = "Cost";
-            this.ColCost.Name = "ColCost";
-            this.ColCost.ReadOnly = true;
-            // 
             // ColAvailable
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColAvailable.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColAvailable.DefaultCellStyle = dataGridViewCellStyle13;
             this.ColAvailable.FillWeight = 308.6655F;
             this.ColAvailable.HeaderText = "Availability";
             this.ColAvailable.Name = "ColAvailable";
@@ -560,9 +516,9 @@
             // 
             // ColActions
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColActions.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColActions.DefaultCellStyle = dataGridViewCellStyle14;
             this.ColActions.FillWeight = 57.63834F;
             this.ColActions.HeaderText = "";
             this.ColActions.LinkColor = System.Drawing.Color.Red;
@@ -577,10 +533,10 @@
             // ColEdit
             // 
             this.ColEdit.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.ColEdit.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.ColEdit.DefaultCellStyle = dataGridViewCellStyle15;
             this.ColEdit.FillWeight = 71.88435F;
             this.ColEdit.HeaderText = "";
             this.ColEdit.LinkColor = System.Drawing.Color.DodgerBlue;
@@ -602,10 +558,10 @@
             this.Left_panel.PerformLayout();
             this.panelSearchBox.ResumeLayout(false);
             this.panelSearchBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngredients)).EndInit();
             this.Right_panel.ResumeLayout(false);
             this.Right_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -616,8 +572,6 @@
         private System.Windows.Forms.Label Availbility_lbl;
         private System.Windows.Forms.CheckBox OutOfStock_chk;
         private System.Windows.Forms.CheckBox Available_chk;
-        private System.Windows.Forms.TextBox Cost_Textbox;
-        private System.Windows.Forms.Label Cost_lbl;
         private System.Windows.Forms.TextBox Name_Textbox;
         private System.Windows.Forms.Label AddIngredients_lbl;
         private System.Windows.Forms.Label NuInfo_lbl;
@@ -634,7 +588,6 @@
         private System.Windows.Forms.DataGridView dgvIngredients;
         private System.Windows.Forms.Button Clearbtn;
         private System.Windows.Forms.Label lbl_ActionClick;
-        private System.Windows.Forms.Label lblCostError;
         private System.Windows.Forms.Label lblNameError;
         private System.Windows.Forms.Label lblTasteError;
         private System.Windows.Forms.Label lblNinfoError;
@@ -644,7 +597,6 @@
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColAvailable;
         private System.Windows.Forms.DataGridViewLinkColumn ColActions;
         private System.Windows.Forms.DataGridViewLinkColumn ColEdit;

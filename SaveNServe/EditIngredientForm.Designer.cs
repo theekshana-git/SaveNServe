@@ -30,12 +30,9 @@
         {
             this.Addlbl = new System.Windows.Forms.Label();
             this.lblAvailbilityError = new System.Windows.Forms.Label();
-            this.lblCostError = new System.Windows.Forms.Label();
             this.lblNameError = new System.Windows.Forms.Label();
             this.AddIngredients_lbl = new System.Windows.Forms.Label();
             this.Name_Textbox = new System.Windows.Forms.TextBox();
-            this.Cost_lbl = new System.Windows.Forms.Label();
-            this.Cost_Textbox = new System.Windows.Forms.TextBox();
             this.Availbility_lbl = new System.Windows.Forms.Label();
             this.OutOfStock_chk = new System.Windows.Forms.CheckBox();
             this.Available_chk = new System.Windows.Forms.CheckBox();
@@ -47,7 +44,7 @@
             this.Addlbl.AutoSize = true;
             this.Addlbl.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Addlbl.ForeColor = System.Drawing.Color.Black;
-            this.Addlbl.Location = new System.Drawing.Point(61, 31);
+            this.Addlbl.Location = new System.Drawing.Point(20, 28);
             this.Addlbl.Name = "Addlbl";
             this.Addlbl.Size = new System.Drawing.Size(160, 30);
             this.Addlbl.TabIndex = 21;
@@ -58,31 +55,19 @@
             this.lblAvailbilityError.AutoSize = true;
             this.lblAvailbilityError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.lblAvailbilityError.ForeColor = System.Drawing.Color.Red;
-            this.lblAvailbilityError.Location = new System.Drawing.Point(22, 300);
+            this.lblAvailbilityError.Location = new System.Drawing.Point(22, 240);
             this.lblAvailbilityError.Name = "lblAvailbilityError";
             this.lblAvailbilityError.Size = new System.Drawing.Size(164, 15);
             this.lblAvailbilityError.TabIndex = 47;
             this.lblAvailbilityError.Text = "Invalid username or password";
             this.lblAvailbilityError.Visible = false;
             // 
-            // lblCostError
-            // 
-            this.lblCostError.AutoSize = true;
-            this.lblCostError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
-            this.lblCostError.ForeColor = System.Drawing.Color.Red;
-            this.lblCostError.Location = new System.Drawing.Point(22, 222);
-            this.lblCostError.Name = "lblCostError";
-            this.lblCostError.Size = new System.Drawing.Size(164, 15);
-            this.lblCostError.TabIndex = 46;
-            this.lblCostError.Text = "Invalid username or password";
-            this.lblCostError.Visible = false;
-            // 
             // lblNameError
             // 
             this.lblNameError.AutoSize = true;
             this.lblNameError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.lblNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblNameError.Location = new System.Drawing.Point(22, 140);
+            this.lblNameError.Location = new System.Drawing.Point(22, 142);
             this.lblNameError.Name = "lblNameError";
             this.lblNameError.Size = new System.Drawing.Size(164, 15);
             this.lblNameError.TabIndex = 45;
@@ -101,33 +86,17 @@
             // 
             // Name_Textbox
             // 
-            this.Name_Textbox.Location = new System.Drawing.Point(21, 112);
+            this.Name_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name_Textbox.Location = new System.Drawing.Point(25, 115);
             this.Name_Textbox.Name = "Name_Textbox";
-            this.Name_Textbox.Size = new System.Drawing.Size(280, 20);
+            this.Name_Textbox.Size = new System.Drawing.Size(280, 24);
             this.Name_Textbox.TabIndex = 38;
-            // 
-            // Cost_lbl
-            // 
-            this.Cost_lbl.AutoSize = true;
-            this.Cost_lbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cost_lbl.Location = new System.Drawing.Point(21, 162);
-            this.Cost_lbl.Name = "Cost_lbl";
-            this.Cost_lbl.Size = new System.Drawing.Size(47, 21);
-            this.Cost_lbl.TabIndex = 39;
-            this.Cost_lbl.Text = "Cost:";
-            // 
-            // Cost_Textbox
-            // 
-            this.Cost_Textbox.Location = new System.Drawing.Point(21, 192);
-            this.Cost_Textbox.Name = "Cost_Textbox";
-            this.Cost_Textbox.Size = new System.Drawing.Size(280, 20);
-            this.Cost_Textbox.TabIndex = 40;
             // 
             // Availbility_lbl
             // 
             this.Availbility_lbl.AutoSize = true;
             this.Availbility_lbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Availbility_lbl.Location = new System.Drawing.Point(21, 242);
+            this.Availbility_lbl.Location = new System.Drawing.Point(21, 179);
             this.Availbility_lbl.Name = "Availbility_lbl";
             this.Availbility_lbl.Size = new System.Drawing.Size(93, 21);
             this.Availbility_lbl.TabIndex = 43;
@@ -136,10 +105,10 @@
             // OutOfStock_chk
             // 
             this.OutOfStock_chk.AutoSize = true;
-            this.OutOfStock_chk.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OutOfStock_chk.Location = new System.Drawing.Point(137, 272);
+            this.OutOfStock_chk.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutOfStock_chk.Location = new System.Drawing.Point(138, 213);
             this.OutOfStock_chk.Name = "OutOfStock_chk";
-            this.OutOfStock_chk.Size = new System.Drawing.Size(117, 25);
+            this.OutOfStock_chk.Size = new System.Drawing.Size(112, 24);
             this.OutOfStock_chk.TabIndex = 42;
             this.OutOfStock_chk.Text = "Out Of Stock";
             this.OutOfStock_chk.UseVisualStyleBackColor = true;
@@ -148,10 +117,10 @@
             // Available_chk
             // 
             this.Available_chk.AutoSize = true;
-            this.Available_chk.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Available_chk.Location = new System.Drawing.Point(25, 272);
+            this.Available_chk.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Available_chk.Location = new System.Drawing.Point(24, 213);
             this.Available_chk.Name = "Available_chk";
-            this.Available_chk.Size = new System.Drawing.Size(92, 25);
+            this.Available_chk.Size = new System.Drawing.Size(90, 24);
             this.Available_chk.TabIndex = 41;
             this.Available_chk.Text = "Available";
             this.Available_chk.UseVisualStyleBackColor = true;
@@ -164,12 +133,12 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(32, 335);
+            this.btnSave.Location = new System.Drawing.Point(25, 286);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(243, 35);
+            this.btnSave.Size = new System.Drawing.Size(280, 35);
             this.btnSave.TabIndex = 48;
-            this.btnSave.Text = "ADD INGREDIENT";
+            this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -177,15 +146,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 388);
+            this.ClientSize = new System.Drawing.Size(329, 356);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblAvailbilityError);
-            this.Controls.Add(this.lblCostError);
             this.Controls.Add(this.lblNameError);
             this.Controls.Add(this.AddIngredients_lbl);
             this.Controls.Add(this.Name_Textbox);
-            this.Controls.Add(this.Cost_lbl);
-            this.Controls.Add(this.Cost_Textbox);
             this.Controls.Add(this.Availbility_lbl);
             this.Controls.Add(this.OutOfStock_chk);
             this.Controls.Add(this.Available_chk);
@@ -201,12 +167,9 @@
         #endregion
         private System.Windows.Forms.Label Addlbl;
         private System.Windows.Forms.Label lblAvailbilityError;
-        private System.Windows.Forms.Label lblCostError;
         private System.Windows.Forms.Label lblNameError;
         private System.Windows.Forms.Label AddIngredients_lbl;
         private System.Windows.Forms.TextBox Name_Textbox;
-        private System.Windows.Forms.Label Cost_lbl;
-        private System.Windows.Forms.TextBox Cost_Textbox;
         private System.Windows.Forms.Label Availbility_lbl;
         private System.Windows.Forms.CheckBox OutOfStock_chk;
         private System.Windows.Forms.CheckBox Available_chk;

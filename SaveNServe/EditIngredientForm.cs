@@ -19,7 +19,7 @@ namespace SaveNServe
 
         public string Name { get; set; }
 
-        public string Cost { get; set; }
+        
 
         public string Available { get; set; }
 
@@ -27,7 +27,7 @@ namespace SaveNServe
         private void EditIngredientForm_Load(object sender, EventArgs e)
         {
             Name_Textbox.Text = Name;
-            Cost_Textbox.Text = Cost;
+           
             
             if(Available == "Avaliable") 
             {
@@ -40,14 +40,13 @@ namespace SaveNServe
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            foreach (var lbl in new[] { lblNameError, lblCostError, lblAvailbilityError})
+            foreach (var lbl in new[] { lblNameError, lblAvailbilityError})
             {
                 lbl.Visible = false;
             }
 
             string name = Name_Textbox.Text.Trim();
-            string cost = Cost_Textbox.Text.Trim();
-
+            
             // Checkbox
             string Available = "";
 
@@ -82,13 +81,7 @@ namespace SaveNServe
                 ErrorCheck = true;
             }
 
-            if ((string.IsNullOrEmpty(cost) || !decimal.TryParse(cost, out decimal costInput) || costInput < 0))
-            {
-                lblCostError.Text = "Enter a Valid Number";
-                lblCostError.Visible = true;
-                Cost_Textbox.Focus();
-                ErrorCheck = true;
-            }
+            
 
             if (!Available_chk.Checked && !OutOfStock_chk.Checked)
             {
@@ -104,7 +97,7 @@ namespace SaveNServe
             }
 
             this.Name = name;
-            this.Cost = cost;
+            
             this.Available = Available;
             this.DialogResult = DialogResult.OK;
             this.Close();

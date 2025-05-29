@@ -29,7 +29,7 @@ namespace SaveNServe
 
         private void btnAddInventory_Click(object sender, EventArgs e)
         {
-            foreach (var lbl in new[] { lblNameError , lblQuantityError , lblUnitError , lblDateError , lblStatusError })
+            foreach (var lbl in new[] { lblNameError , lblQuantityError , lblUnitError , lblDateError })
             {
                 lbl.Visible = false;
             }
@@ -39,7 +39,7 @@ namespace SaveNServe
             string quantity = Quantity_txtbox.Text.Trim();
             string unit = cmbUnit.SelectedItem?.ToString();
             DateTime expirydate = ExpiryDatePicker.Value;
-            string status = cmbStatus.SelectedItem?.ToString();
+            
 
             bool ErrorCheck = false;
 
@@ -87,13 +87,7 @@ namespace SaveNServe
             }
 
 
-            if (string.IsNullOrEmpty(status))
-            {
-                lblStatusError.Text = "Please select a status";
-                lblStatusError.Visible = true;
-                cmbStatus.Focus();
-                ErrorCheck = true;
-            }
+            
 
             if (ErrorCheck)
             {
@@ -101,7 +95,7 @@ namespace SaveNServe
             }
 
 
-            dgvInventory.Rows.Add(name, quantity, unit, expirydate.ToShortDateString(), status);
+            dgvInventory.Rows.Add(name, quantity, unit, expirydate.ToShortDateString());
 
             // If passed
             MessageBox.Show("Inventory added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -118,13 +112,13 @@ namespace SaveNServe
             ExpiryDatePicker.Value = DateTime.Today;
 
             cmbUnit.SelectedIndex = -1;
-            cmbStatus.SelectedIndex = -1;
+           
 
            
         }
         private void RemovePlaceholder(object sender, EventArgs e)
         {
-            if (searchBox.Text == "Search ingredients...")
+            if (searchBox.Text == "Search Ingredient")
             {
                 searchBox.Text = "";
                 searchBox.ForeColor = Color.Black;
@@ -135,14 +129,14 @@ namespace SaveNServe
         {
             if (string.IsNullOrWhiteSpace(searchBox.Text))
             {
-                searchBox.Text = "Search ingredients...";
-                searchBox.ForeColor = Color.Black;
+                searchBox.Text = "Search Ingredient";
+                searchBox.ForeColor = Color.DimGray;
             }
         }
         private void InventoryControl_Load(object sender, EventArgs e)
         {
-            searchBox.Text = "Search ingredients...";
-            searchBox.ForeColor = Color.Black;
+            searchBox.Text = "Search Ingredient";
+            searchBox.ForeColor = Color.DimGray;
 
             searchBox.GotFocus += RemovePlaceholder;
             searchBox.LostFocus += SetPlaceholder;
@@ -153,12 +147,7 @@ namespace SaveNServe
             ExpiryDatePicker.Value = DateTime.Today;
         }
 
-        private void butinfo_Click(object sender, EventArgs e)
-        {
-
-            string infor = "“This tab manages the available quantity and shelf life of ingredients. To add new ingredients, use the Add Ingredients tab.”";
-            info.Text = infor;
-        }
+        
 
         
         private void searchbox_TextChanged(object sender, EventArgs e)
@@ -175,7 +164,7 @@ namespace SaveNServe
             }
         }
 
-        bool exapned = false;
+        
        
         
        
@@ -254,53 +243,21 @@ namespace SaveNServe
             if (dgvInventory.Columns[e.ColumnIndex].Name == "colStatus")
             {
                 string status = e.Value?.ToString();
-                if (status == "Ok")
+                if (status == "OK")
                 {
                     e.CellStyle.ForeColor = Color.Green;
-                    //e.CellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+                   
                 }
                 else if (status == "Low")
                 {
                     e.CellStyle.ForeColor = Color.Gold;
-                    //e.CellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+                   
                 }
                 else
                 {
                     e.CellStyle.ForeColor = Color.Red;
                 }
             }
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rightPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-
-        private void lbl_ActionClick_Click(object sender, EventArgs e)
-        {
-
         }
 
     }

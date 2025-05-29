@@ -16,9 +16,8 @@ namespace SaveNServe
             dgvIngredients.CellPainting += dgvIngredients_CellPainting;
             dgvIngredients.CellContentClick += dgvIngredients_CellContentClick;
             dgvIngredients.CellFormatting += dgvIngredients_CellFormatting;
-            dgvIngredients.Columns["ColName"].Width = 200;        // Roomy for ingredient names
-            dgvIngredients.Columns["ColCost"].Width = 100;        // Enough for prices
-            dgvIngredients.Columns["ColAvailable"].Width = 120;   // To fit "Available"/"Out of Stock"
+            dgvIngredients.Columns["ColName"].Width = 250;        // Roomy for ingredient names
+            dgvIngredients.Columns["ColAvailable"].Width = 170;   // To fit "Available"/"Out of Stock"
             dgvIngredients.Columns["ColEdit"].Width = 60;         // Compact for Edit link
             dgvIngredients.Columns["ColActions"].Width = 70;      // Compact for Delete link
 
@@ -29,14 +28,14 @@ namespace SaveNServe
         private void btnAddIngredient_Click(object sender, EventArgs e)
         {
             // Hides all error labels 
-            foreach (var lbl in new[] { lblNameError, lblCostError, lblAvailbilityError, lblNinfoError, lblTasteError, lblTextureError })
+            foreach (var lbl in new[] { lblNameError, lblAvailbilityError, lblNinfoError, lblTasteError, lblTextureError })
             {
                 lbl.Visible = false;
             }
 
             //Get user inputs
             string name = Name_Textbox.Text.Trim();
-            string cost = Cost_Textbox.Text.Trim();
+           
 
             // Checkbox
             string Available = "";
@@ -78,13 +77,7 @@ namespace SaveNServe
                 ErrorCheck = true;
             }
 
-            if ((string.IsNullOrEmpty(cost) || !decimal.TryParse(cost, out decimal costInput) || costInput < 0))
-            {
-                lblCostError.Text = "Enter a Valid Number";
-                lblCostError.Visible = true;
-                Cost_Textbox.Focus();
-                ErrorCheck = true;
-            }
+           
 
             if (!Available_chk.Checked && !OutOfStock_chk.Checked)
             {
@@ -131,7 +124,7 @@ namespace SaveNServe
             }
 
             // Add to data grid view table
-            dgvIngredients.Rows.Add(name, cost, Available);
+            dgvIngredients.Rows.Add(name, Available);
 
             MessageBox.Show("Ingredient added successfully!", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -251,14 +244,14 @@ namespace SaveNServe
                 EditIngredientForm editIngForm = new EditIngredientForm
                 {
                     Name = row.Cells["ColName"].Value.ToString(),
-                    Cost = row.Cells["ColCost"].Value.ToString(),
+                   
                     Available = row.Cells["ColAvailable"].Value.ToString()
                 };
 
                 if (editIngForm.ShowDialog() == DialogResult.OK)
                 {
                     row.Cells["ColName"].Value = editIngForm.Name;
-                    row.Cells["ColCost"].Value = editIngForm.Cost;
+                    
                     row.Cells["ColAvailable"].Value = editIngForm.Available;
                 }
             }
@@ -268,7 +261,7 @@ namespace SaveNServe
         private void Clearbtn_Click(object sender, EventArgs e)
         {
             Name_Textbox.Clear();
-            Cost_Textbox.Clear();
+            
 
             Available_chk.Checked = false;
             OutOfStock_chk.Checked = false;
