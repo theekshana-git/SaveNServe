@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
+
 
 
 
@@ -9,20 +14,23 @@ namespace SaveNServe
 {
     public partial class SubstitutionsControl : UserControl
     {
-        
 
+        private string currentUser;
 
-        public SubstitutionsControl()
+        public SubstitutionsControl(string username)
         {
 
 
             InitializeComponent();
-
+            currentUser = username;
 
             searchBox.Enter += TxtSearchIngredient_Enter;
             searchBox.LostFocus += TxtSearchIngredient_Leave;
             dataGridView1.CellPainting += dgvSubs_CellPainting;
-
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            searchBox.KeyDown += SearchBox_KeyDown;
+            add_btn.Click += BtnAdd_Click;
+            Clearbtn.Click += Clearbtn_Click;
 
             dataGridView1.Columns["original"].Width = 160;
             dataGridView1.Columns["suggestion"].Width = 160;
@@ -30,28 +38,45 @@ namespace SaveNServe
             dataGridView1.Columns["colActions"].Width = 84;
             dataGridView1.Columns["colDelete"].Width = 84;
 
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-
-
+            LoadSubstitutions();
 
         }
 
-
-
-        protected override void OnLoad(EventArgs e)
+        private void LoadSubstitutions()
         {
-            base.OnLoad(e);
+            string query = @"
+        SELECT 
+            i1.Name AS Ingredient, 
+            i2.Name AS Substitute, 
+            s.SimilarityScore
+        FROM Substitutions s
+        INNER JOIN Ingredients i1 ON s.IngredientID = i1.IngredientID
+        INNER JOIN Ingredients i2 ON s.SubstituteID = i2.IngredientID
+        ORDER BY s.CreatedDate DESC";
 
-          
+            try
+            {
+                DataTable dt = DatabaseHelper.ExecuteQuery(query);
+                dataGridView1.Rows.Clear();
 
-            dataGridView1.Visible = true;
+                foreach (DataRow row in dt.Rows)
+                {
+                    string original = row["Ingredient"].ToString();
+                    string substitute = row["Substitute"].ToString();
+                    string score = row["SimilarityScore"].ToString();
 
-            add_btn.Click += BtnAdd_Click;
-
-
-
-
+                    dataGridView1.Rows.Add(original, substitute, score, "Delete", "Edit");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading substitutions: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
+
+
 
 
 
@@ -87,7 +112,7 @@ namespace SaveNServe
         }
 
 
-       
+
 
         private void dgvSubs_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
@@ -151,18 +176,62 @@ namespace SaveNServe
                 return;
             }
 
-            // Add to DataGridView directly
-            dataGridView1.Rows.Add(originalIngredient, substitute, score, "Delete", "Edit");
+            // Validate ingredients exist and get their IDs
+            int originalId = GetIngredientIdByName(originalIngredient);
+            int substituteId = GetIngredientIdByName(substitute);
 
-            // Clear input fields
-            txtoriginal.Clear();
-            txtsubstitute.Clear();
-            txtscore.Clear();
+            if (originalId == -1 || substituteId == -1)
+            {
+                MessageBox.Show("Both ingredients must exist in the ingredients table.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            // Hide error messages
-            error1.Visible = false;
-            error2.Visible = false;
+            // Insert into Substitutions using foreign keys
+            string insertQuery = @"
+        INSERT INTO Substitutions 
+        (IngredientID, SubstituteID, SimilarityScore, CreatedBy, CreatedDate) 
+        VALUES (@OriginalID, @SubstituteID, @Score, @CreatedBy, @DateCreated)";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+        new SqlParameter("@OriginalID", originalId),
+        new SqlParameter("@SubstituteID", substituteId),
+        new SqlParameter("@Score", score),
+        new SqlParameter("@CreatedBy", currentUser),
+        new SqlParameter("@DateCreated", DateTime.Now)
+            };
+
+            try
+            {
+                DatabaseHelper.ExecuteNonQuery(insertQuery, parameters);
+                LoadSubstitutions();
+
+                txtoriginal.Clear();
+                txtsubstitute.Clear();
+                txtscore.Clear();
+
+                error1.Visible = false;
+                error2.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding substitution: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        private int GetIngredientIdByName(string name)
+        {
+            string query = "SELECT IngredientID FROM Ingredients WHERE Name = @Name";
+            SqlParameter param = new SqlParameter("@Name", name);
+
+            DataTable dt = DatabaseHelper.ExecuteQuery(query, param);
+            if (dt.Rows.Count > 0)
+            {
+                return Convert.ToInt32(dt.Rows[0]["IngredientID"]);
+            }
+            return -1; // Not found
+        }
+
 
 
 
@@ -174,18 +243,91 @@ namespace SaveNServe
             {
                 var columnName = dataGridView1.Columns[e.ColumnIndex].Name;
 
+                string originalName = dataGridView1.Rows[e.RowIndex].Cells["original"].Value.ToString();
+                string substituteName = dataGridView1.Rows[e.RowIndex].Cells["suggestion"].Value.ToString();
+
+                int originalId = GetIngredientIdByName(originalName);
+                int substituteId = GetIngredientIdByName(substituteName);
+
+                if (originalId == -1 || substituteId == -1)
+                {
+                    MessageBox.Show("Ingredient IDs not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 if (columnName == "colActions")
                 {
-                    string ing = dataGridView1.Rows[e.RowIndex].Cells["original"].Value.ToString();
-                    string sub = dataGridView1.Rows[e.RowIndex].Cells["suggestion"].Value.ToString();
                     string score = dataGridView1.Rows[e.RowIndex].Cells["score"].Value.ToString();
+                    string buttonText = dataGridView1.Rows[e.RowIndex].Cells["colActions"].Value.ToString();
 
-                    EditSubstitutionForm editForm = new EditSubstitutionForm(ing, sub, score);
-                    if (editForm.ShowDialog() == DialogResult.OK)
+                    if (buttonText == "Approve")
                     {
-                        dataGridView1.Rows[e.RowIndex].Cells["original"].Value = editForm.UpdatedIngredient;
-                        dataGridView1.Rows[e.RowIndex].Cells["suggestion"].Value = editForm.UpdatedSubstitute;
-                        dataGridView1.Rows[e.RowIndex].Cells["score"].Value = editForm.UpdatedScore;
+                        DialogResult confirm = MessageBox.Show("Add this system-generated suggestion to the database?", "Approve Suggestion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (confirm == DialogResult.Yes)
+                        {
+                            string insertQuery = @"
+                        INSERT INTO Substitutions 
+                        (IngredientID, SubstituteID, SimilarityScore, CreatedBy, CreatedDate) 
+                        VALUES (@OriginalID, @SubstituteID, @Score, @CreatedBy, @DateCreated)";
+
+                            SqlParameter[] parameters = new SqlParameter[]
+                            {
+                        new SqlParameter("@OriginalID", originalId),
+                        new SqlParameter("@SubstituteID", substituteId),
+                        new SqlParameter("@Score", score),
+                        new SqlParameter("@CreatedBy", currentUser), 
+                        new SqlParameter("@DateCreated", DateTime.Now)
+                            };
+
+                            try
+                            {
+                                DatabaseHelper.ExecuteNonQuery(insertQuery, parameters);
+                                LoadSubstitutions();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error approving suggestion: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        EditSubstitutionForm editForm = new EditSubstitutionForm(originalName, substituteName, score);
+                        if (editForm.ShowDialog() == DialogResult.OK)
+                        {
+                            int newOriginalId = GetIngredientIdByName(editForm.UpdatedIngredient);
+                            int newSubstituteId = GetIngredientIdByName(editForm.UpdatedSubstitute);
+
+                            if (newOriginalId == -1 || newSubstituteId == -1)
+                            {
+                                MessageBox.Show("Updated ingredients not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            string updateQuery = @"
+                        UPDATE Substitutions 
+                        SET IngredientID = @NewOriginalID, SubstituteID = @NewSubstituteID, SimilarityScore = @Score 
+                        WHERE IngredientID = @OldOriginalID AND SubstituteID = @OldSubstituteID";
+
+                            SqlParameter[] parameters = new SqlParameter[]
+                            {
+                        new SqlParameter("@NewOriginalID", newOriginalId),
+                        new SqlParameter("@NewSubstituteID", newSubstituteId),
+                        new SqlParameter("@Score", editForm.UpdatedScore),
+                        new SqlParameter("@OldOriginalID", originalId),
+                        new SqlParameter("@OldSubstituteID", substituteId)
+                            };
+
+                            try
+                            {
+                                DatabaseHelper.ExecuteNonQuery(updateQuery, parameters);
+                                LoadSubstitutions();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error updating substitution: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
                     }
                 }
                 else if (columnName == "colDelete")
@@ -193,11 +335,28 @@ namespace SaveNServe
                     DialogResult result = MessageBox.Show("Delete this substitution?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        dataGridView1.Rows.RemoveAt(e.RowIndex);
+                        string deleteQuery = "DELETE FROM Substitutions WHERE IngredientID = @OriginalID AND SubstituteID = @SubstituteID";
+
+                        SqlParameter[] parameters = new SqlParameter[]
+                        {
+                    new SqlParameter("@OriginalID", originalId),
+                    new SqlParameter("@SubstituteID", substituteId)
+                        };
+
+                        try
+                        {
+                            DatabaseHelper.ExecuteNonQuery(deleteQuery, parameters);
+                            LoadSubstitutions();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error deleting substitution: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
         }
+
 
         private void Clearbtn_Click(object sender, EventArgs e)
         {
@@ -206,6 +365,128 @@ namespace SaveNServe
             txtscore.Clear();
 
         }
+
+
+
+        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string searchText = searchBox.Text.Trim();
+
+                if (string.IsNullOrEmpty(searchText) || searchText == "Search By Ingredient")
+                {
+                    LoadSubstitutions();
+                    return;
+                }
+
+                try
+                {
+                    string query = @"
+                SELECT 
+                    s.SubstitutionID,
+                    i1.Name AS OriginalName,
+                    i2.Name AS SubstituteName,
+                    s.SimilarityScore
+                FROM 
+                    Substitutions s
+                JOIN Ingredients i1 ON s.IngredientID = i1.IngredientID
+                JOIN Ingredients i2 ON s.SubstituteID = i2.IngredientID
+                WHERE 
+                    i1.Name LIKE @Search";
+
+                    SqlParameter param = new SqlParameter("@Search", "%" + searchText + "%");
+                    DataTable dt = DatabaseHelper.ExecuteQuery(query, param);
+
+                    dataGridView1.Rows.Clear();
+
+                    if (dt == null || dt.Rows.Count == 0)
+                    {
+                        int searchedId = GetIngredientIdByName(searchText);
+                        if (searchedId == -1)
+                        {
+                            MessageBox.Show("No results found.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        // Ingredient exists, do similarity logic
+                        DataRow ingredient = DatabaseHelper.ExecuteQuery("SELECT * FROM Ingredients WHERE IngredientID = @ID", new SqlParameter("@ID", searchedId)).Rows[0];
+                        string taste = ingredient["Taste"].ToString();
+                        string texture = ingredient["Texture"].ToString();
+                        string nutrition = ingredient["NutritionalInfo"].ToString();
+
+                        string fetchOthersQuery = "SELECT * FROM Ingredients WHERE IngredientID != @ID";
+                        DataTable otherIngredients = DatabaseHelper.ExecuteQuery(fetchOthersQuery, new SqlParameter("@ID", searchedId));
+
+                        // Temporary list to store auto suggestions with their similarity score
+                        List<(string Substitute, double Score)> autoSuggestions = new List<(string, double)>();
+
+                        foreach (DataRow row in otherIngredients.Rows)
+                        {
+                            int score = 0;
+                            if (row["Taste"].ToString() == taste) score++;
+                            if (row["Texture"].ToString() == texture) score++;
+                            if (row["NutritionalInfo"].ToString() == nutrition) score++;
+
+                            double similarityScore = 0;
+                            if (score == 1) similarityScore = 2.5;
+                            else if (score == 2) similarityScore = 3.5;
+                            else if (score == 3) similarityScore = 6.0;
+
+                            if (similarityScore > 0)
+                            {
+                                autoSuggestions.Add((row["Name"].ToString(), similarityScore));
+                            }
+                        }
+
+                        // Sort by similarity score descending
+                        autoSuggestions = autoSuggestions.OrderByDescending(x => x.Score).ToList();
+
+                        // Now add to the DataGridView
+                        foreach (var suggestion in autoSuggestions)
+                        {
+                            dataGridView1.Rows.Add(searchText, suggestion.Substitute, suggestion.Score.ToString(), "", "Approve");
+
+                            int lastRowIndex = dataGridView1.Rows.Count - 1;
+                            if (lastRowIndex >= 0)
+                            {
+                                dataGridView1.Rows[lastRowIndex].Cells["colDelete"].ReadOnly = true;
+                                dataGridView1.Rows[lastRowIndex].Cells["colDelete"].Style.ForeColor = Color.Gray;
+                            }
+                        }
+
+
+                        if (dataGridView1.Rows.Count == 0)
+                        {
+                            MessageBox.Show("No automatic substitutes found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Automatic suggestions found. Click 'Approve' to save.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                        return;
+                    }
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        string original = row["OriginalName"].ToString();
+                        string substitute = row["SubstituteName"].ToString();
+                        string score = row["SimilarityScore"].ToString();
+
+                        dataGridView1.Rows.Add(original, substitute, score, "Delete", "Edit");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error executing search: " + ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
     }
 }
 

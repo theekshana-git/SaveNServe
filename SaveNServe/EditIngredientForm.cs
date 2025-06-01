@@ -1,122 +1,123 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace SaveNServe
 {
-    public partial class EditIngredientForm: Form
+    public partial class EditIngredientForm : Form
     {
         public EditIngredientForm()
         {
             InitializeComponent();
         }
 
+        public int IngredientID { get; set; }
         public string Name { get; set; }
-
-        
-
         public string Available { get; set; }
-
+        public string NutritionalInfo { get; set; }
+        public string Taste { get; set; }
+        public string Texture { get; set; }
 
         private void EditIngredientForm_Load(object sender, EventArgs e)
         {
             Name_Textbox.Text = Name;
-           
-            
-            if(Available == "Avaliable") 
+
+            if (Available == "Available")
             {
                 Available_chk.Checked = true;
-            } else if(Available == "Out of Stock")
+            }
+            else if (Available == "Out of Stock")
             {
                 OutOfStock_chk.Checked = true;
+
             }
+
+            cmbNutInfo.SelectedItem = NutritionalInfo;
+            cmbTaste.SelectedItem = Taste;
+            cmbTexture.SelectedItem = Texture;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            foreach (var lbl in new[] { lblNameError, lblAvailbilityError})
-            {
-                lbl.Visible = false;
-            }
+            // Hide all error labels
+            lblNameError.Visible = false;
+            lblAvailbilityError.Visible = false;
+            lbl_NIfnoError.Visible = false;
+            lblTaste.Visible = false;
+            lblTextureError.Visible = false;
 
-            string name = Name_Textbox.Text.Trim();
-            
-            // Checkbox
-            string Available = "";
+            string inputName = Name_Textbox.Text.Trim();
+            string selectedAvailability = "";
 
             if (Available_chk.Checked)
-            {
-                Available = "Avaliable";
-            }
+                selectedAvailability = "Available";
             else if (OutOfStock_chk.Checked)
-            {
-                Available = "Out of Stock";
-            }
-            else
-            {
-                Available = "Not Specified";
-            }
+                selectedAvailability = "Out of Stock";
 
-            bool ErrorCheck = false;
+            bool hasError = false;
 
-            if (string.IsNullOrEmpty(name))
+          
+            //validation Checks
+            if (string.IsNullOrEmpty(inputName))
             {
-                lblNameError.Text = "Name is Required";
+                lblNameError.Text = "Name is required.";
                 lblNameError.Visible = true;
                 Name_Textbox.Focus();
-                ErrorCheck = true;
+                hasError = true;
             }
-
-            if (!System.Text.RegularExpressions.Regex.IsMatch(name, @"^[a-zA-Z]+$"))
+           
+            if (string.IsNullOrEmpty(selectedAvailability))
             {
-                lblNameError.Text = "Please enter letters only (a-z , A-Z)";
-                lblNameError.Visible = true;
-                Name_Textbox.Focus();
-                ErrorCheck = true;
-            }
-
-            
-
-            if (!Available_chk.Checked && !OutOfStock_chk.Checked)
-            {
-                lblAvailbilityError.Text = "Please select the availability status";
+                lblAvailbilityError.Text = "Please select availability status.";
                 lblAvailbilityError.Visible = true;
-                lblAvailbilityError.Focus();
-                ErrorCheck = true;
+                hasError = true;
             }
 
-            if(ErrorCheck)
+            if (cmbNutInfo.SelectedItem == null)
             {
-                return;
+                lbl_NIfnoError.Text = "Please select nutritional info.";
+                lbl_NIfnoError.Visible = true;
+                hasError = true;
             }
 
-            this.Name = name;
-            
-            this.Available = Available;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            if (cmbTaste.SelectedItem == null)
+            {
+                lbl_TasteError.Text = "Please select taste.";
+                lbl_TasteError.Visible = true;
+                hasError = true;
+            }
+
+            if (cmbTexture.SelectedItem == null)
+            {
+                lblTextureError.Text = "Please select texture.";
+                lblTextureError.Visible = true;
+                hasError = true;
+            }
+
+            if (hasError)
+                return;
+
+            // Set properties to updated values
+            Name = inputName;
+            Available = selectedAvailability;
+            NutritionalInfo = cmbNutInfo.SelectedItem.ToString();
+            Taste = cmbTaste.SelectedItem.ToString();
+            Texture = cmbTexture.SelectedItem.ToString();
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void Available_chk_CheckedChanged(object sender, EventArgs e)
         {
             if (Available_chk.Checked)
-            {
                 OutOfStock_chk.Checked = false;
-            }
         }
 
         private void OutOfStock_chk_CheckedChanged(object sender, EventArgs e)
         {
             if (OutOfStock_chk.Checked)
-            {
                 Available_chk.Checked = false;
-            }
         }
     }
 }

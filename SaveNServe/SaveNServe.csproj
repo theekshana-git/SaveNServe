@@ -89,12 +89,6 @@
     <Compile Include="HelpAbout.Designer.cs">
       <DependentUpon>HelpAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="HistoryControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="HistoryControl.Designer.cs">
-      <DependentUpon>HistoryControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="InventoryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,9 +141,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HelpAbout.resx">
       <DependentUpon>HelpAbout.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HistoryControl.resx">
-      <DependentUpon>HistoryControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryControl.resx">
       <DependentUpon>InventoryControl.cs</DependentUpon>

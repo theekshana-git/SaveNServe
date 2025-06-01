@@ -83,14 +83,13 @@ namespace SaveNServe
             this.panelUserMenu.Size = new System.Drawing.Size(150, 71);
             this.panelUserMenu.TabIndex = 0;
             this.panelUserMenu.Visible = false;
-            
             // 
             // pictureBoxUserIcon
             // 
             this.pictureBoxUserIcon.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxUserIcon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxUserIcon.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUserIcon.Image")));
-            this.pictureBoxUserIcon.Location = new System.Drawing.Point(1193, 8);
+            this.pictureBoxUserIcon.Location = new System.Drawing.Point(1191, 8);
             this.pictureBoxUserIcon.Name = "pictureBoxUserIcon";
             this.pictureBoxUserIcon.Padding = new System.Windows.Forms.Padding(10);
             this.pictureBoxUserIcon.Size = new System.Drawing.Size(66, 50);
@@ -103,12 +102,13 @@ namespace SaveNServe
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.label2.Location = new System.Drawing.Point(1199, 54);
+            this.label2.Location = new System.Drawing.Point(1195, 55);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 10, 10);
             this.label2.Size = new System.Drawing.Size(63, 30);
             this.label2.TabIndex = 6;
             this.label2.Text = "Admin";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -175,7 +175,7 @@ namespace SaveNServe
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(244, 50);
             this.btnLogout.TabIndex = 6;
-            this.btnLogout.Text = "  Logout";
+            this.btnLogout.Text = "  Exit";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -260,7 +260,6 @@ namespace SaveNServe
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1020, 601);
             this.panel3.TabIndex = 2;
-            
             // 
             // panel4
             // 
@@ -271,7 +270,6 @@ namespace SaveNServe
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1020, 601);
             this.panel4.TabIndex = 3;
-            
             // 
             // panel9
             // 
@@ -313,6 +311,7 @@ namespace SaveNServe
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SaveNServe- Smart Ingredient System";

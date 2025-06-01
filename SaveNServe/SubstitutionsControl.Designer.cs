@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubstitutionsControl));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubstitutionsControl));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.Clearbtn = new System.Windows.Forms.Button();
             this.txtoriginal = new System.Windows.Forms.TextBox();
             this.txtsubstitute = new System.Windows.Forms.TextBox();
             this.error1 = new System.Windows.Forms.Label();
@@ -53,13 +54,12 @@
             this.panelContainer = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.original = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.suggestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.score = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDelete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.colActions = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Clearbtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -100,6 +100,22 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(335, 601);
             this.panel4.TabIndex = 3;
+            // 
+            // Clearbtn
+            // 
+            this.Clearbtn.BackColor = System.Drawing.Color.White;
+            this.Clearbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clearbtn.ForeColor = System.Drawing.Color.Black;
+            this.Clearbtn.Image = ((System.Drawing.Image)(resources.GetObject("Clearbtn.Image")));
+            this.Clearbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Clearbtn.Location = new System.Drawing.Point(241, 102);
+            this.Clearbtn.Name = "Clearbtn";
+            this.Clearbtn.Size = new System.Drawing.Size(61, 26);
+            this.Clearbtn.TabIndex = 34;
+            this.Clearbtn.Text = "Clear";
+            this.Clearbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Clearbtn.UseVisualStyleBackColor = false;
+            this.Clearbtn.Click += new System.EventHandler(this.Clearbtn_Click);
             // 
             // txtoriginal
             // 
@@ -154,7 +170,7 @@
             this.add_btn.Name = "add_btn";
             this.add_btn.Size = new System.Drawing.Size(261, 34);
             this.add_btn.TabIndex = 7;
-            this.add_btn.Text = "ADD INGREDIENT";
+            this.add_btn.Text = "ADD SUBSTITUTION";
             this.add_btn.UseVisualStyleBackColor = false;
             // 
             // txtscore
@@ -337,17 +353,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(628, 420);
             this.dataGridView1.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(253, 30);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Ingredient Substitutions";
-            // 
             // original
             // 
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -393,21 +398,16 @@
             this.colActions.Text = "Edit";
             this.colActions.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
             // 
-            // Clearbtn
+            // label1
             // 
-            this.Clearbtn.BackColor = System.Drawing.Color.White;
-            this.Clearbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clearbtn.ForeColor = System.Drawing.Color.Black;
-            this.Clearbtn.Image = ((System.Drawing.Image)(resources.GetObject("Clearbtn.Image")));
-            this.Clearbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Clearbtn.Location = new System.Drawing.Point(241, 102);
-            this.Clearbtn.Name = "Clearbtn";
-            this.Clearbtn.Size = new System.Drawing.Size(61, 26);
-            this.Clearbtn.TabIndex = 34;
-            this.Clearbtn.Text = "Clear";
-            this.Clearbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Clearbtn.UseVisualStyleBackColor = false;
-            this.Clearbtn.Click += new System.EventHandler(this.Clearbtn_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(23, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(253, 30);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Ingredient Substitutions";
             // 
             // SubstitutionsControl
             // 

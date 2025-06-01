@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditUserForm));
             this.btnSave = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblStatusError = new System.Windows.Forms.Label();
@@ -38,9 +39,9 @@
             this.cmbRole = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblEmailError = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblPasswordError = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.panelUn = new System.Windows.Forms.Panel();
             this.lblUnError = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -109,10 +110,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(13, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 20);
+            this.label3.Size = new System.Drawing.Size(53, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Status";
             // 
@@ -155,52 +156,54 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(13, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 20);
+            this.label2.Size = new System.Drawing.Size(40, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Role";
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.lblEmailError);
-            this.panel3.Controls.Add(this.txtEmail);
-            this.panel3.Controls.Add(this.lblEmail);
+            this.panel3.Controls.Add(this.lblPasswordError);
+            this.panel3.Controls.Add(this.txtPassword);
+            this.panel3.Controls.Add(this.lblPassword);
             this.panel3.Location = new System.Drawing.Point(20, 176);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(277, 86);
             this.panel3.TabIndex = 11;
+            
             // 
-            // lblEmailError
+            // lblPasswordError
             // 
-            this.lblEmailError.AutoSize = true;
-            this.lblEmailError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
-            this.lblEmailError.ForeColor = System.Drawing.Color.Red;
-            this.lblEmailError.Location = new System.Drawing.Point(13, 69);
-            this.lblEmailError.Name = "lblEmailError";
-            this.lblEmailError.Size = new System.Drawing.Size(164, 15);
-            this.lblEmailError.TabIndex = 7;
-            this.lblEmailError.Text = "Invalid username or password";
-            this.lblEmailError.Visible = false;
+            this.lblPasswordError.AutoSize = true;
+            this.lblPasswordError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblPasswordError.ForeColor = System.Drawing.Color.Red;
+            this.lblPasswordError.Location = new System.Drawing.Point(13, 69);
+            this.lblPasswordError.Name = "lblPasswordError";
+            this.lblPasswordError.Size = new System.Drawing.Size(164, 15);
+            this.lblPasswordError.TabIndex = 7;
+            this.lblPasswordError.Text = "Invalid username or password";
+            this.lblPasswordError.Visible = false;
+           
             // 
-            // txtEmail
+            // txtPassword
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(16, 41);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(243, 27);
-            this.txtEmail.TabIndex = 2;
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(16, 41);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(243, 27);
+            this.txtPassword.TabIndex = 2;
             // 
-            // lblEmail
+            // lblPassword
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(13, 13);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(46, 20);
-            this.lblEmail.TabIndex = 2;
-            this.lblEmail.Text = "Email";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(13, 13);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(76, 20);
+            this.lblPassword.TabIndex = 2;
+            this.lblPassword.Text = "Password";
             // 
             // panelUn
             // 
@@ -231,14 +234,15 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(243, 27);
             this.txtUsername.TabIndex = 1;
+            
             // 
             // lblUn
             // 
             this.lblUn.AutoSize = true;
-            this.lblUn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUn.Location = new System.Drawing.Point(13, 11);
             this.lblUn.Name = "lblUn";
-            this.lblUn.Size = new System.Drawing.Size(75, 20);
+            this.lblUn.Size = new System.Drawing.Size(80, 20);
             this.lblUn.TabIndex = 0;
             this.lblUn.Text = "Username";
             // 
@@ -263,6 +267,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panelUn);
             this.Controls.Add(this.lblEditUser);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditUserForm";
             this.Text = "EditUserForm";
             this.Load += new System.EventHandler(this.EditUserForm_Load);
@@ -291,9 +296,9 @@
         private System.Windows.Forms.ComboBox cmbRole;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblEmailError;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblPasswordError;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Panel panelUn;
         private System.Windows.Forms.Label lblUnError;
         private System.Windows.Forms.TextBox txtUsername;

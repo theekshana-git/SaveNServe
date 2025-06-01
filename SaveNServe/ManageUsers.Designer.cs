@@ -6,6 +6,8 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+       
+
 
         /// <summary> 
         /// Clean up any resources being used.
@@ -28,15 +30,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageUsers));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAddUser = new System.Windows.Forms.Button();
@@ -49,10 +50,11 @@
             this.cmbRole = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblEmailError = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblPasswordError = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.panelUn = new System.Windows.Forms.Panel();
+            this.Clearbtn = new System.Windows.Forms.Button();
             this.lblUnError = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.lblUn = new System.Windows.Forms.Label();
@@ -62,15 +64,13 @@
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.panelSearchBox = new System.Windows.Forms.Panel();
             this.searchBox = new System.Windows.Forms.TextBox();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.colUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colActions = new System.Windows.Forms.DataGridViewLinkColumn();
             this.colEdit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Clearbtn = new System.Windows.Forms.Button();
             this.panelMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -122,6 +122,7 @@
             this.btnAddUser.TabIndex = 8;
             this.btnAddUser.Text = "ADD USER";
             this.btnAddUser.UseVisualStyleBackColor = false;
+            
             // 
             // panel5
             // 
@@ -220,43 +221,44 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.lblEmailError);
-            this.panel3.Controls.Add(this.txtEmail);
-            this.panel3.Controls.Add(this.lblEmail);
+            this.panel3.Controls.Add(this.lblPasswordError);
+            this.panel3.Controls.Add(this.txtPassword);
+            this.panel3.Controls.Add(this.lblPassword);
             this.panel3.Location = new System.Drawing.Point(35, 165);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(277, 86);
             this.panel3.TabIndex = 5;
             // 
-            // lblEmailError
+            // lblPasswordError
             // 
-            this.lblEmailError.AutoSize = true;
-            this.lblEmailError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
-            this.lblEmailError.ForeColor = System.Drawing.Color.Red;
-            this.lblEmailError.Location = new System.Drawing.Point(13, 69);
-            this.lblEmailError.Name = "lblEmailError";
-            this.lblEmailError.Size = new System.Drawing.Size(164, 15);
-            this.lblEmailError.TabIndex = 7;
-            this.lblEmailError.Text = "Invalid username or password";
-            this.lblEmailError.Visible = false;
+            this.lblPasswordError.AutoSize = true;
+            this.lblPasswordError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblPasswordError.ForeColor = System.Drawing.Color.Red;
+            this.lblPasswordError.Location = new System.Drawing.Point(13, 69);
+            this.lblPasswordError.Name = "lblPasswordError";
+            this.lblPasswordError.Size = new System.Drawing.Size(164, 15);
+            this.lblPasswordError.TabIndex = 7;
+            this.lblPasswordError.Text = "Invalid username or password";
+            this.lblPasswordError.Visible = false;
             // 
-            // txtEmail
+            // txtPassword
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(16, 41);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(243, 27);
-            this.txtEmail.TabIndex = 2;
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(16, 41);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(243, 27);
+            this.txtPassword.TabIndex = 2;
+            
             // 
-            // lblEmail
+            // lblPassword
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(13, 13);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(47, 20);
-            this.lblEmail.TabIndex = 2;
-            this.lblEmail.Text = "Email";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(13, 13);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(76, 20);
+            this.lblPassword.TabIndex = 2;
+            this.lblPassword.Text = "Password";
             // 
             // panelUn
             // 
@@ -268,6 +270,22 @@
             this.panelUn.Name = "panelUn";
             this.panelUn.Size = new System.Drawing.Size(277, 86);
             this.panelUn.TabIndex = 4;
+            // 
+            // Clearbtn
+            // 
+            this.Clearbtn.BackColor = System.Drawing.Color.White;
+            this.Clearbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clearbtn.ForeColor = System.Drawing.Color.Black;
+            this.Clearbtn.Image = ((System.Drawing.Image)(resources.GetObject("Clearbtn.Image")));
+            this.Clearbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Clearbtn.Location = new System.Drawing.Point(198, 2);
+            this.Clearbtn.Name = "Clearbtn";
+            this.Clearbtn.Size = new System.Drawing.Size(61, 26);
+            this.Clearbtn.TabIndex = 35;
+            this.Clearbtn.Text = "Clear";
+            this.Clearbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Clearbtn.UseVisualStyleBackColor = false;
+            this.Clearbtn.Click += new System.EventHandler(this.Clearbtn_Click);
             // 
             // lblUnError
             // 
@@ -320,7 +338,7 @@
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Margin = new System.Windows.Forms.Padding(3, 3, 5, 3);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Padding = new System.Windows.Forms.Padding(20);
+            this.panelLeft.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
             this.panelLeft.Size = new System.Drawing.Size(674, 601);
             this.panelLeft.TabIndex = 0;
             // 
@@ -329,7 +347,7 @@
             this.lblAction.AutoSize = true;
             this.lblAction.BackColor = System.Drawing.Color.Gainsboro;
             this.lblAction.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAction.Location = new System.Drawing.Point(493, 139);
+            this.lblAction.Location = new System.Drawing.Point(516, 139);
             this.lblAction.Name = "lblAction";
             this.lblAction.Size = new System.Drawing.Size(67, 21);
             this.lblAction.TabIndex = 3;
@@ -338,63 +356,64 @@
             // dgvUsers
             // 
             this.dgvUsers.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsers.BackgroundColor = System.Drawing.Color.White;
             this.dgvUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvUsers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(6);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(6);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colUsername,
-            this.colEmail,
+            this.colPassword,
             this.colRole,
             this.colStatus,
-            this.colActions,
             this.colEdit});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvUsers.EnableHeadersVisualStyles = false;
             this.dgvUsers.GridColor = System.Drawing.SystemColors.Window;
             this.dgvUsers.Location = new System.Drawing.Point(23, 131);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvUsers.RowHeadersVisible = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            this.dgvUsers.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvUsers.RowHeadersWidth = 51;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            this.dgvUsers.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvUsers.RowTemplate.Height = 40;
             this.dgvUsers.RowTemplate.ReadOnly = true;
             this.dgvUsers.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvUsers.Size = new System.Drawing.Size(628, 420);
             this.dgvUsers.TabIndex = 2;
+            
             // 
             // panelSearchBox
             // 
@@ -404,7 +423,7 @@
             this.panelSearchBox.Location = new System.Drawing.Point(23, 73);
             this.panelSearchBox.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.panelSearchBox.Name = "panelSearchBox";
-            this.panelSearchBox.Padding = new System.Windows.Forms.Padding(5);
+            this.panelSearchBox.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panelSearchBox.Size = new System.Drawing.Size(628, 35);
             this.panelSearchBox.TabIndex = 1;
             // 
@@ -420,16 +439,6 @@
             this.searchBox.TabIndex = 2;
             this.searchBox.Text = "Search Users";
             // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(23, 20);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(150, 30);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Manage Users";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -443,29 +452,42 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(23, 20);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(150, 30);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Manage Users";
+            // 
             // colUsername
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            this.colUsername.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            this.colUsername.DefaultCellStyle = dataGridViewCellStyle10;
             this.colUsername.FillWeight = 89.54315F;
             this.colUsername.HeaderText = "Username";
+            this.colUsername.MinimumWidth = 6;
             this.colUsername.Name = "colUsername";
             this.colUsername.ReadOnly = true;
             // 
-            // colEmail
+            // colPassword
             // 
-            this.colEmail.FillWeight = 89.54315F;
-            this.colEmail.HeaderText = "Email";
-            this.colEmail.Name = "colEmail";
-            this.colEmail.ReadOnly = true;
+            this.colPassword.FillWeight = 89.54315F;
+            this.colPassword.HeaderText = "Password";
+            this.colPassword.MinimumWidth = 6;
+            this.colPassword.Name = "colPassword";
+            this.colPassword.ReadOnly = true;
             // 
             // colRole
             // 
             this.colRole.FillWeight = 89.54315F;
             this.colRole.HeaderText = "Role";
+            this.colRole.MinimumWidth = 6;
             this.colRole.Name = "colRole";
             this.colRole.ReadOnly = true;
             // 
@@ -473,55 +495,25 @@
             // 
             this.colStatus.FillWeight = 89.54315F;
             this.colStatus.HeaderText = "Status";
+            this.colStatus.MinimumWidth = 6;
             this.colStatus.Name = "colStatus";
             this.colStatus.ReadOnly = true;
-            // 
-            // colActions
-            // 
-            this.colActions.ActiveLinkColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colActions.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colActions.FillWeight = 89.54315F;
-            this.colActions.HeaderText = "";
-            this.colActions.LinkColor = System.Drawing.Color.Red;
-            this.colActions.Name = "colActions";
-            this.colActions.ReadOnly = true;
-            this.colActions.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colActions.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colActions.Text = "Delete";
-            this.colActions.UseColumnTextForLinkValue = true;
-            this.colActions.VisitedLinkColor = System.Drawing.Color.Red;
             // 
             // colEdit
             // 
             this.colEdit.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.colEdit.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.colEdit.DefaultCellStyle = dataGridViewCellStyle11;
             this.colEdit.FillWeight = 152.2843F;
             this.colEdit.HeaderText = "";
             this.colEdit.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.colEdit.MinimumWidth = 6;
             this.colEdit.Name = "colEdit";
             this.colEdit.ReadOnly = true;
             this.colEdit.Text = "Edit";
             this.colEdit.UseColumnTextForLinkValue = true;
             this.colEdit.VisitedLinkColor = System.Drawing.SystemColors.MenuHighlight;
-            // 
-            // Clearbtn
-            // 
-            this.Clearbtn.BackColor = System.Drawing.Color.White;
-            this.Clearbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clearbtn.ForeColor = System.Drawing.Color.Black;
-            this.Clearbtn.Image = ((System.Drawing.Image)(resources.GetObject("Clearbtn.Image")));
-            this.Clearbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Clearbtn.Location = new System.Drawing.Point(198, 2);
-            this.Clearbtn.Name = "Clearbtn";
-            this.Clearbtn.Size = new System.Drawing.Size(61, 26);
-            this.Clearbtn.TabIndex = 35;
-            this.Clearbtn.Text = "Clear";
-            this.Clearbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Clearbtn.UseVisualStyleBackColor = false;
-            this.Clearbtn.Click += new System.EventHandler(this.Clearbtn_Click);
             // 
             // ManageUsers
             // 
@@ -569,8 +561,8 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label lblUn;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbRole;
         private System.Windows.Forms.Button btnAddUser;
@@ -578,14 +570,13 @@
         private System.Windows.Forms.Label lblUnError;
         private System.Windows.Forms.Label lblStatusError;
         private System.Windows.Forms.Label lblRoleError;
-        private System.Windows.Forms.Label lblEmailError;
+        private System.Windows.Forms.Label lblPasswordError;
         private System.Windows.Forms.Label lblAction;
+        private System.Windows.Forms.Button Clearbtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUsername;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPassword;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRole;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
-        private System.Windows.Forms.DataGridViewLinkColumn colActions;
         private System.Windows.Forms.DataGridViewLinkColumn colEdit;
-        private System.Windows.Forms.Button Clearbtn;
     }
 }

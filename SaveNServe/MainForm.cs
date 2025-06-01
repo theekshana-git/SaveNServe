@@ -7,12 +7,24 @@ namespace SaveNServe
 {
     public partial class MainForm : Form
     {
+
         private Panel HistoryOverlayPanel;
         private bool isDashboardActive = false;
+        private string loggedInUsername;
+        private string loggedInRole;
 
-        public MainForm()
+        public MainForm(string username, string role)
         {
             InitializeComponent();
+            loggedInUsername = username;
+            loggedInRole = role;
+
+            if(loggedInRole != "Admin")
+            {
+                btnManage.Enabled = false;
+               
+            }
+
             this.Text = "SaveNServe - Smart Ingredient Substitution System";
             this.Size = new Size(1280, 720);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -34,7 +46,7 @@ namespace SaveNServe
 
 
             
-            InitializeHistoryOverlayPanel();
+            
 
 
         }
@@ -76,48 +88,33 @@ namespace SaveNServe
 
         }
 
-        
+
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to exit the application?",
+                "Confirm Exit",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
-    
-       
-        
-        
-
-        
-
-        private void Dashboard_HistoryIconClicked(object sender, EventArgs e)
-        {
-            HistoryControl historyControl = new HistoryControl();
-            historyControl.Dock = DockStyle.Fill;
-
-            HistoryOverlayPanel.Controls.Clear();
-            HistoryOverlayPanel.Controls.Add(historyControl);
-            HistoryOverlayPanel.Visible = true;
-            HistoryOverlayPanel.BringToFront();
-
-            historyControl.CloseRequested += (s, args) =>
+            if (result == DialogResult.Yes)
             {
-                HistoryOverlayPanel.Controls.Clear();
-                HistoryOverlayPanel.Visible = false;
-            };
+                Application.Exit();
+            }
         }
 
-        private void InitializeHistoryOverlayPanel()
-        {
-            HistoryOverlayPanel = new Panel
-            {
-                Dock = DockStyle.Fill,
-                Visible = false,
-            };
 
-            this.Controls.Add(HistoryOverlayPanel);
-            HistoryOverlayPanel.BringToFront();
-        }
+
+
+
+
+
+
+
+
+
 
         private void LoadDashBoard()
         {
@@ -127,7 +124,7 @@ namespace SaveNServe
             panelMainContent.Controls.Add(dashboard);
 
 
-            dashboard.HistoryIconClicked += Dashboard_HistoryIconClicked;
+           
 
 
         }
@@ -136,6 +133,8 @@ namespace SaveNServe
         {
             HighlightButton(btnDashboard);
             LoadDashBoard();
+
+            label2.Text = loggedInUsername;
            
         }
 
@@ -149,7 +148,7 @@ namespace SaveNServe
             panelMainContent.Controls.Add(dashboard);
 
 
-            dashboard.HistoryIconClicked += Dashboard_HistoryIconClicked;
+            
 
         }
 
@@ -169,7 +168,7 @@ namespace SaveNServe
             HighlightButton(btnSubs);
 
             panelMainContent.Controls.Clear();
-            SubstitutionsControl subs = new SubstitutionsControl();
+            SubstitutionsControl subs = new SubstitutionsControl(loggedInUsername);
             subs.Dock = DockStyle.Fill;
             panelMainContent.Controls.Add(subs);
 

@@ -1,41 +1,97 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SaveNServe
 {
-    public partial class ManageUsers: UserControl
+    public partial class ManageUsers : UserControl
     {
+
+
+
         public ManageUsers()
         {
-          
-            
             InitializeComponent();
+
+
+
+            LoadUsers();
+
+
+
+
+
+
+
+
+
+
             searchBox.Enter += SearchBox_Enter;
             searchBox.Leave += SearchBox_Leave;
             btnAddUser.Click += btnAddUser_Click;
             dgvUsers.CellPainting += dgvUsers_CellPainting;
             dgvUsers.CellFormatting += dgvUsers_CellFormatting;
-            
+            searchBox.KeyDown += SearchBox_KeyDown;
+
+
             dgvUsers.CellContentClick += dgvUsers_CellContentClick;
 
-            
-            dgvUsers.Columns["colEdit"].Width = 60;
-            dgvUsers.Columns["colActions"].Width = 60;
+
+
+
+
 
 
         }
 
 
 
-        
-        
+
+
+
+
+
+        private void LoadUsers()
+        {
+            string query = @"
+    SELECT 
+        Username, 
+        Password, 
+        Role, 
+        Status
+    FROM Users
+    ORDER BY Username ASC";
+
+            try
+            {
+                DataTable dt = DatabaseHelper.ExecuteQuery(query);
+                dgvUsers.Rows.Clear();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string username = row["Username"].ToString();
+                    string password = row["Password"].ToString();
+                    string role = row["Role"].ToString();
+                    string status = row["Status"].ToString();
+
+                    // No colActions now
+                    dgvUsers.Rows.Add(username, password, role, status);
+                }
+
+                // Optional: Set column widths (except colActions which we removed)
+                dgvUsers.Columns["colStatus"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dgvUsers.Columns["colStatus"].Width = 120;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading users: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        //Searching Part
 
         private void SearchBox_Enter(object sender, EventArgs e)
         {
@@ -55,17 +111,96 @@ namespace SaveNServe
             }
         }
 
+
+        //Searching Logic
+
+        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string searchText = searchBox.Text.Trim();
+
+
+                if (string.IsNullOrEmpty(searchText) || searchText == "Search Users")
+                {
+                    LoadUsers();
+                    return;
+                }
+
+                try
+                {
+                    string query = @"
+                SELECT Username, Password, Role, Status
+                FROM Users
+                WHERE 
+                    Username LIKE @Search OR 
+                    Password LIKE @Search OR 
+                    Role LIKE @Search OR 
+                    Status LIKE @Search";
+
+                    SqlParameter param = new SqlParameter("@Search", "%" + searchText + "%");
+                    DataTable dt = DatabaseHelper.ExecuteQuery(query, param);
+
+
+                    // Clear existing rows if you're using manual row population
+                    if (dgvUsers.DataSource == null)
+                        dgvUsers.Rows.Clear();
+
+                    // Option A: If using DataTable as DataSource
+                    if (dgvUsers.DataSource is DataTable usersTable)
+                    {
+                        usersTable.Clear(); // Clear current rows
+                        foreach (DataRow row in dt.Rows)
+                            usersTable.ImportRow(row);
+                    }
+                    // Option B: If manually adding to dgvUsers
+                    else
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            dgvUsers.Rows.Add(
+                                row["Username"].ToString(),
+                                row["Password"].ToString(),
+                                row["Role"].ToString(),
+                                row["Status"].ToString()
+                            );
+                        }
+                    }
+
+                    if (dt == null || dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No users found.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error searching users: " + ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                e.Handled = true;
+                e.SuppressKeyPress = true; // Prevents the ding sound
+            }
+        }
+
+
+
+
+
+
+
+
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             // Hide all error labels initially
             lblUnError.Visible = false;
-            lblEmailError.Visible = false;
+            lblPasswordError.Visible = false;
             lblRoleError.Visible = false;
             lblStatusError.Visible = false;
 
             // Get input values
             string username = txtUsername.Text.Trim();
-            string email = txtEmail.Text.Trim();
+            string password = txtPassword.Text.Trim();
             string role = cmbRole.SelectedItem?.ToString();
             string status = cmbStatus.SelectedItem?.ToString();
 
@@ -80,11 +215,11 @@ namespace SaveNServe
                 hasError = true;
             }
 
-            if (string.IsNullOrEmpty(email) || !IsValidEmail(email))
+            if (string.IsNullOrEmpty(password) || !IsValidPassword(password))
             {
-                lblEmailError.Text = "Enter a valid email address";
-                lblEmailError.Visible = true;
-                if (!hasError) txtEmail.Focus();
+                lblPasswordError.Text = "Enter a valid password";
+                lblPasswordError.Visible = true;
+                if (!hasError) txtPassword.Focus();
                 hasError = true;
             }
 
@@ -106,33 +241,61 @@ namespace SaveNServe
 
             if (hasError) return;
 
-            // Add to DataGridView
-            dgvUsers.Rows.Add(username, email, role, status);
 
-            // Optional: clear input fields
-            txtUsername.Clear();
-            txtEmail.Clear();
-            cmbRole.SelectedIndex = -1;
-            cmbStatus.SelectedIndex = -1;
 
-            // If passed, proceed to add the user (to database or UI table)
-            MessageBox.Show("User added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            string query = @"
+        INSERT INTO Users
+        (Username, Password, Role, Status) 
+        VALUES (@Username, @Password, @Role, @Status)";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+        new SqlParameter("@Username", username),
+        new SqlParameter("@Password", password),
+        new SqlParameter("@Role", role),
+        new SqlParameter("@Status",status),
+
+        };
+
+
+
+
+
+
+
+
+
+            int rowsAffected = DatabaseHelper.ExecuteNonQuery(query, parameters);
+            if (rowsAffected > 0)
+            {
+                dgvUsers.Rows.Add(username, password, role, status);
+                txtUsername.Clear();
+                txtPassword.Clear();
+                cmbRole.SelectedIndex = -1;
+                cmbStatus.SelectedIndex = -1;
+
+                MessageBox.Show("User added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Failed to add user to the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
 
 
 
-        private bool IsValidEmail(string email)
+        private bool IsValidPassword(string password)
         {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
+            // Example: At least 8 characters
+            if (string.IsNullOrWhiteSpace(password)) return false;
+
+            return password.Length >= 4;
         }
+
 
         private void dgvUsers_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
@@ -168,67 +331,124 @@ namespace SaveNServe
                 }
             }
 
-            
+
 
         }
 
 
-       
+
 
         private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Skip header row clicks
-            if (e.RowIndex < 0)
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
-
-            // Check if it's the "Delete" column
-            if (dgvUsers.Columns[e.ColumnIndex].Name == "colActions") // use your actual column name
-            {
-                // Show confirmation dialog
-                DialogResult result = MessageBox.Show(
-                    "Are you sure you want to delete this user?",
-                    "Confirm Deletion",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning
-                );
-
-                if (result == DialogResult.Yes)
-                {
-                    dgvUsers.Rows.RemoveAt(e.RowIndex); // Delete the row
-                }
-            }
 
             if (dgvUsers.Columns[e.ColumnIndex].Name == "colEdit")
             {
                 DataGridViewRow row = dgvUsers.Rows[e.RowIndex];
+                string oldUsername = row.Cells["colUsername"].Value.ToString();
 
                 EditUserForm editForm = new EditUserForm
                 {
-                    Username = row.Cells["colUsername"].Value.ToString(),
-                    Email = row.Cells["colEmail"].Value.ToString(),
+                    Username = oldUsername,
+                    Password = row.Cells["colPassword"].Value.ToString(),
                     Role = row.Cells["colRole"].Value.ToString(),
                     Status = row.Cells["colStatus"].Value.ToString()
                 };
 
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
-                    // Update the DataGridView with new values
-                    row.Cells["colUsername"].Value = editForm.Username;
-                    row.Cells["colEmail"].Value = editForm.Email;
-                    row.Cells["colRole"].Value = editForm.Role;
-                    row.Cells["colStatus"].Value = editForm.Status;
+                    using (SqlConnection conn = DatabaseHelper.GetConnection())
+                    {
+                        conn.Open();
+                        SqlTransaction transaction = conn.BeginTransaction();
 
-                    // Optional: change cell colors based on status again
+                        try
+                        {
+                            string newUsername = editForm.Username.Trim();
+
+                            // If username has changed and new one already exists, stop
+                            if (!string.Equals(oldUsername, newUsername, StringComparison.OrdinalIgnoreCase))
+                            {
+                                string checkQuery = "SELECT COUNT(*) FROM Users WHERE Username = @NewUsername";
+                                using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn, transaction))
+                                {
+                                    checkCmd.Parameters.AddWithValue("@NewUsername", newUsername);
+                                    int exists = (int)checkCmd.ExecuteScalar();
+                                    if (exists > 0)
+                                    {
+                                        MessageBox.Show("Username already exists. Please choose another one.", "Conflict", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        transaction.Rollback();
+                                        return;
+                                    }
+                                }
+                            }
+
+                            // FK Order Fix: update referencing table first
+                            //if (!string.Equals(oldUsername, newUsername, StringComparison.OrdinalIgnoreCase))
+                            //{
+                            //    string updateSubstitutionsQuery = @"
+                            //UPDATE Substitutions
+                            //SET CreatedBy = @NewUsername
+                            //WHERE CreatedBy = @OldUsername";
+
+                            //    using (SqlCommand cmdSubs = new SqlCommand(updateSubstitutionsQuery, conn, transaction))
+                            //    {
+                            //        cmdSubs.Parameters.AddWithValue("@NewUsername", newUsername);
+                            //        cmdSubs.Parameters.AddWithValue("@OldUsername", oldUsername);
+                            //        cmdSubs.ExecuteNonQuery();
+                            //    }
+                            //}
+
+                            string updateUsersQuery = @"
+                        UPDATE Users
+                        SET Username = @NewUsername, Password = @Password, Role = @Role, Status = @Status
+                        WHERE Username = @OldUsername";
+
+                            using (SqlCommand cmdUsers = new SqlCommand(updateUsersQuery, conn, transaction))
+                            {
+                                cmdUsers.Parameters.AddWithValue("@NewUsername", newUsername);
+                                cmdUsers.Parameters.AddWithValue("@OldUsername", oldUsername);
+                                cmdUsers.Parameters.AddWithValue("@Password", editForm.Password.Trim());
+                                cmdUsers.Parameters.AddWithValue("@Role", editForm.Role.Trim());
+                                cmdUsers.Parameters.AddWithValue("@Status", editForm.Status.Trim());
+                                cmdUsers.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                            MessageBox.Show("User updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            MessageBox.Show("Error updating user: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                    }
+
+                    LoadUsers();
                 }
             }
         }
 
+
+
+
+
         private void Clearbtn_Click(object sender, EventArgs e)
         {
             txtUsername.Clear();
-            txtEmail.Clear();
+            txtPassword.Clear();
             cmbRole.SelectedIndex = -1;
             cmbStatus.SelectedIndex = -1;
         }
+
+
+
+
+
+
+
+
     }
 }

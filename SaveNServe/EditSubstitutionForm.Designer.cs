@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditSubstitutionForm));
             this.btnSave = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblError2 = new System.Windows.Forms.Label();
@@ -188,6 +189,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panelUn);
             this.Controls.Add(this.lblEditUser);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditSubstitutionForm";
             this.Text = "EditSubstitutionForm";
             this.panel3.ResumeLayout(false);

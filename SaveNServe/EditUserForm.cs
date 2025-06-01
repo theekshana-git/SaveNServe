@@ -1,15 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SaveNServe
 {
@@ -21,14 +11,14 @@ namespace SaveNServe
         }
 
         public string Username { get; set; }
-        public string Email { get; set; }
+        public string Password { get; set; }
         public string Role { get; set; }
         public string Status { get; set; }
 
         private void EditUserForm_Load(object sender, EventArgs e)
         {
             txtUsername.Text = Username;
-            txtEmail.Text = Email;
+            txtPassword.Text = Password;
             cmbRole.SelectedItem = Role;
             cmbStatus.SelectedItem = Status;
         }
@@ -36,14 +26,14 @@ namespace SaveNServe
         private void btnSave_Click(object sender, EventArgs e)
         {
             Username = txtUsername.Text.Trim();
-            Email = txtEmail.Text.Trim();
+            Password = txtPassword.Text.Trim();
             Role = cmbRole.SelectedItem?.ToString();
             Status = cmbStatus.SelectedItem?.ToString();
 
             // Optional: Add validation here
             // Hide all error labels initially
             lblUnError.Visible = false;
-            lblEmailError.Visible = false;
+            lblPasswordError.Visible = false;
             lblRoleError.Visible = false;
             lblStatusError.Visible = false;
 
@@ -60,11 +50,11 @@ namespace SaveNServe
                 hasError = true;
             }
 
-            if (string.IsNullOrEmpty(Email) || !IsValidEmail(Email))
+            if (string.IsNullOrEmpty(Password) || !IsValidPassword(Password))
             {
-                lblEmailError.Text = "Enter a valid email address";
-                lblEmailError.Visible = true;
-                if (!hasError) txtEmail.Focus();
+                lblPasswordError.Text = "Enter a valid password";
+                lblPasswordError.Visible = true;
+                if (!hasError) txtPassword.Focus();
                 hasError = true;
             }
 
@@ -91,18 +81,18 @@ namespace SaveNServe
         }
 
 
-        private bool IsValidEmail(string email)
+        private bool IsValidPassword(string password)
         {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
+            // Example: At least 8 characters, one uppercase, one number
+            if (string.IsNullOrWhiteSpace(password)) return false;
+
+            return password.Length >= 4;
+
         }
+
+
+
+
 
     }
 

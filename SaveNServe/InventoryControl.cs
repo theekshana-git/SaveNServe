@@ -12,6 +12,8 @@ using System.Configuration;
 using System.Security.Permissions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Drawing.Text;
+using static System.Windows.Forms.AxHost;
+using System.Net.NetworkInformation;
 
 namespace SaveNServe
 {
@@ -52,15 +54,6 @@ namespace SaveNServe
                 ErrorCheck = true;
             }
 
-            if (!System.Text.RegularExpressions.Regex.IsMatch(name, @"^[a-zA-Z]+$"))
-            {
-                lblNameError.Text = "Please enter letters only (a-z , A-Z)";
-                lblNameError.Visible = true;
-                Name_txtbox.Focus();
-                ErrorCheck = true;
-            }
-
-
             if ((string.IsNullOrEmpty(quantity) || !decimal.TryParse(quantity, out decimal costInput) || costInput < 0))
             {
                 lblQuantityError.Text = "Enter a Valid Number";
@@ -94,11 +87,9 @@ namespace SaveNServe
                 return;
             }
 
+            
 
-            dgvInventory.Rows.Add(name, quantity, unit, expirydate.ToShortDateString());
-
-            // If passed
-            MessageBox.Show("Inventory added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            InsertInventoryData(name, quantity, unit, expirydate);
 
             // Clears the Form
             Clearbtn_Click(sender, e);
@@ -133,6 +124,8 @@ namespace SaveNServe
                 searchBox.ForeColor = Color.DimGray;
             }
         }
+
+        
         private void InventoryControl_Load(object sender, EventArgs e)
         {
             searchBox.Text = "Search Ingredient";
@@ -141,33 +134,172 @@ namespace SaveNServe
             searchBox.GotFocus += RemovePlaceholder;
             searchBox.LostFocus += SetPlaceholder;
 
-            searchBox.TextChanged += searchbox_TextChanged;
+            this.searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchBoxInventory_KeyDown);
 
             //To set date as today 
             ExpiryDatePicker.Value = DateTime.Today;
+
+            ColName.DataPropertyName = "Name";
+            ColQuantity.DataPropertyName = "Quantity";
+            ColUnit.DataPropertyName = "Unit";
+            colExpireDate.DataPropertyName = "ExpiryDate";
+            colStatus.DataPropertyName = "Status";
+
+           
+            //Hides InventoryId Column
+            DataGridViewTextBoxColumn colInventoryID = new DataGridViewTextBoxColumn();
+            colInventoryID.Name = "InventoryID";
+            colInventoryID.DataPropertyName = "InventoryID";
+            colInventoryID.Visible = false;
+            dgvInventory.Columns.Add(colInventoryID);
+
+            dgvInventory.AutoGenerateColumns = false;
+
+
+            LoadInventoryData();
+
         }
 
-        
-
-        
-        private void searchbox_TextChanged(object sender, EventArgs e)
+        private void LoadInventoryData()
         {
-            string filterText = searchBox.Text.ToLower();
+            string query = @"
+            SELECT 
+                ing.Name,
+                i.Quantity, 
+                i.Unit, 
+                i.ExpiryDate,
+                i.IngredientID, 
+                i.InventoryID,
+                 CASE
+                    WHEN i.Quantity <= 0 THEN 'Out of Stock'
+                    WHEN i.ExpiryDate < GETDATE() THEN 'Expired'
+                    WHEN i.Quantity < 2 THEN 'Low'
+                    ELSE 'OK'
+                 END AS Status
+            FROM 
+                Inventory i
+            INNER JOIN
+                Ingredients ing on i.IngredientID = ing.IngredientID
+            ORDER BY
+                    i.InventoryID DESC";
 
-            foreach (DataGridViewRow row in dgvInventory.Rows)
+            DataTable dt = DatabaseHelper.ExecuteQuery(query);
+            dgvInventory.DataSource = dt;
+
+        }
+
+        private void searchBoxInventory_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                if (row.IsNewRow) continue;
+                e.Handled = true;
+                e.SuppressKeyPress = true;
 
-                string ingredient = row.Cells["ColName"].Value?.ToString().ToLower() ?? "";
+                string searchText = searchBox.Text.Trim();
 
-                row.Visible = ingredient.Contains(filterText);
+                if (string.IsNullOrEmpty(searchText) || searchText == "Search Ingredient")
+                {
+                    LoadInventoryData(); // Show all
+                    return;
+                }
+
+                try
+                {
+                    string query = @"
+                SELECT 
+                    i.Name AS Name,
+                    inv.Quantity AS Quantity,
+                    inv.Unit AS Unit,
+                    inv.ExpiryDate AS ExpiryDate,
+                    inv.InventoryID AS InventoryID,
+                    i.IngredientID AS IngredientID,
+                    CASE
+                        WHEN inv.Quantity <= 0 THEN 'Out of Stock'
+                        WHEN inv.ExpiryDate < GETDATE() THEN 'Expired'
+                        WHEN inv.Quantity < 2 THEN 'Low'
+                        ELSE 'OK'
+                    END AS Status
+                FROM 
+                    Inventory inv
+                JOIN 
+                    Ingredients i ON inv.IngredientID = i.IngredientID
+                WHERE 
+                    i.Name LIKE @SearchText";
+
+                    SqlParameter param = new SqlParameter("@SearchText", "%" + searchText + "%");
+                    DataTable result = DatabaseHelper.ExecuteQuery(query, param);
+
+                    dgvInventory.DataSource = result;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Search failed: " + ex.Message);
+                }
             }
         }
 
-        
-       
-        
-       
+        private void InsertInventoryData(string name, string quantity, string unit, DateTime expirydate)
+        {
+            string getIdQuery = "SELECT IngredientID FROM Ingredients WHERE Name = @Name";
+            SqlParameter[] getIdParams = { new SqlParameter("@Name", name) };
+            DataTable result = DatabaseHelper.ExecuteQuery(getIdQuery, getIdParams);
+
+            if (result.Rows.Count == 0)
+            {
+                MessageBox.Show("Ingredient not found in database!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int ingredientID = Convert.ToInt32(result.Rows[0]["IngredientID"]);
+
+            // Insert into inventory
+            string insertQuery = @"
+                        INSERT INTO Inventory (IngredientID, Quantity, Unit, ExpiryDate)
+                        VALUES (@IngredientID, @Quantity, @Unit, @ExpiryDate)";
+
+            SqlParameter[] insertParams = new SqlParameter[]
+            {
+                new SqlParameter("@IngredientID", ingredientID),
+                new SqlParameter("@Quantity", quantity),
+                new SqlParameter("@Unit", unit),
+                new SqlParameter("@ExpiryDate", expirydate),
+            };
+
+            int rowsAffected = DatabaseHelper.ExecuteNonQuery(insertQuery, insertParams);
+
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Inventory added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadInventoryData();
+            }
+        }
+
+
+        private void DeleteInventoryBYIngredientID(int InventoryID)
+        {
+            try
+            {
+                string deleteQuery = "DElETE from Inventory WHERE InventoryID =  @InventoryID";
+
+                SqlParameter[] parameters = {
+                new SqlParameter("@InventoryID", InventoryID)
+            };
+
+                int rowsAffected = DatabaseHelper.ExecuteNonQuery(deleteQuery, parameters);
+
+                if (rowsAffected > 0)
+                {
+                    LoadInventoryData();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting inventory: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+          
+        }
 
         private void dgvInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -180,7 +312,7 @@ namespace SaveNServe
             {
                 // Show confirmation dialog
                 DialogResult result = MessageBox.Show(
-                    "Are you sure you want to delete this user?",
+                    "Are you sure you want to delete this inventory item?",
                     "Confirm Deletion",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning
@@ -188,35 +320,47 @@ namespace SaveNServe
 
                 if (result == DialogResult.Yes)
                 {
-                    dgvInventory.Rows.RemoveAt(e.RowIndex); // Delete the row
+                    // Get InventoryID from the selected row
+                    int InventoryID = Convert.ToInt32(dgvInventory.Rows[e.RowIndex].Cells["InventoryID"].Value);
+
+                    // Call the deletion method
+                    DeleteInventoryBYIngredientID(InventoryID);
                 }
             }
 
             if (dgvInventory.Columns[e.ColumnIndex].Name == "ColEdit")
             {
                 DataGridViewRow row = dgvInventory.Rows[e.RowIndex];
+                string quantity = row.Cells["ColQuantity"]?.Value?.ToString() ?? "";
+                string unit = row.Cells["ColUnit"]?.Value?.ToString() ?? "";
+                string expiryText = row.Cells["colExpireDate"]?.Value?.ToString();
+                DateTime.TryParse(expiryText, out DateTime parsedDate);
 
-                EditInventoryForm editForm = new EditInventoryForm
+                EditInventoryForm editInventoryForm = new EditInventoryForm
                 {
-                    Name = row.Cells["ColName"].Value.ToString(),
-                    Quantity = row.Cells["ColQuantity"].Value.ToString(),
-                    Unit = row.Cells["ColUnit"].Value.ToString(),
-                    ExpiryDate = DateTime.TryParse(row.Cells["colExpireDate"].Value?.ToString(), out DateTime parsedDate)
-                     ? parsedDate
-                     : DateTime.Today,
-                    Status = row.Cells["colStatus"].Value.ToString()
+                    Quantity = quantity,
+                    Unit = unit,
+                    ExpiryDate = parsedDate == default ? DateTime.Today : parsedDate
                 };
 
-                if (editForm.ShowDialog() == DialogResult.OK)
+                if (editInventoryForm.ShowDialog() == DialogResult.OK)
                 {
-                    // Update the DataGridView with new values
-                    row.Cells["ColName"].Value = editForm.Name;
-                    row.Cells["ColQuantity"].Value = editForm.Quantity;
-                    row.Cells["ColUnit"].Value = editForm.Unit;
-                    row.Cells["colExpireDate"].Value = editForm.ExpiryDate.ToShortDateString();
-                    row.Cells["colStatus"].Value = editForm.Status;
+                    string query = @"
+                        UPDATE Inventory
+                        SET Quantity = @Quantity , Unit = @Unit , ExpiryDate = @ExpiryDate 
+                        Where InventoryID = @InventoryID";
+                    
+                    SqlParameter[] parameters = new SqlParameter[]
+                    {
+                        new SqlParameter("@Quantity",editInventoryForm.Quantity),
+                        new SqlParameter("@Unit",editInventoryForm.Unit),
+                        new SqlParameter("@ExpiryDate",editInventoryForm.ExpiryDate),
+                        new SqlParameter("@InventoryID", Convert.ToInt32(dgvInventory.Rows[e.RowIndex].Cells["InventoryID"].Value))
+                    };
 
-                    // Optional: change cell colors based on status again
+                    DatabaseHelper.ExecuteNonQuery(query, parameters);
+
+                    LoadInventoryData();
                 }
             }
         }

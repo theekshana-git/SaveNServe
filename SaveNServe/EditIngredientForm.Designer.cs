@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditIngredientForm));
             this.Addlbl = new System.Windows.Forms.Label();
             this.lblAvailbilityError = new System.Windows.Forms.Label();
             this.lblNameError = new System.Windows.Forms.Label();
@@ -37,6 +38,15 @@
             this.OutOfStock_chk = new System.Windows.Forms.CheckBox();
             this.Available_chk = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.lbl_NIfnoError = new System.Windows.Forms.Label();
+            this.lbl_NInfo = new System.Windows.Forms.Label();
+            this.lbl_TasteError = new System.Windows.Forms.Label();
+            this.lblTaste = new System.Windows.Forms.Label();
+            this.lblTextureError = new System.Windows.Forms.Label();
+            this.lblTexture = new System.Windows.Forms.Label();
+            this.cmbNutInfo = new System.Windows.Forms.ComboBox();
+            this.cmbTaste = new System.Windows.Forms.ComboBox();
+            this.cmbTexture = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // Addlbl
@@ -133,7 +143,7 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(25, 286);
+            this.btnSave.Location = new System.Drawing.Point(24, 562);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(280, 35);
@@ -142,11 +152,142 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // lbl_NIfnoError
+            // 
+            this.lbl_NIfnoError.AutoSize = true;
+            this.lbl_NIfnoError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lbl_NIfnoError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_NIfnoError.Location = new System.Drawing.Point(22, 334);
+            this.lbl_NIfnoError.Name = "lbl_NIfnoError";
+            this.lbl_NIfnoError.Size = new System.Drawing.Size(164, 15);
+            this.lbl_NIfnoError.TabIndex = 52;
+            this.lbl_NIfnoError.Text = "Invalid username or password";
+            this.lbl_NIfnoError.Visible = false;
+            // 
+            // lbl_NInfo
+            // 
+            this.lbl_NInfo.AutoSize = true;
+            this.lbl_NInfo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_NInfo.Location = new System.Drawing.Point(21, 273);
+            this.lbl_NInfo.Name = "lbl_NInfo";
+            this.lbl_NInfo.Size = new System.Drawing.Size(130, 21);
+            this.lbl_NInfo.TabIndex = 51;
+            this.lbl_NInfo.Text = "Nutritional Info";
+            // 
+            // lbl_TasteError
+            // 
+            this.lbl_TasteError.AutoSize = true;
+            this.lbl_TasteError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lbl_TasteError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_TasteError.Location = new System.Drawing.Point(22, 431);
+            this.lbl_TasteError.Name = "lbl_TasteError";
+            this.lbl_TasteError.Size = new System.Drawing.Size(164, 15);
+            this.lbl_TasteError.TabIndex = 56;
+            this.lbl_TasteError.Text = "Invalid username or password";
+            this.lbl_TasteError.Visible = false;
+            // 
+            // lblTaste
+            // 
+            this.lblTaste.AutoSize = true;
+            this.lblTaste.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTaste.Location = new System.Drawing.Point(21, 370);
+            this.lblTaste.Name = "lblTaste";
+            this.lblTaste.Size = new System.Drawing.Size(53, 21);
+            this.lblTaste.TabIndex = 55;
+            this.lblTaste.Text = "Taste:";
+            // 
+            // lblTextureError
+            // 
+            this.lblTextureError.AutoSize = true;
+            this.lblTextureError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblTextureError.ForeColor = System.Drawing.Color.Red;
+            this.lblTextureError.Location = new System.Drawing.Point(22, 527);
+            this.lblTextureError.Name = "lblTextureError";
+            this.lblTextureError.Size = new System.Drawing.Size(164, 15);
+            this.lblTextureError.TabIndex = 60;
+            this.lblTextureError.Text = "Invalid username or password";
+            this.lblTextureError.Visible = false;
+            // 
+            // lblTexture
+            // 
+            this.lblTexture.AutoSize = true;
+            this.lblTexture.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTexture.Location = new System.Drawing.Point(21, 466);
+            this.lblTexture.Name = "lblTexture";
+            this.lblTexture.Size = new System.Drawing.Size(71, 21);
+            this.lblTexture.TabIndex = 59;
+            this.lblTexture.Text = "Texture:";
+            // 
+            // cmbNutInfo
+            // 
+            this.cmbNutInfo.BackColor = System.Drawing.Color.White;
+            this.cmbNutInfo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNutInfo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbNutInfo.FormattingEnabled = true;
+            this.cmbNutInfo.Items.AddRange(new object[] {
+            "High Protein",
+            "Low Fat",
+            "Rich in Fiber",
+            "Low Carb",
+            "Low Calorie",
+            "High Calorie",
+            "High Carb",
+            "High Fat",
+            "Other"});
+            this.cmbNutInfo.Location = new System.Drawing.Point(24, 303);
+            this.cmbNutInfo.Name = "cmbNutInfo";
+            this.cmbNutInfo.Size = new System.Drawing.Size(280, 28);
+            this.cmbNutInfo.TabIndex = 61;
+            // 
+            // cmbTaste
+            // 
+            this.cmbTaste.BackColor = System.Drawing.Color.White;
+            this.cmbTaste.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTaste.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTaste.FormattingEnabled = true;
+            this.cmbTaste.Items.AddRange(new object[] {
+            "Sweet",
+            "Sour",
+            "Salty",
+            "Bitter",
+            "Savory"});
+            this.cmbTaste.Location = new System.Drawing.Point(24, 400);
+            this.cmbTaste.Name = "cmbTaste";
+            this.cmbTaste.Size = new System.Drawing.Size(280, 28);
+            this.cmbTaste.TabIndex = 62;
+            // 
+            // cmbTexture
+            // 
+            this.cmbTexture.BackColor = System.Drawing.Color.White;
+            this.cmbTexture.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTexture.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTexture.FormattingEnabled = true;
+            this.cmbTexture.Items.AddRange(new object[] {
+            "Crunchy ",
+            "Creamy",
+            "Chewy",
+            "Soft",
+            "Grainy",
+            "Other"});
+            this.cmbTexture.Location = new System.Drawing.Point(24, 490);
+            this.cmbTexture.Name = "cmbTexture";
+            this.cmbTexture.Size = new System.Drawing.Size(280, 28);
+            this.cmbTexture.TabIndex = 63;
+            // 
             // EditIngredientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 356);
+            this.ClientSize = new System.Drawing.Size(319, 619);
+            this.Controls.Add(this.cmbTexture);
+            this.Controls.Add(this.cmbTaste);
+            this.Controls.Add(this.cmbNutInfo);
+            this.Controls.Add(this.lblTextureError);
+            this.Controls.Add(this.lblTexture);
+            this.Controls.Add(this.lbl_TasteError);
+            this.Controls.Add(this.lblTaste);
+            this.Controls.Add(this.lbl_NIfnoError);
+            this.Controls.Add(this.lbl_NInfo);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblAvailbilityError);
             this.Controls.Add(this.lblNameError);
@@ -156,6 +297,7 @@
             this.Controls.Add(this.OutOfStock_chk);
             this.Controls.Add(this.Available_chk);
             this.Controls.Add(this.Addlbl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditIngredientForm";
             this.Text = "EditIngredientForm";
             this.Load += new System.EventHandler(this.EditIngredientForm_Load);
@@ -174,5 +316,14 @@
         private System.Windows.Forms.CheckBox OutOfStock_chk;
         private System.Windows.Forms.CheckBox Available_chk;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label lbl_NIfnoError;
+        private System.Windows.Forms.Label lbl_NInfo;
+        private System.Windows.Forms.Label lbl_TasteError;
+        private System.Windows.Forms.Label lblTaste;
+        private System.Windows.Forms.Label lblTextureError;
+        private System.Windows.Forms.Label lblTexture;
+        private System.Windows.Forms.ComboBox cmbNutInfo;
+        private System.Windows.Forms.ComboBox cmbTaste;
+        private System.Windows.Forms.ComboBox cmbTexture;
     }
 }
