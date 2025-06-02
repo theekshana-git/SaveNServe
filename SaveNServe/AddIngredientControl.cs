@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 
 namespace SaveNServe
@@ -21,7 +23,7 @@ namespace SaveNServe
             dgvIngredients.Columns["ColName"].Width = 250;        // Room for ingredient names
             dgvIngredients.Columns["ColAvailable"].Width = 170;   // To fit "Available"/"Out of Stock"
             dgvIngredients.Columns["ColEdit"].Width = 120;         // Compact for Edit link
-
+            
 
             searchBox.Enter += SearchBox_Enter;
             searchBox.Leave += SearchBox_Leave;
@@ -38,7 +40,7 @@ namespace SaveNServe
 
             //Get user inputs
             string name = Name_Textbox.Text.Trim();
-
+           
 
             // Checkbox
             string Available = "";
@@ -115,7 +117,7 @@ namespace SaveNServe
                 }
             }
 
-
+  
 
             MessageBox.Show("Ingredient added successfully!", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -131,11 +133,11 @@ namespace SaveNServe
             ColName.DataPropertyName = "Name";
             ColAvailable.DataPropertyName = "Availability";
 
-
+           
 
 
             LoadAddIngredientData();
-
+           
         }
 
         private void LoadAddIngredientData()
@@ -177,7 +179,7 @@ namespace SaveNServe
                 new SqlParameter("@Texture", texture)
             };
 
-            int rowsAffected = DatabaseHelper.ExecuteNonQuery(Insertquery, parameters);
+            int rowsAffected = DatabaseHelper.ExecuteNonQuery(Insertquery , parameters);
 
             if (rowsAffected > 0)
             {
@@ -219,14 +221,14 @@ namespace SaveNServe
 
         private void dgvIngredients_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // 1) Make sure we’re on the correct column
+            //  Make sure we’re on the correct column
             if (dgvIngredients.Columns[e.ColumnIndex].Name != "ColAvailable") return;
 
-            // 2) Protect against null values
+            //  Protect against null values
             var text = e.Value?.ToString().Trim();
             if (string.IsNullOrEmpty(text)) return;
 
-            // 3) Decide the colour
+            //  Decide the colour
             if (text.Equals("Available", StringComparison.OrdinalIgnoreCase))
             {
                 e.CellStyle.ForeColor = Color.Green;
@@ -238,7 +240,7 @@ namespace SaveNServe
 
             }
 
-            // 4) Tell the grid we handled it
+            //  Tell the grid we handled it
             e.FormattingApplied = true;
             Console.WriteLine($"Formatting row {e.RowIndex} col {e.ColumnIndex}: {e.Value}");
 
@@ -275,6 +277,7 @@ namespace SaveNServe
                 if (string.IsNullOrEmpty(SearchText) || SearchText == "Search Ingredient")
                 {
                     // Show all
+                    LoadAddIngredientData();
                     return;
                 }
 
@@ -345,6 +348,8 @@ namespace SaveNServe
 
                     DatabaseHelper.ExecuteNonQuery(query, parameters);
 
+                    MessageBox.Show("Ingredient updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     //Refresh grid
                     LoadAddIngredientData();
                 }
@@ -355,7 +360,7 @@ namespace SaveNServe
         private void Clearbtn_Click(object sender, EventArgs e)
         {
             Name_Textbox.Clear();
-
+            
 
             Available_chk.Checked = false;
             OutOfStock_chk.Checked = false;
@@ -365,6 +370,6 @@ namespace SaveNServe
             cmbTexture.SelectedIndex = -1;
         }
 
-
+        
     }
 }

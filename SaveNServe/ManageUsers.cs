@@ -76,11 +76,11 @@ namespace SaveNServe
                     string role = row["Role"].ToString();
                     string status = row["Status"].ToString();
 
-                    // No colActions now
+                    // No colActions 
                     dgvUsers.Rows.Add(username, password, role, status);
                 }
 
-                // Optional: Set column widths (except colActions which we removed)
+                
                 dgvUsers.Columns["colStatus"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                 dgvUsers.Columns["colStatus"].Width = 120;
             }
@@ -146,14 +146,14 @@ namespace SaveNServe
                     if (dgvUsers.DataSource == null)
                         dgvUsers.Rows.Clear();
 
-                    // Option A: If using DataTable as DataSource
+                    // 
                     if (dgvUsers.DataSource is DataTable usersTable)
                     {
                         usersTable.Clear(); // Clear current rows
                         foreach (DataRow row in dt.Rows)
                             usersTable.ImportRow(row);
                     }
-                    // Option B: If manually adding to dgvUsers
+                    // 
                     else
                     {
                         foreach (DataRow row in dt.Rows)
@@ -290,7 +290,7 @@ namespace SaveNServe
 
         private bool IsValidPassword(string password)
         {
-            // Example: At least 8 characters
+            
             if (string.IsNullOrWhiteSpace(password)) return false;
 
             return password.Length >= 4;
@@ -384,21 +384,7 @@ namespace SaveNServe
                                 }
                             }
 
-                            // FK Order Fix: update referencing table first
-                            //if (!string.Equals(oldUsername, newUsername, StringComparison.OrdinalIgnoreCase))
-                            //{
-                            //    string updateSubstitutionsQuery = @"
-                            //UPDATE Substitutions
-                            //SET CreatedBy = @NewUsername
-                            //WHERE CreatedBy = @OldUsername";
-
-                            //    using (SqlCommand cmdSubs = new SqlCommand(updateSubstitutionsQuery, conn, transaction))
-                            //    {
-                            //        cmdSubs.Parameters.AddWithValue("@NewUsername", newUsername);
-                            //        cmdSubs.Parameters.AddWithValue("@OldUsername", oldUsername);
-                            //        cmdSubs.ExecuteNonQuery();
-                            //    }
-                            //}
+                            
 
                             string updateUsersQuery = @"
                         UPDATE Users
